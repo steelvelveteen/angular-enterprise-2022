@@ -57,3 +57,19 @@ body {
 - Create header, footer and sidebar components under core
 - Add auth, Core, Shared, Services and Feature modules imports to the app.module.ts file
 - Test: `ng build` and `ng serve`
+
+## Step 3
+
+- Add user and admin modules under feature with routing
+
+```
+	ng g m feature/user --routing
+	ng g m feature/admin --routing
+```
+
+- Add user-dashboard component under user module and admin-dashboard component under admin module
+
+```
+	ng g c feature/user/user-dashboard
+	ng g c feature/admin/admin-dashboard
+```
