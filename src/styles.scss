@@ -10,8 +10,19 @@
 
 html,
 body {
+  height: 100%;
   padding: 0;
   margin: 0;
   font-family: "Inter", -apple-system, SegoeUI, Roboto, Oxygen, Ubuntu,
     Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+
+/* Boiler plate added upon installing @angular/material */
+// html,
+// body {
+//   height: 100%;
+// }
+// body {
+//   margin: 0;
+//   font-family: Roboto, "Helvetica Neue", sans-serif;
+// }
