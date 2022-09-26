@@ -1,7 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import url("https://rsms.me/inter/inter.css");
+
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", -apple-system, SegoeUI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
