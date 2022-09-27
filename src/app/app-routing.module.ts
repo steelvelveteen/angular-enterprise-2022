@@ -8,6 +8,10 @@ const routes: Routes = [
     component: WelcomeComponent,
   },
   {
+    path: 'login',
+    // component: Login,
+  },
+  {
     path: 'admin',
     loadChildren: () =>
       import('./feature/admin/admin.module').then((m) => m.AdminModule),
