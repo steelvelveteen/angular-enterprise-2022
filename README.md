@@ -73,3 +73,19 @@ body {
 	ng g c feature/user/user-dashboard
 	ng g c feature/admin/admin-dashboard
 ```
+
+- Under each of these dashboards add home and profile components. Adjust routing on app.module to load these user and admin modules lazyily with loadChildren.
+- Adjust each corresponding routing (user-routing.module.ts and admin-routing.module.ts).
+
+## Step 4
+
+- Create an auth service that will determine whether a user is logged in or not.
+- Create an auth guard
+
+```
+	ng g guard auth/auth
+```
+
+This guard will determine if user is logged in by calling the auth.service.ts
+
+- On app-routing.module apply the `canActivate: [AuthGuard] for user and admin. Should redirect to login page if not logged in
