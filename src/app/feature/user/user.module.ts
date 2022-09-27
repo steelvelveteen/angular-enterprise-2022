@@ -5,17 +5,14 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UserHomeComponent } from './user-dashboard/user-home/user-home.component';
 import { UserProfileComponent } from './user-dashboard/user-profile/user-profile.component';
-
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   declarations: [
     UserDashboardComponent,
     UserHomeComponent,
-    UserProfileComponent
+    UserProfileComponent,
   ],
-  imports: [
-    CommonModule,
-    UserRoutingModule
-  ]
+  imports: [CommonModule, UserRoutingModule, CoreModule],
 })
-export class UserModule { }
+export class UserModule {}

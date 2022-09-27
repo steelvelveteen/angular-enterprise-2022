@@ -6,6 +6,11 @@ import { WelcomeComponent } from './core/welcome/welcome.component';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'welcome',
+    pathMatch: 'full',
+  },
+  {
+    path: 'welcome',
     component: WelcomeComponent,
   },
   {
