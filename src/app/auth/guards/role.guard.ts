@@ -4,23 +4,25 @@ import {
   CanActivate,
   Router,
   RouterStateSnapshot,
+  UrlTree,
 } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
+export class RoleGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    console.log('CanActivate guard called');
-    let isLoggedIn = this.authService.isAuthenticated();
+    console.log('Role guard called');
+    let isAdmin = this.authService.isLoggedInAsAdmin();
 
-    if (isLoggedIn) {
+    if (isAdmin) {
       return true;
     } else {
       this.router.navigate(['login']);
