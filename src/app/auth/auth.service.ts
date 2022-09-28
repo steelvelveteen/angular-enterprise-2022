@@ -1,20 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Roles } from '../shared/enums/roles';
 
-enum Role {
-  DEFAULT = 0,
-  ADMIN = 1,
-  USER = 2,
-}
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   isLoggedIn = true;
-  role = Role.ADMIN;
+  role = Roles.USER;
 
   isAuthenticated = (): boolean => this.isLoggedIn;
 
-  isLoggedInAsAdmin = (): boolean => (this.role === Role.ADMIN ? true : false);
+  isLoggedInAsAdmin = (): boolean => (this.role === Roles.ADMIN ? true : false);
 
   constructor() {}
 }
