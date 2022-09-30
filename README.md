@@ -157,3 +157,8 @@ Update the *extends* section in .eslintrc.json file:
       ],
 ```
 In VSCode open settings and set Prettier: Config Path to '.prettier.json'
+
+- Ordering imports:
+```bash
+	npm install --save-dev prettier-plugin-organize-imports
+```

@@ -1,12 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  Router,
-  RouterStateSnapshot,
-  UrlTree,
-} from '@angular/router';
-import { Observable } from 'rxjs';
+import { CanActivate, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Injectable({
@@ -15,18 +8,16 @@ import { AuthService } from '../auth.service';
 export class RoleGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): boolean {
+  canActivate(): boolean {
+    // eslint-disable-next-line no-console
     console.log('Role guard called');
-    let isAdmin = this.authService.isLoggedInAsAdmin();
+    const isAdmin = this.authService.isLoggedInAsAdmin();
 
     if (isAdmin) {
       return true;
-    } else {
-      this.router.navigate(['login']);
     }
+    this.router.navigate(['login']);
+
     return false;
   }
 }

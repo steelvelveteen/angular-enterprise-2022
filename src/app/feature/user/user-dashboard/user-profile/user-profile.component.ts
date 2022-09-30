@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
+    // eslint-disable-next-line no-console
     console.log('User Profile component');
   }
 }
