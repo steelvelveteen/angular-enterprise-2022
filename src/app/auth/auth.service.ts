@@ -10,7 +10,5 @@ export class AuthService {
 
   isAuthenticated = (): boolean => this.isLoggedIn;
 
-  isLoggedInAsAdmin = (): boolean => (this.role === Roles.ADMIN ? true : false);
-
-  constructor() {}
+  isLoggedInAsAdmin = (): boolean => this.role === Roles.ADMIN;
 }

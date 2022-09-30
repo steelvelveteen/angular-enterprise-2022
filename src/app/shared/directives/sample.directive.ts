@@ -1,10 +1,6 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[appSample]'
+  selector: '[appSample]',
 })
-export class SampleDirective {
-
-  constructor() { }
-
-}
+export class SampleDirective {}

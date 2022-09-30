@@ -1,2 +1,1 @@
-export enum Sample {
-}
+export enum Sample {}

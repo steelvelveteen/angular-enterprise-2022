@@ -22,14 +22,12 @@ const routes: Routes = [
   {
     path: 'admin',
     canActivate: [AuthGuard, RoleGuard],
-    loadChildren: () =>
-      import('./feature/admin/admin.module').then((m) => m.AdminModule),
+    loadChildren: () => import('./feature/admin/admin.module').then(m => m.AdminModule),
   },
   {
     path: 'user',
     canActivate: [AuthGuard],
-    loadChildren: () =>
-      import('./feature/user/user.module').then((m) => m.UserModule),
+    loadChildren: () => import('./feature/user/user.module').then(m => m.UserModule),
   },
 ];
 

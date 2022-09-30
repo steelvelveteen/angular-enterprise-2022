@@ -1,2 +1,1 @@
-export class Sample {
-}
+export class Sample {}
