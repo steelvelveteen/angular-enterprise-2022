@@ -89,3 +89,14 @@ body {
 This guard will determine if user is logged in by calling the auth.service.ts
 
 - On app-routing.module apply the `canActivate: [AuthGuard] for user and admin. Should redirect to login page if not logged in
+
+## Eslint, prettier and Airbnb code styleguide
+- Add angular eslint schematics
+```
+	ng add @angular-eslint/schematics
+```
+This will add the *lint* step to the angular.json project file, it will add a *.eslintrc.json* file and update the *package.json* file. Verify that this is done.
+Run to test:
+```
+	ng lint
+```
