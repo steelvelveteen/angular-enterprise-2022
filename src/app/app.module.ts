@@ -8,9 +8,10 @@ import { CoreModule } from './core/core.module';
 import { FeatureModule } from './feature/feature.module';
 import { ServicesModule } from './services/services.module';
 import { SharedModule } from './shared/shared.module';
+import { UsersFakeComponent } from './users-fake/users-fake.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, UsersFakeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

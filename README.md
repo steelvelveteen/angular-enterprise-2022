@@ -162,3 +162,18 @@ In VSCode open settings and set Prettier: Config Path to '.prettier.json'
 ```bash
 	npm install --save-dev prettier-plugin-organize-imports
 ```
+
+### Angular HTTP Interceptors
+For this section I'll need to make an API request to somewhere to get something back. So, I'll need a dumb component - **users-fake** - and implement an http request to call 
+
+> `https://jsonplaceholder.typicode.com/users`
+
+Create the component under the main module app.module.ts:
+```bash
+	ng g c users-fake --skipTests -is
+```
+
+We'll add a users service in this directory from where we'll make the api call:
+```bash
+	ng g s users-fake/users --skipTests
+```
