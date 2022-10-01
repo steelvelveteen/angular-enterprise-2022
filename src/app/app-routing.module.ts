@@ -4,6 +4,7 @@ import { AuthGuard } from './auth/guards/auth.guard';
 import { RoleGuard } from './auth/guards/role.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { WelcomeComponent } from './core/welcome/welcome.component';
+import { UserfakesingleComponent } from './userfakesingle/userfakesingle.component';
 import { UsersFakeComponent } from './users-fake/users-fake.component';
 
 const routes: Routes = [
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'usersfake',
     component: UsersFakeComponent,
+  },
+  {
+    path: 'usersfake/:id',
+    component: UserfakesingleComponent,
   },
 ];
 

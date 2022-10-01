@@ -216,3 +216,7 @@ Now to the actual interceptor. The intercept method has an incomming request par
     return next.handle(req);
   }
 ```
+
+### Routing with params
+Create a new component UserFakeSingleComponent and add its own service to avoid other changes in the usersService that we already created before.
+Add a new route path below the users-fake route to accept a user id.

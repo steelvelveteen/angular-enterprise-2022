@@ -11,9 +11,10 @@ import { HeadersInterceptor } from './headers.interceptor';
 import { ServicesModule } from './services/services.module';
 import { SharedModule } from './shared/shared.module';
 import { UsersFakeComponent } from './users-fake/users-fake.component';
+import { UserfakesingleComponent } from './userfakesingle/userfakesingle.component';
 
 @NgModule({
-  declarations: [AppComponent, UsersFakeComponent],
+  declarations: [AppComponent, UsersFakeComponent, UserfakesingleComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
