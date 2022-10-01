@@ -164,6 +164,7 @@ In VSCode open settings and set Prettier: Config Path to '.prettier.json'
 ```
 
 ### Angular HTTP Interceptors
+## Setup http client and request
 For this section I'll need to make an API request to somewhere to get something back. So, I'll need a dumb component - **users-fake** - and implement an http request to call 
 
 > `https://jsonplaceholder.typicode.com/users`
@@ -182,4 +183,36 @@ Add the HttpClientModule into the app.module.ts imports array.  ** NOTE ** I had
 
 In UsersService write the method getAllUsers using the http client to fetch users and call this service method from the users-fake component.
 
-Add a route to this component in app-routing.module.ts. 
+Add a route to this component in app-routing.module.ts.
+
+## The Interceptor setup
+Generate the interceptor and name it headers
+```bash
+	ng g interceptor headers
+```
+
+Add the interceptor into the app.module.ts file under providers:
+```
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeadersInterceptor,
+      multi: true,
+    },
+  ],
+```
+Now to the actual interceptor. The intercept method has an incomming request parameter that you'll need to clone to be able to modify its headers
+```javascript
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    const req = request.clone({
+      setHeaders: {
+        API_KEY: '123apikey',
+      },
+    });
+    // eslint-disable-next-line no-console
+    console.log(req);
+
+    // return next.handle(request);
+    return next.handle(req);
+  }
+```
