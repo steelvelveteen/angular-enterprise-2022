@@ -177,3 +177,9 @@ We'll add a users service in this directory from where we'll make the api call:
 ```bash
 	ng g s users-fake/users --skipTests
 ```
+
+Add the HttpClientModule into the app.module.ts imports array.  ** NOTE ** I had to manually import the module.
+
+In UsersService write the method getAllUsers using the http client to fetch users and call this service method from the users-fake component.
+
+Add a route to this component in app-routing.module.ts. 

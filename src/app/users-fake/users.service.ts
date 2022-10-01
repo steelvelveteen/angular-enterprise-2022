@@ -1,9 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersService {
+  constructor(private httpClient: HttpClient) {}
 
-  constructor() { }
+  getAllUsers = () => this.httpClient.get('https://jsonplaceholder.typicode.com/users');
 }
