@@ -1,27 +1,222 @@
-# AngularEnterprise2022
+# Set up of a large Angular Enterprise project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+## Step one
 
-## Development server
+- Remove all boilerplate from app.component.html file
+- Add universal resetting in style.scss file
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```css
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+```
 
-## Code scaffolding
+- Import Inter font for global usage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```css
+@import url("https://rsms.me/inter/inter.css");
 
-## Build
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", -apple-system, SegoeUI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Add Angular material to the project; say Yes to all the prompts that come up
 
-## Running unit tests
+```bash
+	ng add @angular/material
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Installing @angular/material will add more boilerplate to the style.scss file. Comment it out
+- Test the application and verify that Inter font is used
 
-## Running end-to-end tests
+## Step two
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Add core, shared, auth, services and feature modules. No routing required for these
 
-## Further help
+```bash
+	ng g m core
+	ng g m shared
+	ng g m feature
+	...
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Under the shared module, add these directories: directives, pipes, ui, constants and enums, and create a sample file for each. running the `ng g d` will create the directory
+
+```
+	ex: mkdir ./src/app/shared/ui -- for reusable components
+	ng g d shared/directives/sample
+```
+
+- Create header, footer and sidebar components under core
+- Add auth, Core, Shared, Services and Feature modules imports to the app.module.ts file
+- Test: `ng build` and `ng serve`
+
+## Step 3
+
+- Add user and admin modules under feature with routing
+
+```
+	ng g m feature/user --routing
+	ng g m feature/admin --routing
+```
+
+- Add user-dashboard component under user module and admin-dashboard component under admin module
+
+```
+	ng g c feature/user/user-dashboard
+	ng g c feature/admin/admin-dashboard
+```
+
+- Under each of these dashboards add home and profile components. Adjust routing on app.module to load these user and admin modules lazyily with loadChildren.
+- Adjust each corresponding routing (user-routing.module.ts and admin-routing.module.ts).
+
+## Step 4
+
+- Create an auth service that will determine whether a user is logged in or not.
+- Create an auth guard
+
+```
+	ng g guard auth/auth
+```
+
+This guard will determine if user is logged in by calling the auth.service.ts
+
+- On app-routing.module apply the `canActivate: [AuthGuard] for user and admin. Should redirect to login page if not logged in
+
+## Eslint, prettier and Airbnb code styleguide
+- Add angular eslint schematics
+```
+	ng add @angular-eslint/schematics
+```
+This will add the *lint* step to the angular.json project file, it will add a *.eslintrc.json* file and update the *package.json* file. Verify that this is done.
+Run to test:
+```
+	ng lint
+```
+
+Next, run
+```
+	npm info "eslint-config-airbnb-base@latest" peerDependencies
+```
+which will tell you what dependencies you'll need to install: *eslint-plugin-import*
+
+Go ahead and install them by running:
+```
+	npm install eslint-config-airbnb-base eslint-plugin-import
+```
+Modify .eslintrc.json *extends* property and add the following:
+```
+	airbnb-base
+```
+It should look like this:
+```json
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "airbnb-base"
+      ],
+```
+Now this is only for javascript. To make it used on Typescript we need to install another package:
+```
+	npm install -D eslint-config-airbnb-typescript
+```
+and then in the eslintrc.json *extends* add
+```json
+	"airbnb-typescript/base"
+```
+
+Test running ```ng lint```
+
+You can turn off some of the rules in the .eslintrc.json file under rules:
+Let's turn off 'Missing trailing comma' by adding:
+```json
+	"@typescript-eslint/comma-dangle": "off"
+```
+
+## Adding Prettier to the project
+Install pacakges:
+```bash
+	npm i prettier eslint-config-prettier eslint-plugin-prettier --save-dev
+```
+Update the *extends* section in .eslintrc.json file:
+```json
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "airbnb-base",
+        "airbnb-typescript/base",
+        "prettier",
+        "plugin:prettier/recommended",
+      ],
+```
+In VSCode open settings and set Prettier: Config Path to '.prettier.json'
+
+- Ordering imports:
+```bash
+	npm install --save-dev prettier-plugin-organize-imports
+```
+
+### Angular HTTP Interceptors
+## Setup http client and request
+For this section I'll need to make an API request to somewhere to get something back. So, I'll need a dumb component - **users-fake** - and implement an http request to call 
+
+> `https://jsonplaceholder.typicode.com/users`
+
+Create the component under the main module app.module.ts:
+```bash
+	ng g c users-fake --skipTests -is
+```
+
+We'll add a users service in this directory from where we'll make the api call:
+```bash
+	ng g s users-fake/users --skipTests
+```
+
+Add the HttpClientModule into the app.module.ts imports array.  ** NOTE ** I had to manually import the module.
+
+In UsersService write the method getAllUsers using the http client to fetch users and call this service method from the users-fake component.
+
+Add a route to this component in app-routing.module.ts.
+
+## The Interceptor setup
+Generate the interceptor and name it headers
+```bash
+	ng g interceptor headers
+```
+
+Add the interceptor into the app.module.ts file under providers:
+```
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeadersInterceptor,
+      multi: true,
+    },
+  ],
+```
+Now to the actual interceptor. The intercept method has an incomming request parameter that you'll need to clone to be able to modify its headers
+```javascript
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    const req = request.clone({
+      setHeaders: {
+        API_KEY: '123apikey',
+      },
+    });
+    // eslint-disable-next-line no-console
+    console.log(req);
+
+    // return next.handle(request);
+    return next.handle(req);
+  }
+```
+
+### Routing with params
+Create a new component UserFakeSingleComponent and add its own service to avoid other changes in the usersService that we already created before.
+Add a new route path below the users-fake route to accept a user id.
