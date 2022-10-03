@@ -2,7 +2,9 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
     "analytics": "39a2d700-5b9d-4e30-8b62-60381c9e4008",
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -121,6 +123,5 @@
         }
       }
     }
-  },
-  "defaultProject": "angular-enterprise-2022"
+  }
 }
