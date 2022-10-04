@@ -20,6 +20,6 @@ import { LoadSpinnerComponent } from './ui/load-spinner/load-spinner.component';
     SidenavComponent,
   ],
   imports: [CommonModule, MaterialModule],
-  exports: [LoadSpinnerComponent],
+  exports: [LoadSpinnerComponent, SidenavComponent],
 })
 export class SharedModule {}
