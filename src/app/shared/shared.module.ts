@@ -6,6 +6,7 @@ import { SampleUiComponent } from './components/ui/sample-ui/sample-ui.component
 import { SampleDirectiveDirective } from './directives/sample-directive.directive';
 import { MaterialModule } from './material.module';
 import { SamplePipePipe } from './pipes/sample-pipe.pipe';
+import { LoadSpinnerComponent } from './ui/load-spinner/load-spinner.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,9 @@ import { SamplePipePipe } from './pipes/sample-pipe.pipe';
     ButtonComponent,
     SampleDirectiveDirective,
     SamplePipePipe,
+    LoadSpinnerComponent,
   ],
   imports: [CommonModule, MaterialModule],
+  exports: [LoadSpinnerComponent],
 })
 export class SharedModule {}
