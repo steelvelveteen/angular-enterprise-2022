@@ -1,5 +1,32 @@
-.profile-section {
-  .profile-pic {
-    border-radius: 100%;
+.sidenav {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 0;
+  height: 100vh;
+  width: 15rem;
+  padding: 1rem;
+  background-color: pink;
+  .sidenav-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    button {
+      margin-left: auto;
+    }
+    .profile-pic {
+      border-radius: 100%;
+    }
+  }
+}
+.sidenav-nav {
+  display: flex;
+  flex-direction: column;
+  .sidenav-nav-item {
+    list-style-type: none;
+    .sidenav-nav-link {
+      text-decoration: none;
+    }
   }
 }

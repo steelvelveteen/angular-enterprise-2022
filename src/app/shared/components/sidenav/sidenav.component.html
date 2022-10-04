@@ -1,5 +1,22 @@
-<p>sidenav works!</p>
-<h2>{{ time }}</h2>
-<div class="profile-section">
-  <img class="profile-pic" src="assets/images/profile-pic-150.jpg" alt="Profile picture" />
+<div class="sidenav">
+  <div class="sidenav-profile">
+    <button class="btn-toggle">Burger toggle</button>
+    <h2>{{ time | async | date: 'HH:mm:ss' }}</h2>
+    <img class="profile-pic" src="assets/images/profile-pic-120.jpg" alt="Profile picture" />
+    <h3>{{ username }}</h3>
+  </div>
+  <ul class="sidenav-nav">
+    <li class="sidenav-nav-item">
+      <a class="sidenav-nav-link" href="">Dashboard</a>
+    </li>
+    <li class="sidenav-nav-item">
+      <a class="sidenav-nav-link" href="">Profile</a>
+    </li>
+    <li class="sidenav-nav-item">
+      <a class="sidenav-nav-link" href="">Stats</a>
+    </li>
+    <li class="sidenav-nav-item">
+      <a class="sidenav-nav-link" href="">Settings</a>
+    </li>
+  </ul>
 </div>
