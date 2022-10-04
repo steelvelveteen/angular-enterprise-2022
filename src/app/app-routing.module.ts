@@ -19,9 +19,18 @@ const routes: Routes = [
     loadChildren: () => import('./feature/user/user.module').then(m => m.UserModule),
   },
   {
-    path: '**',
+    path: '404',
     loadChildren: () =>
       import('./shared/components/error404/error404.module').then(m => m.Error404Module),
+  },
+  {
+    path: '500',
+    loadChildren: () =>
+      import('./shared/components/error500/error500.module').then(m => m.Error500Module),
+  },
+  {
+    path: '**',
+    redirectTo: '404',
   },
 ];
 
