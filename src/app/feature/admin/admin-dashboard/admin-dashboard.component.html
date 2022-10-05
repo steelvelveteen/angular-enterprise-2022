@@ -1,6 +1,8 @@
-<!-- <p>admin-dashboard works!</p> -->
-<!-- Header or navigation bar -->
 <app-header></app-header>
 <app-sidenav></app-sidenav>
-<router-outlet></router-outlet>
-<!-- Footer -->
+<div
+  [ngClass]="trimBody ? 'body-trimmed' : ''"
+  class="body relative left-72 transition-all ease-in-out bg-orange-300"
+>
+  <router-outlet></router-outlet>
+</div>
