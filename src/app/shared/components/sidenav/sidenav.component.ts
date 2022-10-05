@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
+import { SidenavService } from '../../services/sidenav.service';
 import { NavData } from './nav-data';
 
 @Component({
@@ -7,15 +8,20 @@ import { NavData } from './nav-data';
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
 })
-export class SidenavComponent {
+export class SidenavComponent implements OnInit {
+  constructor(private sidenavService: SidenavService) {}
+
   username = 'Joey Vico';
   navData = NavData;
   collapsed = false;
 
   time = new Observable<string>((observer: Observer<string>) => {
     setInterval(() => observer.next(new Date().toString()), 1000);
-    setTimeout(() => {
-      this.collapsed = !this.collapsed;
-    }, 5000);
   });
+
+  ngOnInit() {
+    this.sidenavService.toggleSidenav$.subscribe(() => {
+      this.collapsed = !this.collapsed;
+    });
+  }
 }

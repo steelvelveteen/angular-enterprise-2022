@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Subject } from 'rxjs';
+import { SidenavService } from '../../services/sidenav.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
+  constructor(private sidenavService: SidenavService) {}
 
-  constructor() { }
+  toggleEvent$ = new Subject<boolean>();
 
-  ngOnInit(): void {
-  }
-
+  toggleSidenav = () => {
+    this.sidenavService.toggleSidenav();
+  };
 }
