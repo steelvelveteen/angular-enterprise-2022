@@ -1,24 +1,22 @@
-<div class="sidenav fixed flex flex-col items-center top-0 h-screen w-[260px] text-white">
+<div class="sidenav fixed flex flex-col items-center top-0 h-screen w-72 text-white">
   <div
     class="profile-container flex justify-around items-center py-8 border-b-[1px] w-full border-b-slate-300"
   >
-    <img class="rounded-full" src="assets/images/profile-pic-50.jpg" alt="Profile picture" />
+    <img
+      class="rounded-full border-2 border-pink-400"
+      src="assets/images/profile-pic-50.jpg"
+      alt="Profile picture"
+    />
     <h3>{{ username }}</h3>
+    <mat-icon class="cursor-pointer" fontIcon="home">arrow_drop_down</mat-icon>
   </div>
-  <div class="separator border-b-white"></div>
   <h2>{{ time | async | date: 'HH:mm:ss' }}</h2>
-  <ul class="sidenav-nav">
-    <li class="sidenav-nav-item">
-      <a class="sidenav-nav-link text-white uppercase" href="">dashboard</a>
-    </li>
-    <li class="sidenav-nav-item">
-      <a class="sidenav-nav-link text-white uppercase no-underline" href="">Profile</a>
-    </li>
-    <li class="sidenav-nav-item">
-      <a class="sidenav-nav-link text-white uppercase no-underline" href="">Stats</a>
-    </li>
-    <li class="sidenav-nav-item">
-      <a class="sidenav-nav-link text-white uppercase no-underline" href="">Settings</a>
-    </li>
+  <ul *ngFor="let nav of navData" class="sidenav-nav">
+    <!-- <li class="side-nav-item">
+      <a class="sidenav-nav-link text-white uppercase no-underline" [routerLink]="nav.routerLink">{{
+        nav.label
+      }}</a>
+    </li> -->
+    <app-btn-nav-link [itemData]="nav"></app-btn-nav-link>
   </ul>
 </div>

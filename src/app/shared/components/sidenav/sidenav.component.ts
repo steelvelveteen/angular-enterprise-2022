@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
+import { NavData } from './nav-data';
 
 @Component({
   selector: 'app-sidenav',
@@ -11,4 +12,5 @@ export class SidenavComponent {
   time = new Observable<string>((observer: Observer<string>) => {
     setInterval(() => observer.next(new Date().toString()), 1000);
   });
+  navData = NavData;
 }

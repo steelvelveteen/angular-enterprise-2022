@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoadSpinnerComponent } from './load-spinner.component';
+import { BtnNavLinkComponent } from './btn-nav-link.component';
 
-describe('LoadSpinnerComponent', () => {
-  let component: LoadSpinnerComponent;
-  let fixture: ComponentFixture<LoadSpinnerComponent>;
+describe('BtnNavLinkComponent', () => {
+  let component: BtnNavLinkComponent;
+  let fixture: ComponentFixture<BtnNavLinkComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoadSpinnerComponent ]
+      declarations: [ BtnNavLinkComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LoadSpinnerComponent);
+    fixture = TestBed.createComponent(BtnNavLinkComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
