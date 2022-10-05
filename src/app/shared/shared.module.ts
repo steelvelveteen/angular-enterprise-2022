@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { HeaderComponent } from './components/header/header.component';
 import { SampleComponent } from './components/sample/sample.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ButtonComponent } from './components/ui/button/button.component';
@@ -18,8 +19,9 @@ import { LoadSpinnerComponent } from './ui/load-spinner/load-spinner.component';
     SamplePipePipe,
     LoadSpinnerComponent,
     SidenavComponent,
+    HeaderComponent,
   ],
   imports: [CommonModule, MaterialModule],
-  exports: [LoadSpinnerComponent, SidenavComponent],
+  exports: [LoadSpinnerComponent, SidenavComponent, HeaderComponent],
 })
 export class SharedModule {}
