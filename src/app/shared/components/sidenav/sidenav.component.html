@@ -1,6 +1,6 @@
 <div class="sidenav fixed flex flex-col top-0 h-screen w-72 text-white">
   <div
-    class="profile-container flex justify-around items-center py-8 border-b-[1px] w-full border-b-slate-300"
+    class="profile-container flex justify-around items-center py-8 border-b-[1px] w-full border-b-slate-300 cursor-pointer"
   >
     <img
       class="rounded-full border-2 border-pink-400"
@@ -8,7 +8,7 @@
       alt="Profile picture"
     />
     <h3>{{ username }}</h3>
-    <mat-icon class="cursor-pointer" fontIcon="home">arrow_drop_down</mat-icon>
+    <mat-icon fontIcon="home">arrow_drop_down</mat-icon>
   </div>
   <ul class="sidenav-nav my-2 px-4 flex flex-col">
     <app-btn-nav-link *ngFor="let nav of navData" [itemData]="nav"></app-btn-nav-link>

@@ -18,16 +18,16 @@ export const NavData: NavBtnLink[] = [
   {
     label: 'Statistics',
     routerLink: 'stats',
-    icon: 'home',
+    icon: 'query_stats',
   },
   {
     label: 'User Management',
     routerLink: 'usermanagement',
-    icon: '',
+    icon: 'manage_accounts',
   },
   {
     label: 'Settings',
     routerLink: 'settings',
-    icon: '',
+    icon: 'settings_suggest',
   },
 ];
