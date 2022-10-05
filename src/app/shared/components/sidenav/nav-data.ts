@@ -29,7 +29,7 @@ export const NavData: NavBtnLink[] = [
     icon: 'query_stats',
   },
   {
-    label: 'User Management',
+    label: 'Management',
     routerLink: 'usermanagement',
     icon: 'manage_accounts',
   },

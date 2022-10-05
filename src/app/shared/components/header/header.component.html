@@ -2,13 +2,9 @@
   [ngClass]="trimHeader ? 'headerTrimmed' : ''"
   class="header relative top-0 left-72 h-16 bg-green-500 p-4 flex transition-all ease-in-out"
 >
-  <button (click)="toggleSidenav()" mat-mini-fab>
-    <mat-icon>menu</mat-icon>
+  <button class="text-white" (click)="toggleSidenav()">
+    <mat-icon *ngIf="!trimHeader">menu</mat-icon>
+    <mat-icon *ngIf="trimHeader">menu_open</mat-icon>
   </button>
-  <ng-template #openIcon>
-    <button (click)="toggleSidenav()" mat-mini-fab>
-      <mat-icon>menu_open</mat-icon>
-    </button>
-  </ng-template>
   <div class="text-white text-xl">Dashboard</div>
 </div>

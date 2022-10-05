@@ -9,15 +9,14 @@ import { NavData } from './nav-data';
   styleUrls: ['./sidenav.component.scss'],
 })
 export class SidenavComponent implements OnInit {
-  constructor(private sidenavService: SidenavService) {}
-
   username = 'Joey Vico';
   navData = NavData;
   collapsed = false;
-
   time = new Observable<string>((observer: Observer<string>) => {
     setInterval(() => observer.next(new Date().toString()), 1000);
   });
+
+  constructor(private sidenavService: SidenavService) {}
 
   ngOnInit() {
     this.sidenavService.toggleSidenav$.subscribe(() => {
