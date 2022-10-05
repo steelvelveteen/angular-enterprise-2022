@@ -11,7 +11,14 @@
     <mat-icon fontIcon="home">arrow_drop_down</mat-icon>
   </div>
   <ul class="sidenav-nav my-2 px-4 flex flex-col">
-    <app-btn-nav-link *ngFor="let nav of navData" [itemData]="nav"></app-btn-nav-link>
+    <ng-container *ngFor="let nav of navData">
+      <app-btn-nav-link [itemData]="nav"></app-btn-nav-link>
+      <!-- <ul *ngIf="nav.children">
+        <ng-container *ngFor="let subnav of nav.children">
+          <app-btn-nav-link [itemData]="subnav"></app-btn-nav-link>
+        </ng-container>
+      </ul> -->
+    </ng-container>
   </ul>
   <h2 class="text-center mb-auto">{{ time | async | date: 'HH:mm:ss' }}</h2>
 </div>

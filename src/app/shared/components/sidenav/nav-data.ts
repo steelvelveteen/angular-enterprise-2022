@@ -2,6 +2,7 @@ export interface NavBtnLink {
   label: string;
   routerLink: string;
   icon: string;
+  children?: NavBtnLink[];
 }
 
 export const NavData: NavBtnLink[] = [
@@ -14,6 +15,13 @@ export const NavData: NavBtnLink[] = [
     label: 'Profile',
     routerLink: '/admin/profile',
     icon: 'home',
+    children: [
+      {
+        label: 'Edit profile',
+        routerLink: 'admin/profile/edit',
+        icon: 'edit',
+      },
+    ],
   },
   {
     label: 'Statistics',
