@@ -1,28 +1,13 @@
 .sidenav {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  top: 0;
-  height: 100vh;
-  width: 15rem;
-  padding: 1rem;
-  color: rgb(255, 255, 255, 0.8);
-  background: linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
-  // background: linear-gradient(0deg, #0098f0 0%, #00f2c3 100%);
-  // background: linear-gradient(0deg, #3358f4 0%, #1d8cf8 100%);
-  .sidenav-profile {
+  // background: linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
+  background: linear-gradient(to bottom, #fb404b 0, rgba(187, 5, 2, 0.7) 100%);
+  .profile-container {
     // position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     button {
       margin-left: auto;
-    }
-    .profile-pic {
-      // position: fixed;
-      // top: 5rem;
-      border-radius: 100%;
     }
   }
 }
@@ -33,7 +18,6 @@
     list-style-type: none;
     .sidenav-nav-link {
       color: rgb(255, 255, 255, 0.8);
-      font-size: 0.8rem;
       text-transform: uppercase;
       text-decoration: none;
     }

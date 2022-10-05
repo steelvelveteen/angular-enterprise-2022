@@ -1,8 +1,8 @@
-<div class="sidenav">
-  <div class="sidenav-profile">
+<div class="sidenav fixed flex flex-col items-center top-0 h-screen w-64 p-4 text-white">
+  <div class="profile-container">
     <button class="btn-toggle">Burger toggle</button>
     <h2>{{ time | async | date: 'HH:mm:ss' }}</h2>
-    <img class="profile-pic" src="assets/images/profile-pic-120.jpg" alt="Profile picture" />
+    <img class="rounded-full" src="assets/images/profile-pic-120.jpg" alt="Profile picture" />
     <h3>{{ username }}</h3>
   </div>
   <ul class="sidenav-nav">
