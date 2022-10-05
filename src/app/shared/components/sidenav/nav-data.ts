@@ -17,17 +17,17 @@ export const NavData: NavBtnLink[] = [
   },
   {
     label: 'Statistics',
-    routerLink: 'home',
+    routerLink: 'stats',
     icon: 'home',
   },
   {
     label: 'User Management',
-    routerLink: 'home',
+    routerLink: 'usermanagement',
     icon: '',
   },
   {
     label: 'Settings',
-    routerLink: 'home',
+    routerLink: 'settings',
     icon: '',
   },
 ];

@@ -9,8 +9,9 @@ import { NavData } from './nav-data';
 })
 export class SidenavComponent {
   username = 'Joey Vico';
+  navData = NavData;
+
   time = new Observable<string>((observer: Observer<string>) => {
     setInterval(() => observer.next(new Date().toString()), 1000);
   });
-  navData = NavData;
 }

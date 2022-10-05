@@ -13,5 +13,5 @@
   <ul class="sidenav-nav my-2 px-4 flex flex-col">
     <app-btn-nav-link *ngFor="let nav of navData" [itemData]="nav"></app-btn-nav-link>
   </ul>
-  <h2>{{ time | async | date: 'HH:mm:ss' }}</h2>
+  <h2 class="text-center mb-auto">{{ time | async | date: 'HH:mm:ss' }}</h2>
 </div>
