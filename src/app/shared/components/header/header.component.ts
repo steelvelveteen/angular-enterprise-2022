@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SidenavService } from '../../services/sidenav.service';
+import { UiService } from 'src/app/core/services/ui/ui.service';
 
 @Component({
   selector: 'app-header',
@@ -9,14 +9,14 @@ import { SidenavService } from '../../services/sidenav.service';
 export class HeaderComponent {
   trimHeader!: boolean;
 
-  constructor(private sidenavService: SidenavService) {
-    this.sidenavService.toggleSidenav$.subscribe(() => {
+  constructor(private uiService: UiService) {
+    this.uiService.toggleSidenav$.subscribe(() => {
       this.toggleHeader();
     });
   }
 
   toggleSidenav = () => {
-    this.sidenavService.toggleSidenav();
+    this.uiService.toggleSidenav();
   };
 
   toggleHeader = () => {

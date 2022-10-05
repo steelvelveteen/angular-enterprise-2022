@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
-import { SidenavService } from '../../services/sidenav.service';
+import { UiService } from 'src/app/core/services/ui/ui.service';
 import { NavData } from './nav-data';
 
 @Component({
@@ -16,10 +16,10 @@ export class SidenavComponent implements OnInit {
     setInterval(() => observer.next(new Date().toString()), 1000);
   });
 
-  constructor(private sidenavService: SidenavService) {}
+  constructor(private uiService: UiService) {}
 
   ngOnInit() {
-    this.sidenavService.toggleSidenav$.subscribe(() => {
+    this.uiService.toggleSidenav$.subscribe(() => {
       this.collapsed = !this.collapsed;
     });
   }

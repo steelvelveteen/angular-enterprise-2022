@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SidenavService } from 'src/app/shared/services/sidenav.service';
+import { UiService } from 'src/app/core/services/ui/ui.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -8,8 +8,8 @@ import { SidenavService } from 'src/app/shared/services/sidenav.service';
 })
 export class AdminDashboardComponent {
   trimBody!: boolean;
-  constructor(private sidenavService: SidenavService) {
-    this.sidenavService.toggleSidenav$.subscribe(() => {
+  constructor(private uiService: UiService) {
+    this.uiService.toggleSidenav$.subscribe(() => {
       this.toggleBodyWidth();
     });
   }
