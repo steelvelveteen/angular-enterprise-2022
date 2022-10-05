@@ -1,7 +1,8 @@
-<ng-container>
-  <li class="side-nav-item">
-    <a class="text-white uppercase no-underline" [routerLink]="itemData.routerLink">{{
+<button class="hover:bg-red-400 my-2 w-full rounded-md">
+  <li class="side-nav-item px-4 py-4 flex items-center">
+    <mat-icon>home</mat-icon>
+    <a class="text-white uppercase no-underline ml-4" [routerLink]="itemData.routerLink">{{
       itemData.label
     }}</a>
   </li>
-</ng-container>
+</button>

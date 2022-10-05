@@ -1,4 +1,4 @@
-<div class="sidenav fixed flex flex-col items-center top-0 h-screen w-72 text-white">
+<div class="sidenav fixed flex flex-col top-0 h-screen w-72 text-white">
   <div
     class="profile-container flex justify-around items-center py-8 border-b-[1px] w-full border-b-slate-300"
   >
@@ -10,13 +10,8 @@
     <h3>{{ username }}</h3>
     <mat-icon class="cursor-pointer" fontIcon="home">arrow_drop_down</mat-icon>
   </div>
-  <h2>{{ time | async | date: 'HH:mm:ss' }}</h2>
-  <ul *ngFor="let nav of navData" class="sidenav-nav">
-    <!-- <li class="side-nav-item">
-      <a class="sidenav-nav-link text-white uppercase no-underline" [routerLink]="nav.routerLink">{{
-        nav.label
-      }}</a>
-    </li> -->
-    <app-btn-nav-link [itemData]="nav"></app-btn-nav-link>
+  <ul class="sidenav-nav my-2 px-4 flex flex-col">
+    <app-btn-nav-link *ngFor="let nav of navData" [itemData]="nav"></app-btn-nav-link>
   </ul>
+  <h2>{{ time | async | date: 'HH:mm:ss' }}</h2>
 </div>

@@ -7,18 +7,18 @@ export interface NavBtnLink {
 export const NavData: NavBtnLink[] = [
   {
     label: 'dashboard',
-    routerLink: 'home',
-    icon: '',
+    routerLink: '/admin/home',
+    icon: 'home',
   },
   {
     label: 'Profile',
-    routerLink: 'home',
-    icon: '',
+    routerLink: '/admin/profile',
+    icon: 'home',
   },
   {
     label: 'Statistics',
     routerLink: 'home',
-    icon: '',
+    icon: 'home',
   },
   {
     label: 'User Management',
