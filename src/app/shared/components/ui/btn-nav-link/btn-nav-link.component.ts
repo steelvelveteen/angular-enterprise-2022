@@ -8,4 +8,7 @@ import { NavBtnLink } from '../../sidenav/nav-data';
 })
 export class BtnNavLinkComponent {
   @Input() itemData!: NavBtnLink;
+  @Input() collapsed!: boolean;
+
+  // sidebarCollapsed = this.collapsed;
 }

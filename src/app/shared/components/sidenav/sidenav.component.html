@@ -1,4 +1,7 @@
-<div class="sidenav fixed flex flex-col top-0 h-screen w-72 text-white">
+<div
+  [ngClass]="collapsed ? 'sidenav-collapsed' : ''"
+  class="sidenav fixed flex flex-col top-0 h-screen w-72 text-white"
+>
   <div
     class="profile-container flex justify-around items-center py-8 border-b-[1px] w-full border-b-slate-300 cursor-pointer"
   >
@@ -7,12 +10,12 @@
       src="assets/images/profile-pic-50.jpg"
       alt="Profile picture"
     />
-    <h3>{{ username }}</h3>
-    <mat-icon fontIcon="home">arrow_drop_down</mat-icon>
+    <h3 *ngIf="!collapsed">{{ username }}</h3>
+    <mat-icon *ngIf="!collapsed">arrow_drop_down</mat-icon>
   </div>
   <ul class="sidenav-nav my-2 px-4 flex flex-col">
     <ng-container *ngFor="let nav of navData">
-      <app-btn-nav-link [itemData]="nav"></app-btn-nav-link>
+      <app-btn-nav-link [collapsed]="collapsed" [itemData]="nav"></app-btn-nav-link>
       <!-- <ul *ngIf="nav.children">
         <ng-container *ngFor="let subnav of nav.children">
           <app-btn-nav-link [itemData]="subnav"></app-btn-nav-link>

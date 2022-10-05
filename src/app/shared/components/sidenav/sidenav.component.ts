@@ -10,8 +10,12 @@ import { NavData } from './nav-data';
 export class SidenavComponent {
   username = 'Joey Vico';
   navData = NavData;
+  collapsed = false;
 
   time = new Observable<string>((observer: Observer<string>) => {
     setInterval(() => observer.next(new Date().toString()), 1000);
+    setTimeout(() => {
+      this.collapsed = !this.collapsed;
+    }, 5000);
   });
 }
