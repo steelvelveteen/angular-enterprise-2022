@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Subject } from 'rxjs';
 import { SidenavService } from '../../services/sidenav.service';
 
 @Component({
@@ -8,11 +7,21 @@ import { SidenavService } from '../../services/sidenav.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor(private sidenavService: SidenavService) {}
+  constructor(private sidenavService: SidenavService) {
+    this.sidenavService.toggleSidenav$.subscribe(() => {
+      console.log('Header listened to its own trigger');
+      this.toggleHeader();
+    });
+  }
 
-  toggleEvent$ = new Subject<boolean>();
+  trimHeader!: boolean;
+  // toggleEvent$ = new Subject<boolean>();
 
   toggleSidenav = () => {
     this.sidenavService.toggleSidenav();
+  };
+
+  toggleHeader = () => {
+    this.trimHeader = !this.trimHeader;
   };
 }
