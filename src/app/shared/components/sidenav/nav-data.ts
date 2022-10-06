@@ -9,7 +9,7 @@ export const NavData: NavBtnLink[] = [
   {
     label: 'dashboard',
     routerLink: '/admin/home',
-    icon: 'pe-7s-home',
+    icon: 'pe-7s-graph',
   },
   {
     label: 'Profile',
@@ -36,6 +36,6 @@ export const NavData: NavBtnLink[] = [
   {
     label: 'Settings',
     routerLink: 'settings',
-    icon: 'pe-7s-settings',
+    icon: 'pe-7s-config',
   },
 ];

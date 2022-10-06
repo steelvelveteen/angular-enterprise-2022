@@ -22,4 +22,11 @@ body {
 }
 i {
   font-size: 1.5rem;
+  &.icon-large {
+    font-size: 2rem;
+  }
+  &.icon-hover:hover {
+    font-weight: bold;
+    transform: scale(1.1);
+  }
 }

@@ -1,9 +1,19 @@
 <div
   [ngClass]="trimHeader ? 'header-trimmed' : ''"
-  class="header relative left-72 h-16 p-4 flex transition-all ease-in-out"
+  class="header relative left-72 h-16 p-4 flex transition-all ease-in-out justify-between"
 >
-  <button class="text-black" (click)="toggleSidenav()">
-    <i [ngClass]="trimHeader ? 'pe-7s-angle-right' : 'pe-7s-angle-left'"></i>
-  </button>
-  <div class="text-black text-xl">Dashboard</div>
+  <div class="title-container flex flex-row items-center">
+    <button class="text-black rounded-lg" (click)="toggleSidenav()">
+      <i
+        [ngClass]="trimHeader ? 'pe-7s-angle-right' : 'pe-7s-angle-left'"
+        class="icon-large icon-hover"
+      ></i>
+    </button>
+    <div class="text-black text-xl pb-1 ml-4">Dashboard</div>
+  </div>
+  <div class="title-container flex flex-row items-center">
+    <button class="text-black rounded-lg">
+      <i class="pe-7s-power icon-hover"></i>
+    </button>
+  </div>
 </div>
