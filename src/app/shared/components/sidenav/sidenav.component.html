@@ -11,7 +11,7 @@
       alt="Profile picture"
     />
     <h3 *ngIf="!collapsed">{{ username }}</h3>
-    <mat-icon *ngIf="!collapsed">arrow_drop_down</mat-icon>
+    <i *ngIf="!collapsed" class="pe-7s-angle-down"></i>
   </div>
   <ul class="sidenav-nav my-2 px-4 flex flex-col">
     <ng-container *ngFor="let nav of navData">

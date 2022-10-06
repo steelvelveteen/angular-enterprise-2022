@@ -3,9 +3,7 @@
   class="header relative left-72 h-16 bg-green-500 p-4 flex transition-all ease-in-out"
 >
   <button class="text-white" (click)="toggleSidenav()">
-    <!-- <mat-icon *ngIf="!trimHeader">menu</mat-icon> -->
-    <i class="pe-7s-menu"></i>
-    <mat-icon *ngIf="trimHeader">menu_open</mat-icon>
+    <i [ngClass]="trimHeader ? 'pe-7s-close' : 'pe-7s-menu'"></i>
   </button>
   <div class="text-white text-xl">Dashboard</div>
 </div>
