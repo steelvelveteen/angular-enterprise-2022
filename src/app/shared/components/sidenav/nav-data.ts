@@ -9,12 +9,12 @@ export const NavData: NavBtnLink[] = [
   {
     label: 'dashboard',
     routerLink: '/admin/home',
-    icon: 'home',
+    icon: 'pe-7s-home',
   },
   {
     label: 'Profile',
     routerLink: '/admin/profile',
-    icon: 'home',
+    icon: 'pe-7s-user',
     children: [
       {
         label: 'Edit profile',
@@ -26,16 +26,16 @@ export const NavData: NavBtnLink[] = [
   {
     label: 'Statistics',
     routerLink: 'stats',
-    icon: 'query_stats',
+    icon: 'pe-7s-graph3',
   },
   {
     label: 'Management',
     routerLink: 'usermanagement',
-    icon: 'pe-72-album',
+    icon: 'pe-7s-users',
   },
   {
     label: 'Settings',
     routerLink: 'settings',
-    icon: 'settings_suggest',
+    icon: 'pe-7s-settings',
   },
 ];

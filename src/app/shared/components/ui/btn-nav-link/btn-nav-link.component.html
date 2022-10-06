@@ -4,8 +4,7 @@
   [routerLink]="itemData.routerLink"
 >
   <li class="side-nav-item px-4 py-4 flex items-center align-baseline">
-    <!-- <mat-icon class="font-semibold">{{ itemData.icon }}</mat-icon> -->
-    <i class="pe-7s-album"></i>
+    <i class="{{ itemData.icon }}"></i>
     <a *ngIf="!collapsed" class="text-white uppercase no-underline ml-4">{{ itemData.label }}</a>
   </li>
 </button>
