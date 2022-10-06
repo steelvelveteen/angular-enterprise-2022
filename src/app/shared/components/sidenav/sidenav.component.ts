@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
-import { NavData } from './nav-data';
+import { ROUTES } from './nav-data';
 
 @Component({
   selector: 'app-sidenav',
@@ -10,7 +10,7 @@ import { NavData } from './nav-data';
 })
 export class SidenavComponent implements OnInit {
   username = 'Joey Vico';
-  navData = NavData;
+  navData = ROUTES;
   collapsed = false;
   time = new Observable<string>((observer: Observer<string>) => {
     setInterval(() => observer.next(new Date().toString()), 1000);

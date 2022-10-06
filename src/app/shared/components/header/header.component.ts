@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
-import { NavBtnLink, NavData } from '../sidenav/nav-data';
+import { RouteInfo, ROUTES } from '../sidenav/nav-data';
 
 @Component({
   selector: 'app-header',
@@ -12,11 +12,11 @@ import { NavBtnLink, NavData } from '../sidenav/nav-data';
 export class HeaderComponent implements OnInit, OnDestroy {
   toggleSidenavSubscription: Subscription = new Subscription();
   headerTitleSubscription: Subscription = new Subscription();
+
   trimHeader!: boolean;
   headerTitle: string = 'Dashboard';
   location!: Location;
-  routes: NavBtnLink[] = [];
-  title: string = '';
+  routes: RouteInfo[] = [];
 
   constructor(private uiService: UiService, location: Location) {
     this.toggleSidenavSubscription = this.uiService.toggleSidenav$.subscribe(() => {
@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.routes = NavData;
+    this.routes = ROUTES;
   }
 
   toggleSidenav = () => {

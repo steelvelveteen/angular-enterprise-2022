@@ -1,12 +1,12 @@
-export interface NavBtnLink {
+export interface RouteInfo {
   label: string;
   routerLink: string;
   icon: string;
   title: string;
-  children?: NavBtnLink[];
+  children?: RouteInfo[];
 }
 
-export const NavData: NavBtnLink[] = [
+export const ROUTES: RouteInfo[] = [
   {
     label: 'dashboard',
     routerLink: '/admin/home',

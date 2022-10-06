@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { UiService } from 'src/app/core/services/ui/ui.service';
-import { NavBtnLink } from '../../sidenav/nav-data';
+import { RouteInfo } from '../../sidenav/nav-data';
 
 @Component({
   selector: 'app-btn-nav-link',
@@ -8,7 +8,7 @@ import { NavBtnLink } from '../../sidenav/nav-data';
   styleUrls: ['./btn-nav-link.component.scss'],
 })
 export class BtnNavLinkComponent {
-  @Input() itemData!: NavBtnLink;
+  @Input() itemData!: RouteInfo;
   @Input() collapsed!: boolean;
 
   constructor(private uiService: UiService) {}
