@@ -31,7 +31,7 @@ export const NavData: NavBtnLink[] = [
   {
     label: 'Management',
     routerLink: 'usermanagement',
-    icon: 'manage_accounts',
+    icon: 'pe-72-album',
   },
   {
     label: 'Settings',
