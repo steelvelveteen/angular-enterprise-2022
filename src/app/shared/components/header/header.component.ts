@@ -11,14 +11,13 @@ export class HeaderComponent implements OnDestroy {
   toggleSidenavSubscription: Subscription = new Subscription();
   headerTitleSubscription: Subscription = new Subscription();
   trimHeader!: boolean;
-  headerTitle: string = 'Fix this bug';
+  headerTitle: string = 'Dashboard';
 
   constructor(private uiService: UiService) {
     this.toggleSidenavSubscription = this.uiService.toggleSidenav$.subscribe(() => {
       this.toggleHeader();
     });
     this.headerTitleSubscription = this.uiService.changeHeaderTitle$.subscribe((title: string) => {
-      console.log(title);
       this.headerTitle = title;
     });
   }
