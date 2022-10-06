@@ -1,9 +1,9 @@
 <div
   [ngClass]="trimHeader ? 'header-trimmed' : ''"
-  class="header relative left-72 h-16 bg-green-500 p-4 flex transition-all ease-in-out"
+  class="header relative left-72 h-16 p-4 flex transition-all ease-in-out"
 >
-  <button class="text-white" (click)="toggleSidenav()">
-    <i [ngClass]="trimHeader ? 'pe-7s-close' : 'pe-7s-menu'"></i>
+  <button class="text-black" (click)="toggleSidenav()">
+    <i [ngClass]="trimHeader ? 'pe-7s-angle-right' : 'pe-7s-angle-left'"></i>
   </button>
-  <div class="text-white text-xl">Dashboard</div>
+  <div class="text-black text-xl">Dashboard</div>
 </div>
