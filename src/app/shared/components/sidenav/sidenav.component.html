@@ -18,5 +18,9 @@
       <app-btn-nav-link [collapsed]="collapsed" [itemData]="nav"></app-btn-nav-link>
     </ng-container>
   </ul>
-  <h2 class="text-center mb-auto">{{ time | async | date: 'HH:mm:ss' }}</h2>
+  <div class="absolute flex bottom-10 self-center">
+    <button>Go Pro</button>
+    <!-- <app-btn-nav-link [collapsed]="collapsed" [itemData]="nav"></app-btn-nav-link> -->
+    <h2 class="text-center">{{ time | async | date: 'HH:mm:ss' }}</h2>
+  </div>
 </div>
