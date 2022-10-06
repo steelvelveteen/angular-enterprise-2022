@@ -2,6 +2,7 @@
   class="hover:bg-red-300/25 my-1 w-full rounded-sm tracking-wide"
   routerLinkActive="bg-red-400"
   [routerLink]="itemData.routerLink"
+  (click)="adjustHeaderTitle(itemData.title)"
 >
   <li class="side-nav-item px-4 py-4 flex items-center align-baseline">
     <i class="{{ itemData.icon }}"></i>
