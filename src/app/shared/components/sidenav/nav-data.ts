@@ -35,9 +35,23 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     label: 'Management',
-    routerLink: 'usermanagement',
+    routerLink: 'usermanage',
     icon: 'pe-7s-users',
     title: 'User Management',
+    children: [
+      {
+        label: "User's Profile",
+        routerLink: 'admin/usermanage/view',
+        icon: '',
+        title: 'Admin User Manage',
+      },
+      {
+        label: "User's Edit",
+        routerLink: 'admin/usermanage/edit',
+        icon: '',
+        title: 'Admin User Edit',
+      },
+    ],
   },
   {
     label: 'Settings',
