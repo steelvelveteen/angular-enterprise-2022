@@ -1,4 +1,7 @@
-<div class="header left-72 h-16 p-4 flex transition-all ease-in-out justify-between">
+<div
+  [ngClass]="trimmedBody ? 'header-trimmed' : 'header'"
+  class="header left-72 h-16 p-4 flex transition-all ease-in-out justify-between"
+>
   <div class="title-container flex flex-row items-center">
     <button class="text-black rounded-lg" (click)="toggleSidenav()">
       <i
