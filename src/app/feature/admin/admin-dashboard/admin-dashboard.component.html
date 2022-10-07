@@ -3,6 +3,6 @@
   [ngClass]="trimBody ? 'body-trimmed' : ''"
   class="body relative left-72 transition-all ease-in-out bg-orange-300"
 >
-  <app-header></app-header>
+  <app-header [trimmedBody]="trimBody"></app-header>
   <router-outlet></router-outlet>
 </div>

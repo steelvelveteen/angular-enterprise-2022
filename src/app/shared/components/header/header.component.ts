@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
 import { RouteInfo, ROUTES } from '../sidenav/nav-data';
@@ -10,10 +10,11 @@ import { RouteInfo, ROUTES } from '../sidenav/nav-data';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  @Input() trimmedBody!: boolean;
+
   toggleSidenavSubscription: Subscription = new Subscription();
   headerTitleSubscription: Subscription = new Subscription();
 
-  trimHeader!: boolean;
   headerTitle: string = 'Dashboard';
   location!: Location;
   routes: RouteInfo[] = [];

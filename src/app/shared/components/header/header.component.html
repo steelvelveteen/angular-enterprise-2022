@@ -1,11 +1,8 @@
-<div
-  [ngClass]="trimHeader ? 'header-trimmed' : ''"
-  class="header left-72 h-16 p-4 flex transition-all ease-in-out justify-between"
->
+<div class="header left-72 h-16 p-4 flex transition-all ease-in-out justify-between">
   <div class="title-container flex flex-row items-center">
     <button class="text-black rounded-lg" (click)="toggleSidenav()">
       <i
-        [ngClass]="trimHeader ? 'pe-7s-angle-right' : 'pe-7s-angle-left'"
+        [ngClass]="trimmedBody ? 'pe-7s-angle-right' : 'pe-7s-angle-left'"
         class="icon-large icon-hover"
       ></i>
     </button>
