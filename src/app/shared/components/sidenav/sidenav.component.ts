@@ -24,11 +24,21 @@ export class SidenavComponent implements OnInit {
       this.collapsed = !this.collapsed;
     });
 
+    this.uiService.collapseSidenav$.subscribe(() => {
+      this.collapsed = true;
+    });
+
+    this.uiService.expandSidenav$.subscribe(() => {
+      this.collapsed = false;
+    });
+
     window.addEventListener('resize', (event: any) => {
-      if (event.target.innerWidth > '960') {
-        this.collapsed = false;
-      } else {
+      if (event.target.innerWidth < '960') {
         this.collapsed = true;
+        this.uiService.collapseSidenav();
+      } else {
+        this.collapsed = false;
+        this.uiService.expandSidenav();
       }
     });
   }
