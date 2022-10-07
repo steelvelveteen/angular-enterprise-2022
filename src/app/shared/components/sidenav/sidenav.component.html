@@ -12,11 +12,12 @@
     <i *ngIf="!collapsed" class="pe-7s-angle-down"></i>
   </div>
   <ul class="sidenav-nav my-2 px-4 flex flex-col pt-4 border-t-[1px]">
-    <ng-container *ngFor="let route of routes"> </ng-container>
+    <ng-container *ngFor="let route of routes">
+      <app-menu-btn-link [route]="route" [collapsed]="collapsed"></app-menu-btn-link>
+    </ng-container>
   </ul>
   <div class="absolute flex bottom-10 self-center">
     <button>Go Pro</button>
-    <!-- <app-btn-nav-link [collapsed]="collapsed" [itemData]="nav"></app-btn-nav-link> -->
     <h2 class="text-center">{{ time | async | date: 'HH:mm:ss' }}</h2>
   </div>
 </div>

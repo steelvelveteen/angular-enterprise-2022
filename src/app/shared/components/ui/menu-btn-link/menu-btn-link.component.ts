@@ -9,6 +9,7 @@ import { RouteInfo } from '../../sidenav/nav-data';
   styleUrls: ['./menu-btn-link.component.scss'],
 })
 export class MenuBtnLinkComponent {
+  @Input() collapsed!: boolean;
   @Input() route: RouteInfo = {
     label: '',
     routerLink: '',
