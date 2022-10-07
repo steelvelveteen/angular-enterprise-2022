@@ -22,7 +22,7 @@ export const ROUTES: RouteInfo[] = [
       },
       {
         label: 'Edit',
-        routerLink: 'admin/edit-profile',
+        routerLink: '/admin/edit',
         icon: 'ED',
       },
     ],
