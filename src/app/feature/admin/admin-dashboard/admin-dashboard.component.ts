@@ -10,7 +10,7 @@ export class AdminDashboardComponent {
   trimBody!: boolean;
   constructor(private uiService: UiService) {
     this.uiService.toggleBodyWidth$.subscribe(() => {
-      this.toggleBodyWidth();
+      this.trimBody = !this.trimBody;
     });
 
     this.uiService.trimBodyWidth$.subscribe(() => {
@@ -21,8 +21,4 @@ export class AdminDashboardComponent {
       this.trimBody = false;
     });
   }
-
-  toggleBodyWidth = () => {
-    this.trimBody = !this.trimBody;
-  };
 }
