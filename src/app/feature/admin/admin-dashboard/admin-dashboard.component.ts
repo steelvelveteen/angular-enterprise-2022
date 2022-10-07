@@ -9,8 +9,16 @@ import { UiService } from 'src/app/core/services/ui/ui.service';
 export class AdminDashboardComponent {
   trimBody!: boolean;
   constructor(private uiService: UiService) {
-    this.uiService.toggleSidenav$.subscribe(() => {
+    this.uiService.toggleBodyWidth$.subscribe(() => {
       this.toggleBodyWidth();
+    });
+
+    this.uiService.trimBodyWidth$.subscribe(() => {
+      this.trimBody = true;
+    });
+
+    this.uiService.expandBodyWidth$.subscribe(() => {
+      this.trimBody = false;
     });
   }
 

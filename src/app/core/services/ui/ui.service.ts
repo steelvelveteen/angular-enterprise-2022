@@ -9,6 +9,10 @@ export class UiService {
   public collapseSidenav$: Subject<boolean> = new Subject();
   public expandSidenav$: Subject<boolean> = new Subject();
   public changeHeaderTitle$: Subject<string> = new Subject();
+  toggleBodyWidth$: Subject<boolean> = new Subject();
+
+  trimBodyWidth$: Subject<boolean> = new Subject();
+  expandBodyWidth$: Subject<boolean> = new Subject();
 
   toggleSidenav = (): void => {
     this.toggleSidenav$.next(true);
@@ -20,6 +24,18 @@ export class UiService {
 
   expandSidenav = (): void => {
     this.expandSidenav$.next(true);
+  };
+
+  toggleBodyWidth = (): void => {
+    this.toggleBodyWidth$.next(true);
+  };
+
+  trimBody = (): void => {
+    this.trimBodyWidth$.next(true);
+  };
+
+  expandBody = (): void => {
+    this.expandBodyWidth$.next(true);
   };
 
   adjustHeaderTitle = (title: string) => this.changeHeaderTitle$.next(title);
