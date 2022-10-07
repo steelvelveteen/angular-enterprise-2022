@@ -5,9 +5,10 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AdminHomeComponent } from './admin-dashboard/admin-home/admin-home.component';
 import { AdminProfileComponent } from './admin-dashboard/admin-profile/admin-profile.component';
 import { AdminRoutingModule } from './admin-routing.module';
+import { SettingsComponent } from './admin-dashboard/settings/settings.component';
 
 @NgModule({
-  declarations: [AdminDashboardComponent, AdminHomeComponent, AdminProfileComponent],
+  declarations: [AdminDashboardComponent, AdminHomeComponent, AdminProfileComponent, SettingsComponent],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })
 export class AdminModule {}
