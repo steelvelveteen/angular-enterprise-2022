@@ -19,9 +19,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   routes: RouteInfo[] = [];
 
   constructor(private uiService: UiService, location: Location) {
-    this.toggleSidenavSubscription = this.uiService.toggleSidenav$.subscribe(() => {
-      this.toggleHeader();
-    });
     this.headerTitleSubscription = this.uiService.changeHeaderTitle$.subscribe((title: string) => {
       this.headerTitle = title;
     });
@@ -35,10 +32,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   toggleSidenav = () => {
     this.uiService.toggleSidenav();
-  };
-
-  toggleHeader = () => {
-    this.trimHeader = !this.trimHeader;
   };
 
   getTitle(): string {
