@@ -7,6 +7,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HeaderSystemMenuComponent } from './components/ui/header-system-menu/header-system-menu.component';
 import { SampleDirectiveDirective } from './directives/sample-directive.directive';
 import { MaterialModule } from './material.module';
+import { MenuBtnLinkComponent } from './components/ui/menu-btn-link/menu-btn-link.component';
 
 const routes: Routes = [];
 @NgModule({
@@ -16,6 +17,7 @@ const routes: Routes = [];
     SidenavComponent,
     HeaderComponent,
     HeaderSystemMenuComponent,
+    MenuBtnLinkComponent,
   ],
   imports: [CommonModule, MaterialModule, RouterModule.forChild(routes)],
   exports: [SidenavComponent, HeaderComponent],
