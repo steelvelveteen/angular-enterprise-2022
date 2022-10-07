@@ -9,8 +9,8 @@ export class UiService {
   public collapseSidenav$: Subject<boolean> = new Subject();
   public expandSidenav$: Subject<boolean> = new Subject();
   public changeHeaderTitle$: Subject<string> = new Subject();
-  toggleBodyWidth$: Subject<boolean> = new Subject();
 
+  toggleBodyWidth$: Subject<boolean> = new Subject();
   trimBodyWidth$: Subject<boolean> = new Subject();
   expandBodyWidth$: Subject<boolean> = new Subject();
 
