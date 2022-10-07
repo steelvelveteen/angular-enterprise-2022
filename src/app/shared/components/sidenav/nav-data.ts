@@ -1,6 +1,6 @@
 export interface RouteInfo {
   label: string;
-  routerLink: string;
+  routerLink?: string;
   icon: string;
   children?: RouteInfo[];
 }
@@ -13,7 +13,6 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     label: 'Profile',
-    routerLink: '/admin/profile',
     icon: 'pe-7s-user',
     children: [
       {
