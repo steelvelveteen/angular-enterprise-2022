@@ -1,6 +1,7 @@
 <button
   class="hover:bg-red-300/25 my-1 pl-4 w-full rounded-sm tracking-wide"
   routerLinkActive="bg-red-400"
+  [routerLink]="route.routerLink"
   (click)="handleNavClick(route)"
 >
   <li class="side-nav-item p-2 text-right flex justify-between">
