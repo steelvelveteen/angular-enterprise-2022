@@ -36,11 +36,9 @@ export class SidenavComponent implements OnInit {
       if (event.target.innerWidth < '960') {
         this.collapsed = true;
         this.uiService.collapseSidenav();
-        this.uiService.trimBody();
       } else {
         this.collapsed = false;
         this.uiService.expandSidenav();
-        this.uiService.expandBody();
       }
     });
   }

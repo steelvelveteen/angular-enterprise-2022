@@ -16,14 +16,17 @@ export class UiService {
 
   toggleSidenav = (): void => {
     this.toggleSidenav$.next(true);
+    this.toggleBodyWidth$.next(true);
   };
 
   collapseSidenav = (): void => {
     this.collapseSidenav$.next(true);
+    this.trimBodyWidth$.next(true);
   };
 
   expandSidenav = (): void => {
     this.expandSidenav$.next(true);
+    this.expandBodyWidth$.next(true);
   };
 
   toggleBodyWidth = (): void => {

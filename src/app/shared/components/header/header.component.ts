@@ -33,7 +33,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   toggleSidenav = () => {
     this.uiService.toggleSidenav();
-    this.uiService.toggleBodyWidth();
   };
 
   getTitle(): string {
