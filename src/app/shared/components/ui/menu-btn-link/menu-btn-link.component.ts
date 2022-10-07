@@ -1,4 +1,4 @@
-import { animate, style, transition, trigger } from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { UiService } from 'src/app/core/services/ui/ui.service';
@@ -10,8 +10,12 @@ import { RouteInfo } from '../../sidenav/nav-data';
   styleUrls: ['./menu-btn-link.component.scss'],
   animations: [
     trigger('enterAnimation', [
-      transition(':enter', [style({ height: 0 }), animate('100ms', style({ height: '*' }))]),
-      transition(':leave', [animate('100ms', style({ height: 0 }))]),
+      state(
+        'initial',
+        style({ height: '0', opacity: '0', overflow: 'hidden', visibility: 'hidden' })
+      ),
+      state('final', style({ overflow: 'hidden' })),
+      transition('initial <=> final', animate('300ms')),
     ]),
   ],
 })
