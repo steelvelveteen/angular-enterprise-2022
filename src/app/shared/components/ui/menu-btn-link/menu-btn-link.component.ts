@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { UiService } from 'src/app/core/services/ui/ui.service';
@@ -7,6 +8,12 @@ import { RouteInfo } from '../../sidenav/nav-data';
   selector: 'app-menu-btn-link',
   templateUrl: './menu-btn-link.component.html',
   styleUrls: ['./menu-btn-link.component.scss'],
+  animations: [
+    trigger('enterAnimation', [
+      transition(':enter', [style({ height: 0 }), animate('100ms', style({ height: '*' }))]),
+      transition(':leave', [animate('100ms', style({ height: 0 }))]),
+    ]),
+  ],
 })
 export class MenuBtnLinkComponent {
   @Input() collapsed!: boolean;

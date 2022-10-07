@@ -36,12 +36,12 @@ export const ROUTES: RouteInfo[] = [
       {
         label: "User's Profile",
         routerLink: 'admin/usermanage/view',
-        icon: '',
+        icon: 'MG',
       },
       {
         label: "User's Edit",
         routerLink: 'admin/usermanage/edit',
-        icon: '',
+        icon: 'RF',
       },
     ],
   },

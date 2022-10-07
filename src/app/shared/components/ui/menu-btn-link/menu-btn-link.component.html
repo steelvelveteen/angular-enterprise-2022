@@ -11,7 +11,7 @@
     <i *ngIf="route.children" class="pe-7s-angle-down mr-1"></i>
   </li>
 </button>
-<div *ngIf="submenuExpanded" class="transition-all ease-in-out">
+<div [@enterAnimation] *ngIf="submenuExpanded">
   <app-sublevel-btn-link
     *ngFor="let subRoute of route.children"
     [route]="subRoute"
