@@ -47,7 +47,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     // eslint-disable-next-line no-plusplus
     for (let item = 0; item < this.routes.length; item++) {
       if (this.routes[item].routerLink === titlee) {
-        return this.routes[item].title;
+        return this.routes[item].label;
       }
     }
     return 'Dashboard';

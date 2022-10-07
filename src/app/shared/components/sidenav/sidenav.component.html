@@ -12,8 +12,22 @@
     <i *ngIf="!collapsed" class="pe-7s-angle-down"></i>
   </div>
   <ul class="sidenav-nav my-2 px-4 flex flex-col pt-4 border-t-[1px]">
-    <ng-container *ngFor="let nav of navData">
-      <app-btn-nav-link [collapsed]="collapsed" [itemData]="nav"></app-btn-nav-link>
+    <ng-container *ngFor="let route of routes">
+      <button
+        class="hover:bg-red-300/25 my-1 w-full rounded-sm tracking-wide"
+        routerLinkActive="bg-red-400"
+        [routerLink]="route.routerLink"
+      >
+        <li class="side-nav-item px-4 py-4 flex items-center align-baseline justify-between">
+          <div (click)="adjustHeaderTitle(route)" class="">
+            <i class="{{ route.icon }}"></i>
+            <a *ngIf="!collapsed" class="text-white uppercase no-underline ml-4">{{
+              route.label
+            }}</a>
+          </div>
+          <i *ngIf="route.children" class="pe-7s-angle-down mr-1"></i>
+        </li>
+      </button>
     </ng-container>
   </ul>
   <div class="absolute flex bottom-10 self-center">
