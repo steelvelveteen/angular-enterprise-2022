@@ -11,3 +11,8 @@
     <i *ngIf="route.children" class="pe-7s-angle-down mr-1"></i>
   </li>
 </button>
+<div *ngIf="submenuExpanded">
+  <div *ngFor="let subRoute of route.children">
+    <app-sublevel-btn-link [route]="subRoute"></app-sublevel-btn-link>
+  </div>
+</div>

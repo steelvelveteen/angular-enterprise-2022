@@ -21,6 +21,8 @@ export class MenuBtnLinkComponent {
   constructor(private router: Router, private uiService: UiService) {}
 
   handleNavClick = (route: RouteInfo) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    this.submenuExpanded ? (this.submenuExpanded = false) : (this.submenuExpanded = false);
     if (!route.children) {
       this.router.navigate([`${route.routerLink}`]);
     } else {
