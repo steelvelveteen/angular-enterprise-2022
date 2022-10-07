@@ -33,13 +33,5 @@ export class UiService {
     this.toggleBodyWidth$.next(true);
   };
 
-  trimBody = (): void => {
-    this.trimBodyWidth$.next(true);
-  };
-
-  expandBody = (): void => {
-    this.expandBodyWidth$.next(true);
-  };
-
   adjustHeaderTitle = (title: string) => this.changeHeaderTitle$.next(title);
 }
