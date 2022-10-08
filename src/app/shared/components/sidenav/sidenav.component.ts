@@ -11,7 +11,7 @@ import { ROUTES } from './nav-data';
 export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('sidenavRef') sidenavRef!: ElementRef;
 
-  isMobile: boolean = false;
+  isMobile = false;
   username = 'Joey Vico';
   routes = ROUTES;
   collapsed = false;
