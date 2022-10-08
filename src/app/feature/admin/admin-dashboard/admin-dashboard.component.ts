@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
 
 @Component({
@@ -6,19 +7,28 @@ import { UiService } from 'src/app/core/services/ui/ui.service';
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss'],
 })
-export class AdminDashboardComponent {
+export class AdminDashboardComponent implements OnDestroy {
   trimBody!: boolean;
+  toggleBodySubscription: Subscription;
+  trimBodySubscription: Subscription;
+  expandBodySubscription: Subscription;
+
   constructor(private uiService: UiService) {
-    this.uiService.toggleBodyWidth$.subscribe(() => {
+    this.toggleBodySubscription = this.uiService.toggleBodyWidth$.subscribe(() => {
       this.trimBody = !this.trimBody;
     });
 
-    this.uiService.trimBodyWidth$.subscribe(() => {
+    this.trimBodySubscription = this.uiService.trimBodyWidth$.subscribe(() => {
       this.trimBody = true;
     });
 
-    this.uiService.expandBodyWidth$.subscribe(() => {
+    this.expandBodySubscription = this.uiService.expandBodyWidth$.subscribe(() => {
       this.trimBody = false;
     });
+  }
+  ngOnDestroy(): void {
+    this.toggleBodySubscription.unsubscribe();
+    this.trimBodySubscription.unsubscribe();
+    this.expandBodySubscription.unsubscribe();
   }
 }
