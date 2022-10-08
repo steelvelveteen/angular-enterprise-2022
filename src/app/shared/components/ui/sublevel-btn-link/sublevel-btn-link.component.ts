@@ -8,6 +8,7 @@ import { RouteInfo } from '../../sidenav/nav-data';
   styleUrls: ['./sublevel-btn-link.component.scss'],
 })
 export class SublevelBtnLinkComponent {
+  @Input() collapsed = false;
   @Input() route: RouteInfo = {
     label: '',
     routerLink: '',

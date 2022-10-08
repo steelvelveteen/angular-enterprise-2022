@@ -16,5 +16,6 @@
   <app-sublevel-btn-link
     *ngFor="let subRoute of route.children"
     [route]="subRoute"
+    [collapsed]="collapsed"
   ></app-sublevel-btn-link>
 </div>
