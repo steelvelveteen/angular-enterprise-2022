@@ -69,5 +69,6 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.toggleSidenavSubscription.unsubscribe();
     this.headerTitleSubscription.unsubscribe();
+    this.toggleRef.nativeElement.removeAllListeners();
   }
 }
