@@ -5,6 +5,7 @@
   <div class="title-container flex flex-row items-center">
     <button class="text-black rounded-lg" (click)="toggleSidenav()">
       <i
+        *ngIf="!isMobile"
         [ngClass]="trimmedBody ? 'pe-7s-angle-right' : 'pe-7s-angle-left'"
         class="icon-large icon-hover"
       ></i>

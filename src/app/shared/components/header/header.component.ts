@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
 import { RouteInfo, ROUTES } from '../sidenav/nav-data';
@@ -9,9 +9,10 @@ import { RouteInfo, ROUTES } from '../sidenav/nav-data';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() trimmedBody!: boolean;
 
+  isMobile = false;
   toggleSidenavSubscription: Subscription = new Subscription();
   headerTitleSubscription: Subscription = new Subscription();
 
@@ -31,7 +32,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
   }
 
+  ngAfterViewInit(): void {
+    window.addEventListener('resize', (event: any) => {
+      this.isMobile = event.target.innerWidth < 960;
+    });
+  }
+
   toggleSidenav = () => {
+    if (this.isMobile) return;
     this.uiService.toggleSidenav();
   };
 

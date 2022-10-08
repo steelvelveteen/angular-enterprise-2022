@@ -19,14 +19,14 @@ export class UiService {
     this.toggleBodyWidth$.next(true);
   };
 
-  collapseSidenav = (): void => {
+  collapseSidenav = (fromHover?: boolean): void => {
     this.collapseSidenav$.next(true);
-    this.trimBodyWidth$.next(true);
+    if (!fromHover) this.trimBodyWidth$.next(true);
   };
 
-  expandSidenav = (): void => {
+  expandSidenav = (fromHover?: boolean): void => {
     this.expandSidenav$.next(true);
-    this.expandBodyWidth$.next(true);
+    if (!fromHover) this.expandBodyWidth$.next(true);
   };
 
   toggleBodyWidth = (): void => {
