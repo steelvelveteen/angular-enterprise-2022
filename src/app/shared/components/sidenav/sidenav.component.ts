@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Observable, Observer, Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
 import { ROUTES } from './nav-data';
@@ -8,7 +8,8 @@ import { ROUTES } from './nav-data';
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
 })
-export class SidenavComponent implements OnInit, OnDestroy {
+export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild('sidenavRef') sidenavRef!: ElementRef;
   username = 'Joey Vico';
   routes = ROUTES;
   collapsed = false;
@@ -19,7 +20,7 @@ export class SidenavComponent implements OnInit, OnDestroy {
   collapseSidenavSubscription: Subscription = new Subscription();
   expandSidenavSubscription: Subscription = new Subscription();
 
-  constructor(private uiService: UiService) {}
+  constructor(private uiService: UiService, private elRef: ElementRef) {}
 
   ngOnInit() {
     this.toggleSidenavSubscription = this.uiService.toggleSidenav$.subscribe(() => {
@@ -41,6 +42,24 @@ export class SidenavComponent implements OnInit, OnDestroy {
       } else {
         this.collapsed = false;
         this.uiService.expandSidenav();
+      }
+    });
+  }
+
+  ngAfterViewInit(): void {
+    this.sidenavRef.nativeElement.addEventListener('mouseenter', () => {
+      console.log('Mouse has entered');
+      if (this.collapsed) {
+        this.collapsed = false;
+        this.uiService.expandSidenav();
+      }
+    });
+
+    this.sidenavRef.nativeElement.addEventListener('mouseleave', () => {
+      console.log('Mouse has left the area');
+      if (!this.collapsed) {
+        this.collapsed = true;
+        this.uiService.collapseSidenav();
       }
     });
   }
