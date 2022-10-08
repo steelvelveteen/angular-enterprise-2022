@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable, Observer, Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
 import { ROUTES } from './nav-data';
@@ -20,7 +19,7 @@ export class SidenavComponent implements OnInit, OnDestroy {
   collapseSidenavSubscription: Subscription;
   expandSidenavSubscription: Subscription;
 
-  constructor(private uiService: UiService, private router: Router) {
+  constructor(private uiService: UiService) {
     this.toggleSidenavSubscription = this.uiService.toggleSidenav$.subscribe(() => {
       this.collapsed = !this.collapsed;
     });
