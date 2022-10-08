@@ -15,7 +15,7 @@ import { RouteInfo } from '../../sidenav/nav-data';
         style({ height: '0', opacity: '0', overflow: 'hidden', visibility: 'hidden' })
       ),
       state('final', style({ overflow: 'hidden' })),
-      transition('initial <=> final', animate('300ms')),
+      transition('initial <=> final', animate('200ms')),
     ]),
   ],
 })
