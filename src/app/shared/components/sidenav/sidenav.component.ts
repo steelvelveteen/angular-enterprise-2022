@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Observable, Observer, Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
 import { ROUTES } from './nav-data';
@@ -8,7 +8,7 @@ import { ROUTES } from './nav-data';
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
 })
-export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
+export class SidenavComponent implements OnInit, OnDestroy {
   @ViewChild('sidenavRef') sidenavRef!: ElementRef;
   username = 'Joey Vico';
   routes = ROUTES;
@@ -46,25 +46,26 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  ngAfterViewInit(): void {
-    this.sidenavRef.nativeElement.addEventListener('mouseenter', () => {
-      if (this.collapsed) {
-        this.collapsed = false;
-        this.uiService.expandSidenav();
-      }
-    });
+  // ngAfterViewInit(): void {
+  //   // this.sidenavRef.nativeElement.addEventListener('mouseenter', () => {
+  //   //   if (this.collapsed) {
+  //   //     this.collapsed = false;
+  //   //     this.uiService.expandSidenav();
+  //   //   }
+  //   // });
 
-    this.sidenavRef.nativeElement.addEventListener('mouseleave', () => {
-      if (!this.collapsed) {
-        this.collapsed = true;
-        this.uiService.collapseSidenav();
-      }
-    });
-  }
+  //   // this.sidenavRef.nativeElement.addEventListener('mouseleave', () => {
+  //   //   if (!this.collapsed) {
+  //   //     this.collapsed = true;
+  //   //     this.uiService.collapseSidenav();
+  //   //   }
+  //   // });
+  // }
 
   ngOnDestroy(): void {
     this.toggleSidenavSubscription.unsubscribe();
     this.collapseSidenavSubscription.unsubscribe();
     this.expandSidenavSubscription.unsubscribe();
+    this.sidenavRef.nativeElement.removeAllListeners();
   }
 }
