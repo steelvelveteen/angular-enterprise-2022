@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Observer } from 'rxjs';
+import { Observable, Observer, Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
 import { ROUTES } from './nav-data';
 
@@ -9,29 +9,32 @@ import { ROUTES } from './nav-data';
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
 })
-export class SidenavComponent implements OnInit {
+export class SidenavComponent implements OnInit, OnDestroy {
   username = 'Joey Vico';
   routes = ROUTES;
   collapsed = false;
   time = new Observable<string>((observer: Observer<string>) => {
     setInterval(() => observer.next(new Date().toString()), 1000);
   });
+  toggleSidenavSubscription: Subscription;
+  collapseSidenavSubscription: Subscription;
+  expandSidenavSubscription: Subscription;
 
-  constructor(private uiService: UiService, private router: Router) {}
-
-  ngOnInit() {
-    this.uiService.toggleSidenav$.subscribe(() => {
+  constructor(private uiService: UiService, private router: Router) {
+    this.toggleSidenavSubscription = this.uiService.toggleSidenav$.subscribe(() => {
       this.collapsed = !this.collapsed;
     });
 
-    this.uiService.collapseSidenav$.subscribe(() => {
+    this.collapseSidenavSubscription = this.uiService.collapseSidenav$.subscribe(() => {
       this.collapsed = true;
     });
 
-    this.uiService.expandSidenav$.subscribe(() => {
+    this.expandSidenavSubscription = this.uiService.expandSidenav$.subscribe(() => {
       this.collapsed = false;
     });
+  }
 
+  ngOnInit() {
     window.addEventListener('resize', (event: any) => {
       if (event.target.innerWidth < '960') {
         this.collapsed = true;
@@ -41,5 +44,11 @@ export class SidenavComponent implements OnInit {
         this.uiService.expandSidenav();
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.toggleSidenavSubscription.unsubscribe();
+    this.collapseSidenavSubscription.unsubscribe();
+    this.expandSidenavSubscription.unsubscribe();
   }
 }
