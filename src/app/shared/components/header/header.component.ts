@@ -20,15 +20,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
   routes: RouteInfo[] = [];
 
   constructor(private uiService: UiService, location: Location) {
-    this.headerTitleSubscription = this.uiService.changeHeaderTitle$.subscribe((title: string) => {
-      this.headerTitle = title;
-    });
-
     this.location = location;
   }
 
   ngOnInit() {
     this.routes = ROUTES;
+
+    this.headerTitleSubscription = this.uiService.changeHeaderTitle$.subscribe((title: string) => {
+      this.headerTitle = title;
+    });
   }
 
   toggleSidenav = () => {

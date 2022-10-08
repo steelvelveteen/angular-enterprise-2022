@@ -15,11 +15,13 @@ export class SidenavComponent implements OnInit, OnDestroy {
   time = new Observable<string>((observer: Observer<string>) => {
     setInterval(() => observer.next(new Date().toString()), 1000);
   });
-  toggleSidenavSubscription: Subscription;
-  collapseSidenavSubscription: Subscription;
-  expandSidenavSubscription: Subscription;
+  toggleSidenavSubscription: Subscription = new Subscription();
+  collapseSidenavSubscription: Subscription = new Subscription();
+  expandSidenavSubscription: Subscription = new Subscription();
 
-  constructor(private uiService: UiService) {
+  constructor(private uiService: UiService) {}
+
+  ngOnInit() {
     this.toggleSidenavSubscription = this.uiService.toggleSidenav$.subscribe(() => {
       this.collapsed = !this.collapsed;
     });
@@ -31,9 +33,7 @@ export class SidenavComponent implements OnInit, OnDestroy {
     this.expandSidenavSubscription = this.uiService.expandSidenav$.subscribe(() => {
       this.collapsed = false;
     });
-  }
 
-  ngOnInit() {
     window.addEventListener('resize', (event: any) => {
       if (event.target.innerWidth < '960') {
         this.collapsed = true;
