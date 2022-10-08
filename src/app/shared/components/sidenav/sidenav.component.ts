@@ -48,7 +48,6 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.sidenavRef.nativeElement.addEventListener('mouseenter', () => {
-      console.log('Mouse has entered');
       if (this.collapsed) {
         this.collapsed = false;
         this.uiService.expandSidenav();
@@ -56,7 +55,6 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
     });
 
     this.sidenavRef.nativeElement.addEventListener('mouseleave', () => {
-      console.log('Mouse has left the area');
       if (!this.collapsed) {
         this.collapsed = true;
         this.uiService.collapseSidenav();
