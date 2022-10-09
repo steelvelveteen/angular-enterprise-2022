@@ -5,7 +5,8 @@
 
 @import './assets/css/pe-icon-7-stroke.css';
 
-@import url('https://rsms.me/inter/inter.css');
+// @import url('https://rsms.me/inter/inter.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
 * {
   padding: 0px;
@@ -17,7 +18,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Inter', -apple-system, SegoeUI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+  font-family: 'Poppins', -apple-system, SegoeUI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
     Droid Sans, Helvetica Neue, sans-serif;
   background-color: #f8f4f4;
   color: #333;
