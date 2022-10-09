@@ -1,0 +1,11 @@
+.link,
+.link-hide {
+  transition: all ease-in 200ms;
+}
+.link {
+  opacity: 1;
+}
+.link-hide {
+  opacity: 0;
+  color: transparent;
+}

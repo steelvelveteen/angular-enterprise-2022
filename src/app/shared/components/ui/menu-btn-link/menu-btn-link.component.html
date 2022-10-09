@@ -7,7 +7,11 @@
   <li class="side-nav-item px-4 py-4 flex justify-between">
     <div (click)="adjustHeaderTitle(route)" class="flex">
       <i class="{{ route.icon }}"></i>
-      <a *ngIf="!collapsed" class="text-white uppercase no-underline ml-4">{{ route.label }}</a>
+      <a
+        [ngClass]="!collapsed ? 'link' : 'link-hide'"
+        class="text-white uppercase no-underline ml-4"
+        >{{ route.label }}</a
+      >
     </div>
     <i *ngIf="route.children && !collapsed" class="pe-7s-angle-down mr-1"></i>
   </li>
