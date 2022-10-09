@@ -1,6 +1,8 @@
-.link,
-.link-hide {
+a.link,
+a.link-hide {
   transition: all ease-in 200ms;
+  white-space: nowrap;
+  // overflow: hidden;
 }
 .link {
   opacity: 1;

@@ -4,12 +4,12 @@
   [routerLink]="route.routerLink"
   (click)="handleNavClick(route)"
 >
-  <li class="p-4 flex justify-between">
+  <li class="p-4 flex justify-between whitespace-nowrap">
     <div (click)="adjustHeaderTitle(route)" class="flex items-center">
       <i class="{{ route.icon }}"></i>
       <a
-        [ngClass]="!collapsed ? 'link' : 'link-hide'"
         class="text-white uppercase no-underline ml-4 text-sm"
+        [ngClass]="collapsed ? 'link-hide' : 'link'"
         >{{ route.label }}</a
       >
     </div>
