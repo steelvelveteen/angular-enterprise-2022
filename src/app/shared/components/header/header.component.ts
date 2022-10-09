@@ -1,13 +1,5 @@
 import { Location } from '@angular/common';
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  Input,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
 import { RouteInfo, ROUTES } from '../sidenav/nav-data';
@@ -19,7 +11,6 @@ import { RouteInfo, ROUTES } from '../sidenav/nav-data';
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() trimmedBody!: boolean;
-  @ViewChild('toggle') toggleRef!: ElementRef;
 
   isMobile = false;
   toggleSidenavSubscription: Subscription = new Subscription();
@@ -43,16 +34,14 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    this.toggleRef.nativeElement.addEventListener('click', this.toggleSidenav);
-
     window.addEventListener('resize', (event: any) => {
       this.isMobile = event.target.innerWidth < 960;
     });
   }
 
-  toggleSidenav = () => {
+  toggleSidenav() {
     this.uiService.toggleSidenav();
-  };
+  }
 
   getTitle(): string {
     const titlee = this.location.prepareExternalUrl(this.location.path());
@@ -69,6 +58,5 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.toggleSidenavSubscription.unsubscribe();
     this.headerTitleSubscription.unsubscribe();
-    this.toggleRef.nativeElement.removeAllListeners();
   }
 }
