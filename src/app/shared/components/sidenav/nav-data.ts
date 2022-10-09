@@ -49,8 +49,8 @@ export const ROUTES: RouteInfo[] = [
     ],
   },
   {
-    label: 'Settings',
-    routerLink: '/admin/settings',
+    label: 'configuration',
+    routerLink: '/admin/configuration',
     icon: 'pe-7s-config',
   },
 ];

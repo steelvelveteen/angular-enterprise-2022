@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminHomeComponent } from './admin-dashboard/admin-home/admin-home.component';
 import { AdminProfileComponent } from './admin-dashboard/admin-profile/admin-profile.component';
+import { ConfigurationComponent } from './admin-dashboard/configuration/configuration.component';
 import { EditComponent } from './admin-dashboard/edit/edit.component';
-import { SettingsComponent } from './admin-dashboard/settings/settings.component';
 
 const routes: Routes = [
   {
@@ -25,12 +25,12 @@ const routes: Routes = [
         component: AdminProfileComponent,
       },
       {
-        path: 'settings',
-        component: SettingsComponent,
-      },
-      {
         path: 'edit',
         component: EditComponent,
+      },
+      {
+        path: 'configuration',
+        component: ConfigurationComponent,
       },
     ],
   },
