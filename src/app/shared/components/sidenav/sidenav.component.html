@@ -3,14 +3,16 @@
   [ngClass]="collapsed ? 'sidenav-collapsed' : ''"
   class="sidenav fixed flex flex-col top-0 h-screen w-72 text-white shadow-lg transition-all ease-in duration-300 z-50"
 >
-  <div class="profile-container p-4 m-2 flex justify-between items-center cursor-pointer">
-    <div class="flex items-center justify-between">
+  <div class="profile-container p-4 m-2 w-full flex justify-between items-center cursor-pointer">
+    <div class="flex items-center justify-between whitespace-nowrap">
       <img
         class="rounded-full border-2 border-red-400"
         src="assets/images/profile-pic-30.jpg"
         alt="Profile picture"
       />
-      <h3 class="ml-4" [ngClass]="collapsed ? 'username-hidden' : 'username'">{{ username }}</h3>
+      <h3 class="ml-4" [ngClass]="collapsed ? 'username-hidden' : 'username'">
+        {{ username }}
+      </h3>
     </div>
     <i *ngIf="!collapsed" class="pe-7s-angle-down"></i>
   </div>

@@ -4,11 +4,11 @@
   [routerLink]="route.routerLink"
   (click)="handleNavClick(route)"
 >
-  <li class="side-nav-item px-4 py-2 flex">
+  <li class="side-nav-item px-4 py-2 flex whitespace-nowrap">
     <div class="flex items-center">
       <i class="text-sm">{{ route.icon }}</i>
       <a
-        class="text-white uppercase no-underline text-right pl-8"
+        class="text-white uppercase no-underline text-right pl-8 text-sm"
         [ngClass]="!collapsed ? 'link' : 'link-hide'"
         >{{ route.label }}</a
       >
