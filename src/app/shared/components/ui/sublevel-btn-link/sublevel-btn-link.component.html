@@ -4,7 +4,7 @@
   [routerLink]="route.routerLink"
   (click)="handleNavClick(route)"
 >
-  <li [ngClass]="collapsed ? 'submenu-collapsed' : ''" class="side-nav-item p-2 flex px-8">
+  <li class="side-nav-item py-2 flex">
     <div class="flex items-center">
       <i class="text-sm">{{ route.icon }}</i>
       <a *ngIf="!collapsed" class="text-white uppercase no-underline text-right ml-4">{{
