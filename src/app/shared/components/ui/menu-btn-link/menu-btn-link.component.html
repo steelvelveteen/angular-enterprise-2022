@@ -5,11 +5,11 @@
   (click)="handleNavClick(route)"
 >
   <li class="side-nav-item px-4 py-4 flex justify-between">
-    <div (click)="adjustHeaderTitle(route)" class="flex">
+    <div (click)="adjustHeaderTitle(route)" class="flex items-center">
       <i class="{{ route.icon }}"></i>
       <a
         [ngClass]="!collapsed ? 'link' : 'link-hide'"
-        class="text-white uppercase no-underline ml-4"
+        class="text-white uppercase no-underline ml-4 text-sm"
         >{{ route.label }}</a
       >
     </div>
