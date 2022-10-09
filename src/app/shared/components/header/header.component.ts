@@ -35,6 +35,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.routes = ROUTES;
+    this.isMobile = window.innerWidth < 960;
 
     this.headerTitleSubscription = this.uiService.changeHeaderTitle$.subscribe((title: string) => {
       this.headerTitle = title;

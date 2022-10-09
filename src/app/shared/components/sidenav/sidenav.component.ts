@@ -11,10 +11,10 @@ import { ROUTES } from './nav-data';
 export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('sidenavRef') sidenavRef!: ElementRef;
 
-  isMobile = false;
+  isMobile!: boolean;
+  collapsed!: boolean;
   username = 'Joey Vico';
   routes = ROUTES;
-  collapsed = false;
   time = new Observable<string>((observer: Observer<string>) => {
     setInterval(() => observer.next(new Date().toString()), 1000);
   });
@@ -25,6 +25,9 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(private uiService: UiService, private elRef: ElementRef) {}
 
   ngOnInit() {
+    this.isMobile = window.innerWidth < 960;
+    this.collapsed = this.isMobile;
+
     this.toggleSidenavSubscription = this.uiService.toggleSidenav$.subscribe(() => {
       this.collapsed = !this.collapsed;
     });
@@ -39,34 +42,36 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    if (this.isMobile) {
+      this.collapsed = true;
+      this.addHoverEffect();
+    } else {
+      this.sidenavRef.nativeElement.removeAllListeners();
+    }
     window.addEventListener('resize', (event: any) => {
       this.isMobile = event.target.innerWidth < 960;
+      this.collapsed = this.isMobile;
 
-      /** Small screens add events */
       if (this.isMobile) {
-        this.collapsed = true;
-        this.uiService.collapseSidenav();
-        this.sidenavRef.nativeElement.addEventListener('mouseenter', () => {
-          if (this.collapsed) {
-            this.collapsed = false;
-            this.uiService.expandSidenav(true);
-          }
-        });
-
-        this.sidenavRef.nativeElement.addEventListener('mouseleave', () => {
-          if (!this.collapsed) {
-            this.collapsed = true;
-            this.uiService.collapseSidenav(true);
-          }
-        });
+        this.addHoverEffect();
       } else {
-        this.collapsed = false;
-        this.uiService.expandSidenav();
-      }
-
-      /** Larger screens remove all listeners */
-      if (!this.isMobile) {
         this.sidenavRef.nativeElement.removeAllListeners();
+      }
+    });
+  }
+
+  addHoverEffect() {
+    this.sidenavRef.nativeElement.addEventListener('mouseenter', () => {
+      if (this.collapsed) {
+        this.collapsed = false;
+        this.uiService.expandSidenav(true);
+      }
+    });
+
+    this.sidenavRef.nativeElement.addEventListener('mouseleave', () => {
+      if (!this.collapsed) {
+        this.collapsed = true;
+        this.uiService.collapseSidenav(true);
       }
     });
   }
