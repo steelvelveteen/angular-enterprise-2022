@@ -43,12 +43,11 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    this.toggleRef.nativeElement.addEventListener('click', this.toggleSidenav);
+
     window.addEventListener('resize', (event: any) => {
       this.isMobile = event.target.innerWidth < 960;
     });
-    if (this.isMobile) {
-      this.toggleRef.nativeElement.addEventListener('click', this.toggleSidenav);
-    }
   }
 
   toggleSidenav = () => {

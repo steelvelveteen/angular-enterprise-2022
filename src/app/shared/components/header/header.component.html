@@ -3,7 +3,7 @@
   class="header left-72 h-16 p-4 flex transition-all ease-in-out duration-200 justify-between"
 >
   <div class="title-container flex flex-row items-center">
-    <button #toggle class="text-black rounded-lg" (click)="toggleSidenav()">
+    <button #toggle class="text-black rounded-lg">
       <i
         *ngIf="!isMobile"
         [ngClass]="trimmedBody ? 'pe-7s-angle-right' : 'pe-7s-angle-left'"
