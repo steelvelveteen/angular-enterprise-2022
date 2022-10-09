@@ -8,3 +8,13 @@
 .sidenav-collapsed {
   width: 5.5rem;
 }
+.username,
+.username-hidden {
+  transition: all ease-in 200ms;
+}
+.username {
+  opacity: 1;
+}
+.username-hidden {
+  opacity: 0;
+}
