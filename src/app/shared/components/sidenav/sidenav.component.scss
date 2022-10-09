@@ -14,8 +14,10 @@
 }
 .username {
   opacity: 1;
+  display: block;
 }
 .username-hidden {
   opacity: 0;
   color: transparent;
+  display: none;
 }
