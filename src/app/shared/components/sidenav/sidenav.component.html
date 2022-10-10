@@ -19,30 +19,22 @@
     </div>
     <i *ngIf="!collapsed" class="pe-7s-angle-down"></i>
   </div>
-  <div
-    [@slideInOut]="!userMenuExpanded ? 'initial' : 'final'"
-    class="user-menu my-2 px-4 flex flex-col"
-  >
-    <div>
-      <li
-        *ngFor="let item of userNavRoutes"
-        class="user-nav-item hover:bg-red-300/25 my-1 rounded-sm w-full px-4 py-2 flex whitespace-nowrap tracking-wide cursor-pointer"
-      >
-        <div class="flex items-center">
-          <i class="text-sm w-7">{{ item.icon }}</i>
-          <a
-            [ngClass]="!collapsed ? 'label' : 'label-hide'"
-            class="text-white uppercase no-underline text-right pl-8 text-sm"
-            >{{ item.label }}</a
-          >
-        </div>
-      </li>
-    </div>
+
+  <div [@slideInOut]="!userMenuExpanded ? 'initial' : 'final'" class="my-2 px-4">
+    <app-sublevel-btn-link
+      *ngFor="let subRoute of userNavRoutes"
+      [route]="subRoute"
+      [collapsed]="collapsed"
+    ></app-sublevel-btn-link>
   </div>
   <ul class="my-2 px-4 flex flex-col pt-4">
-    <ng-container *ngFor="let route of routes">
-      <app-menu-btn-link [route]="route" [collapsed]="collapsed"></app-menu-btn-link>
-    </ng-container>
+    <!-- <ng-container *ngFor="let route of routes"> -->
+    <app-menu-btn-link
+      *ngFor="let route of routes"
+      [route]="route"
+      [collapsed]="collapsed"
+    ></app-menu-btn-link>
+    <!-- </ng-container> -->
   </ul>
   <div class="absolute flex bottom-10 self-center">
     <h2 class="text-center">{{ time | async | date: 'HH:mm:ss' }}</h2>

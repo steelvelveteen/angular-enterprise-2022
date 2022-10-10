@@ -1,23 +1,19 @@
-export interface UserNav {
-  label: string;
-  routerLink?: string;
-  icon: string;
-}
+import { RouteInfo } from './nav-data';
 
-export const USERNAV: UserNav[] = [
+export const USERNAV: RouteInfo[] = [
   {
     label: 'Profile',
-    routerLink: '',
+    routerLink: '/user/profile',
     icon: 'PR',
   },
   {
     label: 'Edit Profile',
-    routerLink: '',
+    routerLink: '/user/edit',
     icon: 'ED',
   },
   {
     label: 'Settings',
-    routerLink: '',
+    routerLink: '/user/settings',
     icon: 'S',
   },
 ];
