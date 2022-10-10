@@ -9,15 +9,19 @@
   width: 5.5rem;
 }
 .username,
-.username-hidden {
+.username-hidden,
+.label,
+.label-hide {
   transition: all ease-in 200ms;
 }
-.username {
+.username,
+.label {
   opacity: 1;
-  display: block;
+  // display: block;
 }
-.username-hidden {
+.username-hidden,
+.label-hide {
   opacity: 0;
   color: transparent;
-  display: none;
+  // display: none;
 }
