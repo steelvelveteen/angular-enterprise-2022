@@ -1,12 +1,14 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Observable, Observer, Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
+import { slideInOut } from '../ui/animations';
 import { ROUTES } from './nav-data';
 
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
+  animations: [slideInOut],
 })
 export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('sidenavRef') sidenavRef!: ElementRef;
@@ -18,6 +20,7 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
   time = new Observable<string>((observer: Observer<string>) => {
     setInterval(() => observer.next(new Date().toString()), 1000);
   });
+  userMenuExpanded = false;
   toggleSidenavSubscription: Subscription = new Subscription();
   collapseSidenavSubscription: Subscription = new Subscription();
   expandSidenavSubscription: Subscription = new Subscription();
@@ -75,6 +78,10 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     });
   }
+
+  handleOnUserClick = (): void => {
+    this.userMenuExpanded = !this.userMenuExpanded;
+  };
 
   ngOnDestroy(): void {
     this.toggleSidenavSubscription.unsubscribe();
