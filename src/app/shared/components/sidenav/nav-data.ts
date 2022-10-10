@@ -9,28 +9,39 @@ export const ROUTES: RouteInfo[] = [
   {
     label: 'Dashboard',
     routerLink: '/admin/home',
-    icon: 'pe-7s-graph',
+    icon: 'pe-7s-display1',
   },
   {
-    label: 'Profile',
-    icon: 'pe-7s-user',
+    label: 'Services',
+    routerLink: '/admin/services',
+    icon: 'pe-7s-helm',
     children: [
       {
-        label: 'Profile',
-        routerLink: '/admin/profile',
-        icon: 'PR',
+        label: 'Accounts',
+        routerLink: '/admin/accounts',
+        icon: 'AC',
       },
       {
-        label: 'Edit',
-        routerLink: '/admin/edit',
-        icon: 'ED',
+        label: 'Resources',
+        routerLink: '/admin/resources',
+        icon: 'Re',
+      },
+      {
+        label: 'Payments',
+        routerLink: '/admin/payments',
+        icon: 'AC',
+      },
+      {
+        label: 'Help',
+        routerLink: '/admin/help',
+        icon: 'He',
       },
     ],
   },
   {
     label: 'Statistics',
-    routerLink: 'stats',
-    icon: 'pe-7s-graph3',
+    routerLink: '/admin/stats',
+    icon: 'pe-7s-graph',
   },
   {
     label: 'Management',

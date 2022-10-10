@@ -5,7 +5,9 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AdminEditProfileComponent } from './admin-dashboard/admin-edit-profile/admin-edit-profile.component';
 import { AdminHomeComponent } from './admin-dashboard/admin-home/admin-home.component';
 import { AdminProfileComponent } from './admin-dashboard/admin-profile/admin-profile.component';
+import { AdminServicesComponent } from './admin-dashboard/admin-services/admin-services.component';
 import { AdminSettingsComponent } from './admin-dashboard/admin-settings/admin-settings.component';
+import { AdminStatsComponent } from './admin-dashboard/admin-stats/admin-stats.component';
 import { ConfigurationComponent } from './admin-dashboard/configuration/configuration.component';
 import { AdminRoutingModule } from './admin-routing.module';
 
@@ -17,6 +19,8 @@ import { AdminRoutingModule } from './admin-routing.module';
     ConfigurationComponent,
     AdminEditProfileComponent,
     AdminSettingsComponent,
+    AdminServicesComponent,
+    AdminStatsComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })
