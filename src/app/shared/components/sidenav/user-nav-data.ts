@@ -4,16 +4,16 @@ export const USERNAV: RouteInfo[] = [
   {
     label: 'Profile',
     routerLink: '/admin/profile',
-    icon: 'PR',
+    icon: 'pe-7s-user',
   },
   {
     label: 'Edit Profile',
     routerLink: '/admin/edit',
-    icon: 'ED',
+    icon: 'pe-7s-edit',
   },
   {
     label: 'Settings',
     routerLink: '/admin/settings',
-    icon: 'S',
+    icon: 'pe-7s-settings',
   },
 ];

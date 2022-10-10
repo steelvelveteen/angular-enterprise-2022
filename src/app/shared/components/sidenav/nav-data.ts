@@ -19,22 +19,22 @@ export const ROUTES: RouteInfo[] = [
       {
         label: 'Accounts',
         routerLink: '/admin/accounts',
-        icon: 'AC',
+        icon: 'pe-7s-users',
       },
       {
         label: 'Resources',
         routerLink: '/admin/resources',
-        icon: 'Re',
+        icon: 'pe-7s-headphones',
       },
       {
         label: 'Payments',
         routerLink: '/admin/payments',
-        icon: 'AC',
+        icon: 'pe-7s-piggy',
       },
       {
         label: 'Help',
         routerLink: '/admin/help',
-        icon: 'He',
+        icon: 'pe-7s-help1',
       },
     ],
   },
@@ -50,12 +50,12 @@ export const ROUTES: RouteInfo[] = [
       {
         label: "User's Profile",
         routerLink: 'admin/usermanage/view',
-        icon: 'MG',
+        icon: 'pe-7s-user',
       },
       {
         label: "User's Edit",
         routerLink: 'admin/usermanage/edit',
-        icon: 'RF',
+        icon: 'pe-7s-edit',
       },
     ],
   },
