@@ -7,7 +7,7 @@ export const LOGINOUTMENU: RouteInfo[] = [
     icon: 'pe-7s-lock',
   },
   {
-    label: 'Lock out',
+    label: 'Log out',
     routerLink: '',
     icon: 'pe-7s-close-circle',
   },
