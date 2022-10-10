@@ -13,4 +13,8 @@ export class HeaderToolbarComponent {
   toggleSystemMenu = (): void => {
     this.isShowSystemMenu = !this.isShowSystemMenu;
   };
+
+  handleChange() {
+    this.isShowSystemMenu = false;
+  }
 }
