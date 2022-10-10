@@ -3,17 +3,17 @@ import { RouteInfo } from './nav-data';
 export const USERNAV: RouteInfo[] = [
   {
     label: 'Profile',
-    routerLink: '/user/profile',
+    routerLink: '/admin/profile',
     icon: 'PR',
   },
   {
     label: 'Edit Profile',
-    routerLink: '/user/edit',
+    routerLink: '/admin/edit',
     icon: 'ED',
   },
   {
     label: 'Settings',
-    routerLink: '/user/settings',
+    routerLink: '/admin/settings',
     icon: 'S',
   },
 ];

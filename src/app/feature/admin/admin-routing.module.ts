@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminEditProfileComponent } from './admin-dashboard/admin-edit-profile/admin-edit-profile.component';
 import { AdminHomeComponent } from './admin-dashboard/admin-home/admin-home.component';
 import { AdminProfileComponent } from './admin-dashboard/admin-profile/admin-profile.component';
+import { AdminSettingsComponent } from './admin-dashboard/admin-settings/admin-settings.component';
 import { ConfigurationComponent } from './admin-dashboard/configuration/configuration.component';
-import { EditComponent } from './admin-dashboard/edit/edit.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,11 @@ const routes: Routes = [
       },
       {
         path: 'edit',
-        component: EditComponent,
+        component: AdminEditProfileComponent,
+      },
+      {
+        path: 'settings',
+        component: AdminSettingsComponent,
       },
       {
         path: 'configuration',
