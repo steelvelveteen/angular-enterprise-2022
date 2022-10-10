@@ -1,20 +1,22 @@
-<!-- <div class="flex flex-row items-center">
-  <button class="text-black rounded-lg mx-2">
-    <i class="pe-7s-search icon-hover"></i>
-  </button>
-  <button class="text-black rounded-lg mx-2">
-    <i class="pe-7s-bell icon-hover"></i>
-  </button>
-  <button class="text-black rounded-lg mx-2">
-    <i class="pe-7s-mail icon-hover"></i>
-  </button>
-  <button class="text-black rounded-lg mx-2">
-    <i class="pe-7s-menu icon-hover"></i>
-  </button>
-</div> -->
 <ul
-  class="absolute p-4 rounded-md top-20 right-20 bg-red-300"
+  class="absolute flex flex-col rounded-md top-14 right-10 border-2 py-4 border-gray-100 bg-white w-52"
   [@slideInOut]="!isShowSystemMenu ? 'initial' : 'final'"
 >
-  System Menu
+  <button *ngFor="let item of systemMenu" class="hover:bg-gray-100 px-4 py-2">
+    <li class="">
+      <div class="flex items-center justify-start">
+        <i class="{{ item.icon }}"></i>
+        <a class="ml-4">{{ item.label }}</a>
+      </div>
+    </li>
+  </button>
+  <div class="divider"></div>
+  <button *ngFor="let item of logInOutMenu" class="hover:bg-gray-100 px-4 py-2">
+    <li class="">
+      <div class="flex items-center justify-start">
+        <i class="{{ item.icon }}"></i>
+        <a class="ml-4">{{ item.label }}</a>
+      </div>
+    </li>
+  </button>
 </ul>

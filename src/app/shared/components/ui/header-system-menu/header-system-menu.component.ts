@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { slideInOut } from '../animations';
+import { LOGINOUTMENU } from './login-out-menu';
+import { SYSTEMMENU } from './system-menu';
 
 @Component({
   selector: 'app-header-system-menu',
@@ -9,4 +11,6 @@ import { slideInOut } from '../animations';
 })
 export class HeaderSystemMenuComponent {
   @Input() isShowSystemMenu = false;
+  systemMenu = SYSTEMMENU;
+  logInOutMenu = LOGINOUTMENU;
 }
