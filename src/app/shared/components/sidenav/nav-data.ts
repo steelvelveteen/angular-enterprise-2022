@@ -13,7 +13,6 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     label: 'Services',
-    routerLink: '/admin/services',
     icon: 'pe-7s-helm',
     children: [
       {
