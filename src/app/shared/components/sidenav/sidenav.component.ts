@@ -3,6 +3,7 @@ import { Observable, Observer, Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
 import { slideInOut } from '../ui/animations';
 import { ROUTES } from './nav-data';
+import { USERNAV } from './user-nav-data';
 
 @Component({
   selector: 'app-sidenav',
@@ -17,6 +18,7 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
   collapsed!: boolean;
   username = 'Joey Vico';
   routes = ROUTES;
+  userNavRoutes = USERNAV;
   time = new Observable<string>((observer: Observer<string>) => {
     setInterval(() => observer.next(new Date().toString()), 1000);
   });
