@@ -9,12 +9,20 @@ import { slideInOut } from '../animations';
 })
 export class HeaderToolbarComponent {
   isShowSystemMenu = false;
+  isShowNotificationsMenu = false;
 
   toggleSystemMenu = (): void => {
     this.isShowSystemMenu = !this.isShowSystemMenu;
   };
 
-  handleChange() {
+  handleSystemMenuChange = (): void => {
     this.isShowSystemMenu = false;
-  }
+  };
+  handleNotificationsMenuChange = (): void => {
+    this.isShowNotificationsMenu = false;
+  };
+
+  toggleNotificationsMenu = (): void => {
+    this.isShowNotificationsMenu = !this.isShowNotificationsMenu;
+  };
 }

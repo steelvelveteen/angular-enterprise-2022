@@ -10,6 +10,7 @@ import { SublevelBtnLinkComponent } from './components/ui/sublevel-btn-link/subl
 import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { SampleDirectiveDirective } from './directives/sample-directive.directive';
 import { MaterialModule } from './material.module';
+import { HeaderNotificationsMenuComponent } from './components/ui/header-notifications-menu/header-notifications-menu.component';
 
 const routes: Routes = [];
 @NgModule({
@@ -22,6 +23,7 @@ const routes: Routes = [];
     SublevelBtnLinkComponent,
     HeaderToolbarComponent,
     ClickOutsideDirective,
+    HeaderNotificationsMenuComponent,
   ],
   imports: [CommonModule, MaterialModule, RouterModule.forChild(routes)],
   exports: [SidenavComponent, HeaderComponent],
