@@ -28,13 +28,11 @@
     ></app-sublevel-btn-link>
   </div>
   <ul class="my-2 px-4 flex flex-col pt-4">
-    <!-- <ng-container *ngFor="let route of routes"> -->
     <app-menu-btn-link
       *ngFor="let route of routes"
       [route]="route"
       [collapsed]="collapsed"
     ></app-menu-btn-link>
-    <!-- </ng-container> -->
   </ul>
   <div class="absolute flex bottom-10 self-center">
     <!-- <h2 class="text-center">{{ time | async | date: 'HH:mm:ss' }}</h2> -->
