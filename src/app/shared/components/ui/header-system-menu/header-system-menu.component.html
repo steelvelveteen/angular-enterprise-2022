@@ -1,4 +1,4 @@
-<div class="flex flex-row items-center">
+<!-- <div class="flex flex-row items-center">
   <button class="text-black rounded-lg mx-2">
     <i class="pe-7s-search icon-hover"></i>
   </button>
@@ -11,4 +11,10 @@
   <button class="text-black rounded-lg mx-2">
     <i class="pe-7s-menu icon-hover"></i>
   </button>
-</div>
+</div> -->
+<ul
+  class="absolute p-4 rounded-md top-20 right-20 bg-red-300"
+  [@slideInOut]="!isShowSystemMenu ? 'initial' : 'final'"
+>
+  System Menu
+</ul>

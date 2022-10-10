@@ -1,0 +1,23 @@
+<div class="flex flex-row items-center">
+  <button class="text-black rounded-lg mx-2">
+    <i class="pe-7s-search icon-hover"></i>
+  </button>
+  <button class="text-black rounded-lg mx-2">
+    <i class="pe-7s-bell icon-hover"></i>
+  </button>
+  <button class="text-black rounded-lg mx-2">
+    <i class="pe-7s-mail icon-hover"></i>
+  </button>
+  <div>
+    <button (click)="toggleSystemMenu()" class="relative text-black rounded-lg mx-2">
+      <i class="pe-7s-menu icon-hover"></i>
+    </button>
+    <!-- <ul
+      class="absolute p-4 rounded-md top-20 right-20 bg-red-300"
+      [@slideInOut]="!isShowSystemMenu ? 'initial' : 'final'"
+    >
+      System Menu
+    </ul> -->
+    <app-header-system-menu [isShowSystemMenu]="isShowSystemMenu"></app-header-system-menu>
+  </div>
+</div>

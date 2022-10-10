@@ -8,6 +8,7 @@ import { MenuBtnLinkComponent } from './components/ui/menu-btn-link/menu-btn-lin
 import { SublevelBtnLinkComponent } from './components/ui/sublevel-btn-link/sublevel-btn-link.component';
 import { SampleDirectiveDirective } from './directives/sample-directive.directive';
 import { MaterialModule } from './material.module';
+import { HeaderToolbarComponent } from './components/ui/header-toolbar/header-toolbar.component';
 
 const routes: Routes = [];
 @NgModule({
@@ -18,6 +19,7 @@ const routes: Routes = [];
     HeaderSystemMenuComponent,
     MenuBtnLinkComponent,
     SublevelBtnLinkComponent,
+    HeaderToolbarComponent,
   ],
   imports: [CommonModule, MaterialModule, RouterModule.forChild(routes)],
   exports: [SidenavComponent, HeaderComponent],
