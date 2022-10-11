@@ -4,7 +4,7 @@
   [routerLink]="route.routerLink"
   (click)="handleNavClick(route)"
 >
-  <li class="p-4 flex justify-between whitespace-nowrap">
+  <li class="p-4 flex whitespace-nowrap">
     <div (click)="adjustHeaderTitle(route)" class="flex items-center">
       <i class="{{ route.icon }}"></i>
       <a
@@ -13,7 +13,7 @@
         >{{ route.label }}</a
       >
     </div>
-    <i *ngIf="route.children && !collapsed" class="pe-7s-angle-down mr-1"></i>
+    <i *ngIf="route.children && !collapsed" class="pe-7s-angle-down mr-1 ml-auto"></i>
   </li>
 </button>
 <div [@slideInOut]="!submenuExpanded ? 'initial' : 'final'">

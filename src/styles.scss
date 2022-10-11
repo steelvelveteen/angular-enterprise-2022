@@ -46,7 +46,6 @@ i {
   color: #2b2b2b;
   .card-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 
     .card-title {
@@ -56,14 +55,17 @@ i {
     .card-right-info {
       font-size: 1.1rem;
       color: #3e3e3e;
+      margin-left: auto;
     }
   }
   .card-content {
     line-height: 1.6;
   }
   .card-footer {
+    flex-grow: 1;
     display: flex;
     justify-content: end;
+    // margin-left: auto;
     font-size: 1.1rem;
     color: #6d1616;
     margin-right: 0.5rem;
