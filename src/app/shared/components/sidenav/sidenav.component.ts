@@ -22,7 +22,7 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
   time = new Observable<string>((observer: Observer<string>) => {
     setInterval(() => observer.next(new Date().toString()), 1000);
   });
-  userMenuExpanded = false;
+  isUserMenuExpanded = false;
   toggleSidenavSubscription: Subscription = new Subscription();
   collapseSidenavSubscription: Subscription = new Subscription();
   expandSidenavSubscription: Subscription = new Subscription();
@@ -82,7 +82,7 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   handleOnUserClick = (): void => {
-    this.userMenuExpanded = !this.userMenuExpanded;
+    this.isUserMenuExpanded = !this.isUserMenuExpanded;
   };
 
   ngOnDestroy(): void {

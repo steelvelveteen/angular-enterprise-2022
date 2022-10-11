@@ -20,7 +20,7 @@
     <i *ngIf="!isSidenavCollapsed" class="pe-7s-angle-down"></i>
   </div>
   <div class="sidenav-wrapper">
-    <div [@slideInOut]="!userMenuExpanded ? 'initial' : 'final'" class="my-2 px-4">
+    <div [@slideInOut]="!isUserMenuExpanded ? 'initial' : 'final'" class="my-2 px-4">
       <app-sublevel-btn-link
         *ngFor="let subRoute of userNavRoutes"
         [route]="subRoute"
