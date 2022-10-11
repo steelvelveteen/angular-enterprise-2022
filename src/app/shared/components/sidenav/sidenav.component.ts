@@ -15,7 +15,7 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('sidenavRef') sidenavRef!: ElementRef;
 
   isMobile!: boolean;
-  collapsed!: boolean;
+  isSidenavCollapsed!: boolean;
   username = 'Joey Vico';
   routes = ROUTES;
   userNavRoutes = USERNAV;
@@ -31,31 +31,31 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.isMobile = window.innerWidth < 960;
-    this.collapsed = this.isMobile;
+    this.isSidenavCollapsed = this.isMobile;
 
     this.toggleSidenavSubscription = this.uiService.toggleSidenav$.subscribe(() => {
-      this.collapsed = !this.collapsed;
+      this.isSidenavCollapsed = !this.isSidenavCollapsed;
     });
 
     this.collapseSidenavSubscription = this.uiService.collapseSidenav$.subscribe(() => {
-      this.collapsed = true;
+      this.isSidenavCollapsed = true;
     });
 
     this.expandSidenavSubscription = this.uiService.expandSidenav$.subscribe(() => {
-      this.collapsed = false;
+      this.isSidenavCollapsed = false;
     });
   }
 
   ngAfterViewInit(): void {
     if (this.isMobile) {
-      this.collapsed = true;
+      this.isSidenavCollapsed = true;
       this.addHoverEffect();
     } else {
       this.sidenavRef.nativeElement.removeAllListeners();
     }
     window.addEventListener('resize', (event: any) => {
       this.isMobile = event.target.innerWidth < 960;
-      this.collapsed = this.isMobile;
+      this.isSidenavCollapsed = this.isMobile;
 
       if (this.isMobile) {
         this.addHoverEffect();
@@ -67,15 +67,15 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
 
   addHoverEffect() {
     this.sidenavRef.nativeElement.addEventListener('mouseenter', () => {
-      if (this.collapsed) {
-        this.collapsed = false;
+      if (this.isSidenavCollapsed) {
+        this.isSidenavCollapsed = false;
         this.uiService.expandSidenav(true);
       }
     });
 
     this.sidenavRef.nativeElement.addEventListener('mouseleave', () => {
-      if (!this.collapsed) {
-        this.collapsed = true;
+      if (!this.isSidenavCollapsed) {
+        this.isSidenavCollapsed = true;
         this.uiService.collapseSidenav(true);
       }
     });
