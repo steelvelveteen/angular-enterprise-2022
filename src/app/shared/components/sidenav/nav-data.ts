@@ -44,6 +44,7 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     label: 'Management',
+    routerLink: '/admin/management',
     icon: 'pe-7s-users',
     // children: [
     //   {
