@@ -1,9 +1,9 @@
 <div
   [ngClass]="isBodyCollapsed ? 'header-collapsed' : 'header'"
-  class="header left-72 h-16 p-4 flex transition-all ease-in-out duration-300 justify-between"
+  class="left-72 h-16 p-4 flex transition-all ease-in-out duration-300 justify-between"
 >
-  <div class="title-container flex flex-row items-center z-50">
-    <button class="text-black rounded-lg" (click)="toggleSidenav()">
+  <div class="title-container flex flex-row items-center">
+    <button class="text-black rounded-lg z-50" (click)="toggleSidenav()">
       <i
         *ngIf="!isTablet"
         [ngClass]="isBodyCollapsed ? 'pe-7s-angle-right' : 'pe-7s-angle-left'"
