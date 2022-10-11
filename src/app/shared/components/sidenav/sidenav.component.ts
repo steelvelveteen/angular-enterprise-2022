@@ -14,7 +14,7 @@ import { USERNAV } from './user-nav-data';
 export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('sidenavRef') sidenavRef!: ElementRef;
 
-  isMobile!: boolean;
+  isTablet!: boolean;
   isSidenavCollapsed!: boolean;
   username = 'Joey Vico';
   routes = ROUTES;
@@ -30,8 +30,8 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(private uiService: UiService, private elRef: ElementRef) {}
 
   ngOnInit() {
-    this.isMobile = window.innerWidth < 960;
-    this.isSidenavCollapsed = this.isMobile;
+    this.isTablet = window.innerWidth < 960;
+    this.isSidenavCollapsed = this.isTablet;
 
     this.toggleSidenavSubscription = this.uiService.toggleSidenav$.subscribe(() => {
       this.isSidenavCollapsed = !this.isSidenavCollapsed;
@@ -47,17 +47,17 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    if (this.isMobile) {
+    if (this.isTablet) {
       this.isSidenavCollapsed = true;
       this.addHoverEffect();
     } else {
       this.sidenavRef.nativeElement.removeAllListeners();
     }
     window.addEventListener('resize', (event: any) => {
-      this.isMobile = event.target.innerWidth < 960;
-      this.isSidenavCollapsed = this.isMobile;
+      this.isTablet = event.target.innerWidth < 960;
+      this.isSidenavCollapsed = this.isTablet;
 
-      if (this.isMobile) {
+      if (this.isTablet) {
         this.addHoverEffect();
       } else {
         this.sidenavRef.nativeElement.removeAllListeners();

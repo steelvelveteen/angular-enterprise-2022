@@ -5,7 +5,7 @@
   <div class="title-container flex flex-row items-center z-50">
     <button class="text-black rounded-lg" (click)="toggleSidenav()">
       <i
-        *ngIf="!isMobile"
+        *ngIf="!isTablet"
         [ngClass]="isBodyCollapsed ? 'pe-7s-angle-right' : 'pe-7s-angle-left'"
         class="icon-large icon-hover"
       ></i>

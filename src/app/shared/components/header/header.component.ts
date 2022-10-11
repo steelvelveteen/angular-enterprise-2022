@@ -12,7 +12,7 @@ import { RouteInfo, ROUTES } from '../sidenav/nav-data';
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() isBodyCollapsed!: boolean;
 
-  isMobile = false;
+  isTablet = false;
   toggleSidenavSubscription: Subscription = new Subscription();
   headerTitleSubscription: Subscription = new Subscription();
 
@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.routes = ROUTES;
-    this.isMobile = window.innerWidth < 960;
+    this.isTablet = window.innerWidth < 960;
 
     this.headerTitleSubscription = this.uiService.changeHeaderTitle$.subscribe((title: string) => {
       this.headerTitle = title;
@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     window.addEventListener('resize', (event: any) => {
-      this.isMobile = event.target.innerWidth < 960;
+      this.isTablet = event.target.innerWidth < 960;
     });
   }
 
