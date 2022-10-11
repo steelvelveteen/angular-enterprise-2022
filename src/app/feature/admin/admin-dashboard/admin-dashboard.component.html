@@ -1,9 +1,9 @@
 <app-sidenav></app-sidenav>
 <div
-  [ngClass]="trimBody ? 'body-trimmed' : ''"
-  class="body relative transition-all ease-in-out duration-300"
+  [ngClass]="isBodyCollapsed ? 'body-collapsed' : 'body'"
+  class="relative transition-all ease-in-out duration-300"
 >
-  <app-header [trimmedBody]="trimBody"></app-header>
+  <app-header [isBodyCollapsed]="isBodyCollapsed"></app-header>
   <div class="content">
     <router-outlet></router-outlet>
   </div>

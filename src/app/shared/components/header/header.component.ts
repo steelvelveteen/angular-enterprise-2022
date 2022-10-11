@@ -10,7 +10,7 @@ import { RouteInfo, ROUTES } from '../sidenav/nav-data';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
-  @Input() trimmedBody!: boolean;
+  @Input() isBodyCollapsed!: boolean;
 
   isMobile = false;
   toggleSidenavSubscription: Subscription = new Subscription();

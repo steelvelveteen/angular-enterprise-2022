@@ -8,7 +8,7 @@ import { UiService } from 'src/app/core/services/ui/ui.service';
   styleUrls: ['./admin-dashboard.component.scss'],
 })
 export class AdminDashboardComponent implements OnInit, AfterViewInit, OnDestroy {
-  trimBody!: boolean;
+  isBodyCollapsed!: boolean;
   toggleBodySubscription: Subscription = new Subscription();
   trimBodySubscription: Subscription = new Subscription();
   expandBodySubscription: Subscription = new Subscription();
@@ -16,24 +16,24 @@ export class AdminDashboardComponent implements OnInit, AfterViewInit, OnDestroy
   constructor(private uiService: UiService) {}
 
   ngOnInit(): void {
-    this.trimBody = window.innerWidth < 960;
+    this.isBodyCollapsed = window.innerWidth < 960;
 
     this.toggleBodySubscription = this.uiService.toggleBodyWidth$.subscribe(() => {
-      this.trimBody = !this.trimBody;
+      this.isBodyCollapsed = !this.isBodyCollapsed;
     });
 
     this.trimBodySubscription = this.uiService.trimBodyWidth$.subscribe(() => {
-      this.trimBody = true;
+      this.isBodyCollapsed = true;
     });
 
     this.expandBodySubscription = this.uiService.expandBodyWidth$.subscribe(() => {
-      this.trimBody = false;
+      this.isBodyCollapsed = false;
     });
   }
 
   ngAfterViewInit(): void {
     window.addEventListener('resize', (event: any) => {
-      this.trimBody = event.target.innerWidth < 960;
+      this.isBodyCollapsed = event.target.innerWidth < 960;
     });
   }
 

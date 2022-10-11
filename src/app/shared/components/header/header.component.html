@@ -1,16 +1,16 @@
 <div
-  [ngClass]="trimmedBody ? 'header-collapsed' : 'header'"
+  [ngClass]="isBodyCollapsed ? 'header-collapsed' : 'header'"
   class="header left-72 h-16 p-4 flex transition-all ease-in-out duration-300 justify-between"
 >
   <div class="title-container flex flex-row items-center z-50">
     <button class="text-black rounded-lg" (click)="toggleSidenav()">
       <i
         *ngIf="!isMobile"
-        [ngClass]="trimmedBody ? 'pe-7s-angle-right' : 'pe-7s-angle-left'"
+        [ngClass]="isBodyCollapsed ? 'pe-7s-angle-right' : 'pe-7s-angle-left'"
         class="icon-large icon-hover"
       ></i>
     </button>
-    <div class="text-black text-xl pb-1 ml-4"></div>
+    <div class="text-black text-xl pb-1 ml-4">{{ headerTitle }}</div>
   </div>
   <app-header-toolbar></app-header-toolbar>
 </div>
