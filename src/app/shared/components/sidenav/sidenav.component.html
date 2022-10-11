@@ -19,7 +19,7 @@
     </div>
     <i *ngIf="!collapsed" class="pe-7s-angle-down"></i>
   </div>
-  <div class="sidenav-wrapper overflow-y-auto">
+  <div class="sidenav-wrapper">
     <div [@slideInOut]="!userMenuExpanded ? 'initial' : 'final'" class="my-2 px-4">
       <app-sublevel-btn-link
         *ngFor="let subRoute of userNavRoutes"
@@ -27,7 +27,7 @@
         [collapsed]="collapsed"
       ></app-sublevel-btn-link>
     </div>
-    <ul class="my-2 px-4 flex flex-col pt-4 overflow-x-hidden">
+    <ul class="my-2 px-4 flex flex-col pt-4">
       <app-menu-btn-link
         *ngFor="let route of routes"
         [route]="route"
