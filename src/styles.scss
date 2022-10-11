@@ -21,7 +21,7 @@ body {
   font-family: 'Poppins', -apple-system, SegoeUI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
     Droid Sans, Helvetica Neue, sans-serif;
   background-color: #ece9e9;
-  color: #333;
+  color: #2b2b2b;
 }
 i {
   font-size: 1.5rem;
@@ -40,7 +40,32 @@ i {
   background-color: #e5e5e5;
 }
 .card {
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: white;
   border-radius: 5px;
+  color: #2b2b2b;
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .card-title {
+      font-size: 1.2rem;
+      padding: 0.5rem 0rem;
+    }
+    .card-right-info {
+      font-size: 1.1rem;
+      color: #3e3e3e;
+    }
+  }
+  .card-content {
+    line-height: 1.6;
+  }
+  .card-footer {
+    display: flex;
+    justify-content: end;
+    font-size: 1.1rem;
+    color: #6d1616;
+    margin-right: 0.5rem;
+  }
 }
