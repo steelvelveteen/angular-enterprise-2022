@@ -2,7 +2,7 @@
 .sidenav-collapsed {
   // background: linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
   background: linear-gradient(to bottom, #fb404b 0, rgba(187, 5, 2, 0.9) 100%);
-  .profile-container {
+  .mini-profile-container {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 }
@@ -13,18 +13,13 @@
   width: 5.5rem;
 }
 .username,
-.username-hidden,
-.label,
-.label-hide {
+.username-hidden {
   transition: all ease-in 200ms;
 }
-.username,
-.label {
+.username {
   opacity: 1;
 }
-.username-hidden,
-.label-hide {
+.username-hidden {
   opacity: 0;
   color: transparent;
-  // display: none;
 }
