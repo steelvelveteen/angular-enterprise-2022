@@ -3,10 +3,11 @@
   class="relative h-16 p-4 flex transition-all ease-in-out duration-300 justify-between"
 >
   <ul class="flex">
-    <li>Link 1</li>
-    <li>Link 2</li>
-    <li>Link 3</li>
-    <li>Link 4</li>
+    <li class="mx-4"><a href="#">Link 1</a></li>
+    <li class="mx-4"><a href="#">Link 2</a></li>
+    <li class="mx-4"><a href="#">Link 3</a></li>
   </ul>
-  <p>@Copyright 2022 Joey Vico</p>
+  <p class="copyright pull-right">
+    &copy; {{ date | date: 'yyyy' }} <a href="https://valkyria-remix.vercel.app/">Joey Vico</a>
+  </p>
 </div>
