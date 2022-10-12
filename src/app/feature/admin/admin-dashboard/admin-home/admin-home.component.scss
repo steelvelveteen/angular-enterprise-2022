@@ -1,2 +1,12 @@
 .panel {
+  margin: 0 1rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  overflow-x: hidden;
+}
+@media screen and (max-width: 1200px) {
+  .panel {
+    grid-template-columns: 1fr;
+  }
 }
