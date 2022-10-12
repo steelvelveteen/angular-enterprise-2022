@@ -1,6 +1,12 @@
 .body {
   width: calc(100vw - 18rem);
   left: 18rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .footer {
+    margin-top: auto;
+  }
 }
 .body-collapsed {
   left: 5.5rem;

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HeaderNotificationsMenuComponent } from './components/ui/header-notifications-menu/header-notifications-menu.component';
@@ -24,8 +25,9 @@ const routes: Routes = [];
     HeaderToolbarComponent,
     ClickOutsideDirective,
     HeaderNotificationsMenuComponent,
+    FooterComponent,
   ],
   imports: [CommonModule, MaterialModule, RouterModule.forChild(routes)],
-  exports: [SidenavComponent, HeaderComponent],
+  exports: [SidenavComponent, HeaderComponent, FooterComponent],
 })
 export class SharedModule {}
