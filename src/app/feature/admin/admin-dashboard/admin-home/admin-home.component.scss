@@ -1,4 +1,4 @@
-.panel {
+.admin-home-panel {
   margin: 0 1rem;
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -6,7 +6,7 @@
   align-items: start;
 }
 @media screen and (max-width: 1200px) {
-  .panel {
+  .admin-home-panel {
     grid-template-columns: 1fr;
   }
 }
