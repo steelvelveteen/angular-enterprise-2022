@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 2rem;
-  overflow-x: hidden;
+  align-items: start;
 }
 @media screen and (max-width: 1200px) {
   .panel {
