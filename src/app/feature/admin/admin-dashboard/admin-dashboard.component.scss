@@ -1,10 +1,12 @@
+@import '../../../styles/variables';
+
 .body {
-  width: calc(100vw - 18rem);
-  left: 18rem;
+  width: calc(100vw - $sidenav-width);
+  left: $sidenav-width;
 }
 .body-collapsed {
-  left: 5.5rem;
-  width: calc(100vw - 5.5rem);
+  left: $sidenav-width-collapsed;
+  width: calc(100vw - $sidenav-width-collapsed);
 }
 .body,
 .body-collapsed {
