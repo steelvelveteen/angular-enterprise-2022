@@ -5,14 +5,22 @@
   left: $sidenav-width;
 }
 .body-collapsed {
-  left: $sidenav-width-collapsed;
   width: calc(100vw - $sidenav-width-collapsed);
+  left: $sidenav-width-collapsed;
 }
 .body,
 .body-collapsed {
   min-height: 100vh;
+  .footer,
+  .header {
+    background-color: white;
+  }
   .footer {
+    box-shadow: 0px 0px -7px grey;
     margin-top: auto;
+  }
+  .header {
+    box-shadow: 0px 0px 1px grey;
   }
 }
 .main-panel {
