@@ -1,4 +1,4 @@
-@import '../../../scss/variables';
+@use 'global';
 
 .sidenav,
 .sidenav-collapsed {
@@ -9,10 +9,10 @@
   }
 }
 .sidenav {
-  width: $sidenav-width;
+  width: global.$sidenav-width;
 }
 .sidenav-collapsed {
-  width: $sidenav-width-collapsed;
+  width: global.$sidenav-width-collapsed;
 }
 .username,
 .username-hidden {

@@ -1,12 +1,12 @@
-@import '../../../scss/variables';
+@use 'global';
 
 .body {
-  width: calc(100vw - $sidenav-width);
-  left: $sidenav-width;
+  width: calc(100vw - global.$sidenav-width);
+  left: global.$sidenav-width;
 }
 .body-collapsed {
-  width: calc(100vw - $sidenav-width-collapsed);
-  left: $sidenav-width-collapsed;
+  width: calc(100vw - global.$sidenav-width-collapsed);
+  left: global.$sidenav-width-collapsed;
 }
 .body,
 .body-collapsed {
