@@ -7,18 +7,20 @@
 @tailwind utilities;
 
 @import './assets/css/pe-icon-7-stroke.css';
-// @import './app/scss/global.scss';
 
 // @import url('https://rsms.me/inter/inter.css');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
-* {
-  padding: 0px;
-  margin: 0px;
+html {
   box-sizing: border-box;
 }
 
-html,
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
 body {
   padding: 0;
   margin: 0;
