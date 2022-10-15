@@ -23,13 +23,11 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        // component: AdminHomeComponent,
         loadChildren: () =>
           import('./admin-dashboard/admin-home/admin-home.module').then(m => m.AdminHomeModule),
       },
       {
         path: 'profile',
-        // component: AdminProfileComponent,
         loadChildren: () =>
           import('./admin-dashboard/admin-profile/admin-profile.module').then(
             m => m.AdminProfileModule
