@@ -7,8 +7,8 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./admin-home.component.scss'],
 })
 export class AdminHomeComponent {
-  authUserName$: Observable<string>;
+  profileUserName$: Observable<string>;
   constructor() {
-    this.authUserName$ = of('Joey Vico');
+    this.profileUserName$ = of('Joey Vico');
   }
 }
