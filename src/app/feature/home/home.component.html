@@ -1,7 +1,37 @@
 <button
-  class="hover:bg-red-500/75 bg-red-500 my-1 p-4 rounded-md tracking-wide flex items-center text-white"
+  class="hover:bg-red-500/75 bg-red-500 my-1 p-4 ml-8 rounded-md tracking-wide flex items-center text-white"
   routerLink="/admin/home"
 >
   <i class="pe-7s-home"></i>
   <a class="uppercase no-underline ml-4 text-sm">Go to Admin</a>
 </button>
+<div id="welcome" class="flex mt-8">
+  <div class="one m-8 p-4">
+    <h2>Usage of template reference variables</h2>
+    <p>Button uses a ref to the input field to handle the value</p>
+    <pre>
+  <code>{{ code }}</code>
+</pre>
+    <div class="flex items-center">
+      <input #inputRef type="text" placeholder="Template refs" />
+      <button
+        class="hover:bg-red-500/75 bg-red-500 ml-4 p-2 rounded-md tracking-wide flex items-center text-white cursor-pointer"
+        type="button"
+        (click)="handleInput(inputRef.value)"
+      >
+        Click me
+      </button>
+    </div>
+    <p>{{ inputText }}</p>
+  </div>
+  <div class="two m-8 p-4">
+    <p>Using two way binding with ngModel to display text below as input occurs</p>
+    <pre>
+  <code>{{ code2 }}</code>
+</pre>
+    <div class="flex items-center">
+      <input #inputRef2 [(ngModel)]="inputText2" type="text" />
+      <p class="ml-8">{{ inputText2 }}</p>
+    </div>
+  </div>
+</div>
