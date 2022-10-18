@@ -4,10 +4,8 @@ import { AdminAccountsComponent } from './admin-dashboard/admin-accounts/admin-a
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminEditProfileComponent } from './admin-dashboard/admin-edit-profile/admin-edit-profile.component';
 import { AdminHelpComponent } from './admin-dashboard/admin-help/admin-help.component';
-import { AdminHomeComponent } from './admin-dashboard/admin-home/admin-home.component';
 import { AdminManageComponent } from './admin-dashboard/admin-manage/admin-manage.component';
 import { AdminPaymentsComponent } from './admin-dashboard/admin-payments/admin-payments.component';
-import { AdminProfileComponent } from './admin-dashboard/admin-profile/admin-profile.component';
 import { AdminResourcesComponent } from './admin-dashboard/admin-resources/admin-resources.component';
 import { AdminSettingsComponent } from './admin-dashboard/admin-settings/admin-settings.component';
 import { AdminStatsComponent } from './admin-dashboard/admin-stats/admin-stats.component';
@@ -25,11 +23,15 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        component: AdminHomeComponent,
+        loadChildren: () =>
+          import('./admin-dashboard/admin-home/admin-home.module').then(m => m.AdminHomeModule),
       },
       {
         path: 'profile',
-        component: AdminProfileComponent,
+        loadChildren: () =>
+          import('./admin-dashboard/admin-profile/admin-profile.module').then(
+            m => m.AdminProfileModule
+          ),
       },
       {
         path: 'edit',
