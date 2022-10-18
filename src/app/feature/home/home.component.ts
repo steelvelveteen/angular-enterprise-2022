@@ -10,8 +10,6 @@ export class HomeComponent {
   inputText2: string = '';
   code: string = `
 <button
-  [disabled]="!inputRef.value.length"
-  mat-raised-button
   type="button"
   (click)="handleInput(inputRef.value)"
 >
