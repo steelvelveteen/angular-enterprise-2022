@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ProfileCardComponent } from './components/profile-card/profile-card.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HeaderNotificationsMenuComponent } from './components/ui/header-notifications-menu/header-notifications-menu.component';
 import { HeaderSystemMenuComponent } from './components/ui/header-system-menu/header-system-menu.component';
@@ -26,8 +27,9 @@ const routes: Routes = [];
     ClickOutsideDirective,
     HeaderNotificationsMenuComponent,
     FooterComponent,
+    ProfileCardComponent,
   ],
   imports: [CommonModule, MaterialModule, RouterModule.forChild(routes)],
-  exports: [SidenavComponent, HeaderComponent, FooterComponent],
+  exports: [SidenavComponent, HeaderComponent, FooterComponent, ProfileCardComponent],
 })
 export class SharedModule {}

@@ -1,0 +1,21 @@
+<div class="card profile-card">
+  <div class="card-image">
+    <img
+      class="rounded-full border-2 ml-2"
+      src="assets/images/profile-pic-120.jpg"
+      alt="Profile picture"
+    />
+    <ng-container
+      *ngIf="{ user: profileUserName$ | async, userError: profileUserNameError$ | async } as vm"
+    >
+      <div *ngIf="vm.user as user; else loading">
+        <h2 class="uppercase mt-4">{{ user }}</h2>
+      </div>
+      <ng-template #loading>
+        <h3 *ngIf="!vm.userError" class="uppercase mt-4">Loading...</h3>
+      </ng-template>
+      <div class="mt-4" *ngIf="vm.userError as error">{{ error }}</div>
+    </ng-container>
+  </div>
+  <div class="profile-card-content">the content</div>
+</div>
