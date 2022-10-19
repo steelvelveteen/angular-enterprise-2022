@@ -13,6 +13,7 @@ import { SublevelBtnLinkComponent } from './components/ui/sublevel-btn-link/subl
 import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { SampleDirectiveDirective } from './directives/sample-directive.directive';
 import { MaterialModule } from './material.module';
+import { SkeletonTextComponent } from './components/ui/skeleton-text/skeleton-text.component';
 
 const routes: Routes = [];
 @NgModule({
@@ -28,6 +29,7 @@ const routes: Routes = [];
     HeaderNotificationsMenuComponent,
     FooterComponent,
     ProfileCardComponent,
+    SkeletonTextComponent,
   ],
   imports: [CommonModule, MaterialModule, RouterModule.forChild(routes)],
   exports: [SidenavComponent, HeaderComponent, FooterComponent, ProfileCardComponent],

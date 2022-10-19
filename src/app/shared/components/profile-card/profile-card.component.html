@@ -11,8 +11,8 @@
       <div *ngIf="vm.user as user; else loading">
         <h2 class="uppercase mt-4">{{ user }}</h2>
       </div>
-      <ng-template #loading>
-        <h3 *ngIf="!vm.userError" class="uppercase mt-4">Loading...</h3>
+      <ng-template class="mt-4" #loading>
+        <app-skeleton-text *ngIf="!vm.userError"></app-skeleton-text>
       </ng-template>
       <div class="mt-4" *ngIf="vm.userError as error">{{ error }}</div>
     </ng-container>
