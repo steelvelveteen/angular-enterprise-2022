@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { catchError, delay, Observable, of, tap } from 'rxjs';
+import { catchError, delay, ignoreElements, Observable, of, tap } from 'rxjs';
 
 @Component({
   selector: 'app-profile-card',
@@ -14,10 +14,13 @@ export class ProfileCardComponent {
     this.profileUserName$ = of('Joey Vico').pipe(
       delay(2000),
       tap(() => {
-        throw new Error('Could not fetch user data');
+        // throw new Error('Could not fetch user data');
       })
     );
 
-    this.profileUserNameError$ = this.profileUserName$.pipe(catchError(err => of(err)));
+    this.profileUserNameError$ = this.profileUserName$.pipe(
+      ignoreElements(),
+      catchError(err => of(err))
+    );
   }
 }
