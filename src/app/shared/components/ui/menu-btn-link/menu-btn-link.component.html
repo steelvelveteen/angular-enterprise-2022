@@ -13,7 +13,11 @@
         >{{ route.label }}</a
       >
     </div>
-    <i *ngIf="route.children && !collapsed" class="pe-7s-angle-down mr-1 ml-auto"></i>
+    <i
+      *ngIf="route.children && !collapsed"
+      class="mr-1 ml-auto"
+      [ngClass]="submenuExpanded ? 'pe-7s-angle-up' : 'pe-7s-angle-down'"
+    ></i>
   </li>
 </button>
 <div [@slideInOut]="!submenuExpanded ? 'initial' : 'final'">
