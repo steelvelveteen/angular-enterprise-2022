@@ -1,7 +1,4 @@
-.bell {
-  position: relative;
-}
-.bell:after {
+.notifications:after {
   content: '5';
   position: absolute;
   left: -0.5rem;
