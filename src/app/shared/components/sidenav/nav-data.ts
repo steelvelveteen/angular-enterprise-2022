@@ -2,6 +2,7 @@ export interface RouteInfo {
   label: string;
   routerLink?: string;
   icon: string;
+  hasBadge?: boolean;
   children?: RouteInfo[];
 }
 
@@ -45,7 +46,7 @@ export const ROUTES: RouteInfo[] = [
   {
     label: 'Management',
     routerLink: '/admin/management',
-    icon: 'pe-7s-users',
+    icon: 'pe-7s-config',
     // children: [
     //   {
     //     label: "User's Profile",

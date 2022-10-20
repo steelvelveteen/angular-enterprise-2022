@@ -1,0 +1,6 @@
+.badge[data-badge]:after {
+  content: attr(data-badge);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0.125rem;
+}

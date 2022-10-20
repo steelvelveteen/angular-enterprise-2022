@@ -5,6 +5,7 @@ export const SYSTEMMENU: RouteInfo[] = [
     label: 'Messages',
     routerLink: '',
     icon: 'pe-7s-mail',
+    hasBadge: true,
   },
   {
     label: 'Help Center',

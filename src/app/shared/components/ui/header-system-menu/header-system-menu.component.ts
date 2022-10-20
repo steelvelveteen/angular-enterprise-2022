@@ -13,4 +13,5 @@ export class HeaderSystemMenuComponent {
   @Input() isShowSystemMenu = false;
   systemMenu = SYSTEMMENU;
   logInOutMenu = LOGINOUTMENU;
+  messagesNumber = 4;
 }

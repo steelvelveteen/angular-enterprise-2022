@@ -7,6 +7,9 @@
       <div class="flex items-center justify-start">
         <i class="{{ item.icon }}"></i>
         <a class="ml-4">{{ item.label }}</a>
+        <div class="flex flex-grow" *ngIf="item.hasBadge">
+          <span class="ml-auto badge" attr.data-badge="{{ messagesNumber }}"></span>
+        </div>
       </div>
     </li>
   </button>
