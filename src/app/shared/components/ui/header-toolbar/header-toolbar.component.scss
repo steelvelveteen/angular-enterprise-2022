@@ -1,0 +1,16 @@
+.bell {
+  position: relative;
+}
+.bell:after {
+  content: '5';
+  position: absolute;
+  left: -0.5rem;
+  top: -0.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 100%;
+  background-color: #fb404b;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
