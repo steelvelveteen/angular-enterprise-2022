@@ -14,7 +14,6 @@ import { SkeletonTextComponent } from './components/ui/skeleton-text/skeleton-te
 import { SublevelBtnLinkComponent } from './components/ui/sublevel-btn-link/sublevel-btn-link.component';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { SampleDirectiveDirective } from './directives/sample-directive.directive';
-import { MaterialModule } from './material.module';
 
 const routes: Routes = [];
 @NgModule({
@@ -33,7 +32,7 @@ const routes: Routes = [];
     SkeletonTextComponent,
     LoadingSpinnerComponent,
   ],
-  imports: [CommonModule, MaterialModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes)],
   exports: [SidenavComponent, HeaderComponent, FooterComponent, ProfileCardComponent],
 })
 export class SharedModule {}
