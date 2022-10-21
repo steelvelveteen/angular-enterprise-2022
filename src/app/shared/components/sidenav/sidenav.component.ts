@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import PerfectScrollbar from 'perfect-scrollbar';
 import { Observable, Observer, Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
 import { slideInOut } from '../ui/animations';
@@ -13,6 +14,7 @@ import { USERNAV } from './user-nav-data';
 })
 export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('sidenavRef') sidenavRef!: ElementRef;
+  @ViewChild('sidenavWrapperRef') sidenavWrapperRef!: ElementRef;
 
   isTablet!: boolean;
   isSidenavCollapsed!: boolean;
@@ -47,6 +49,10 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    /** Initializing perfect scrollbar */
+    const ps = new PerfectScrollbar(this.sidenavWrapperRef.nativeElement);
+    ps.update();
+
     if (this.isTablet) {
       this.isSidenavCollapsed = true;
       this.addHoverEffect();
