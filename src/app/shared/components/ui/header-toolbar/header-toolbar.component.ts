@@ -25,4 +25,8 @@ export class HeaderToolbarComponent {
   toggleNotificationsMenu = (): void => {
     this.isShowNotificationsMenu = !this.isShowNotificationsMenu;
   };
+
+  search = (value: string): void => {
+    console.log(`Searching for ${value}`);
+  };
 }

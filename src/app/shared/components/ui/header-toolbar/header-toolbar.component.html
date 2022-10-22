@@ -1,7 +1,7 @@
 <div class="flex flex-row items-center">
   <div class="text-black mx-2 search-box relative items-center">
-    <input type="text" placeholder="Search ..." />
-    <i class="search-icon pe-7s-search icon-hover"></i>
+    <input #inputRef type="text" placeholder="Search ..." />
+    <i class="search-icon pe-7s-search icon-hover" (click)="search(inputRef.value)"></i>
   </div>
   <div appClickOutside (clickedOutside)="handleNotificationsMenuChange()">
     <button
