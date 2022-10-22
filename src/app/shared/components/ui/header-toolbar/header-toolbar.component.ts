@@ -27,6 +27,7 @@ export class HeaderToolbarComponent {
   };
 
   search = (value: string): void => {
+    // eslint-disable-next-line no-console
     console.log(`Searching for ${value}`);
   };
 }
