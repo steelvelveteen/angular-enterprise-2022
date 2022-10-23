@@ -4,7 +4,7 @@ import { catchError, delay, ignoreElements, Observable, of, tap } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class UsersService {
+export class UserService {
   profileUserName$: Observable<string>;
   profileUserNameError$: Observable<string>;
 

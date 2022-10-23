@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UsersService } from '../../services/users.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-profile-card',
@@ -11,7 +11,7 @@ export class ProfileCardComponent {
   profileUserName$: Observable<string>;
   profileUserNameError$: Observable<string>;
 
-  constructor(private usersService: UsersService) {
+  constructor(private usersService: UserService) {
     this.profileUserName$ = this.usersService.profileUserName$;
     this.profileUserNameError$ = this.usersService.profileUserNameError$;
   }
