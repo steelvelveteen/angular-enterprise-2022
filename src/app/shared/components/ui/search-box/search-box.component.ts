@@ -19,6 +19,7 @@ export class SearchBoxComponent implements AfterViewInit {
   typeahead$: Subscription = new Subscription();
 
   ngAfterViewInit(): void {
+    this.inputRef.nativeElement.focus();
     this.typeahead$ = fromEvent(this.inputRef.nativeElement, 'keyup')
       .pipe(
         tap(() => {
