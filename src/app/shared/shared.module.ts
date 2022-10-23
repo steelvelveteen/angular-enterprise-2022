@@ -14,6 +14,7 @@ import { SkeletonTextComponent } from './components/ui/skeleton-text/skeleton-te
 import { SublevelBtnLinkComponent } from './components/ui/sublevel-btn-link/sublevel-btn-link.component';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { SampleDirectiveDirective } from './directives/sample-directive.directive';
+import { SearchBoxComponent } from './components/ui/search-box/search-box.component';
 
 const routes: Routes = [];
 @NgModule({
@@ -31,6 +32,7 @@ const routes: Routes = [];
     ProfileCardComponent,
     SkeletonTextComponent,
     LoadingSpinnerComponent,
+    SearchBoxComponent,
   ],
   imports: [CommonModule, RouterModule.forChild(routes)],
   exports: [SidenavComponent, HeaderComponent, FooterComponent, ProfileCardComponent],
