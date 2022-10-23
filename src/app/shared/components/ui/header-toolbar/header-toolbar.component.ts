@@ -63,6 +63,7 @@ export class HeaderToolbarComponent implements AfterViewInit {
   };
 
   getFilteredUsers(filterTerm: string) {
+    // eslint-disable-next-line no-console
     console.log(filterTerm);
     // this.usersService.getCountries(filterTerm.trim()).subscribe(
     // res => {
