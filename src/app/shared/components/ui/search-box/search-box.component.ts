@@ -47,16 +47,5 @@ export class SearchBoxComponent implements AfterViewInit {
   getFilteredUsers(filterTerm: string) {
     // eslint-disable-next-line no-console
     console.log(filterTerm);
-    // this.usersService.getCountries(filterTerm.trim()).subscribe(
-    // res => {
-    // if (res.length > 0) {
-    // this.isCountriesList = true;
-    // this.countries = res;
-    // }
-    // },
-    // () => {
-    // this.showCountriesError = true;
-    // }
-    // );
   }
 }
