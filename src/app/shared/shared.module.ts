@@ -10,11 +10,11 @@ import { HeaderSystemMenuComponent } from './components/ui/header-system-menu/he
 import { HeaderToolbarComponent } from './components/ui/header-toolbar/header-toolbar.component';
 import { LoadingSpinnerComponent } from './components/ui/loading-spinner/loading-spinner.component';
 import { MenuBtnLinkComponent } from './components/ui/menu-btn-link/menu-btn-link.component';
+import { SearchBoxComponent } from './components/ui/search-box/search-box.component';
 import { SkeletonTextComponent } from './components/ui/skeleton-text/skeleton-text.component';
 import { SublevelBtnLinkComponent } from './components/ui/sublevel-btn-link/sublevel-btn-link.component';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { SampleDirectiveDirective } from './directives/sample-directive.directive';
-import { SearchBoxComponent } from './components/ui/search-box/search-box.component';
 
 const routes: Routes = [];
 @NgModule({
