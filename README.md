@@ -6,13 +6,22 @@
 
 El objetivo de este documento sirve para establecer la consistencia deseada cuando se escribe código
 tanto en Typescript como en C# a las que nos debemos adherir. Si seguimos estas reglas al escribir
-código propio podemos esperar esa misma consistencia cuando editamos código
-que ha sido escrito por otro/a desarrollador/a.
+código propio podemos esperar esa misma consistencia cuando editamos código que ha sido escrito por otro/a desarrollador/a.
+Cuando es inevitable desarrollar un código complejo siempre habrá que comentar con detalle ese código. No os ha pasado que revisitáis vuestro propio código despues de tan solo unas semanas y no sabéis que es lo que hace? Siempre nos ha pasado.
 
-### Typescript
+### Angular / Typescript
+Nos ayudaremos del uso de un formateador prettier y su archivo de configuración que está por definir.
 
 - Indentado de 2 espacios
-- Linea en blanco separando metodos.
+- Linea en blanco separando métodos.
+- Nombrado de variables: significativas y usando siempre camelcase.
+- Interfaces, Types: PascalCase
+- Constantes: UPPERCASE
+- Enums: 
+```typescript
+  ROLES.Admin
+  ROLES.Manager
+```
 - Agrupado de miembros del componente (private, public, @Input, @Output, @ViewChild, etc.). Por ejemplo:
 
 ```typescript
@@ -29,8 +38,8 @@ companyAddress: string;
 @ViewChild('Grid'): GridComponent;
 ```
 
-Preferencia de ecmascript6 sobre versiones antiguas de Javascript. Uso prevalente de arrow functions sobre funciones normales. Por ejemplo:
-(Notese que las _arrow functiones_ terminan on un punto y coma siempre)
+Preferencia de ecmascript6 sobre versiones antiguas de Javascript. Uso prevalente de *arrow functions* sobre funciones normales. Por ejemplo:
+(Nótese que las _arrow functions_ terminan con un punto y coma siempre)
 
 ```typescript
 getDealerId = (dealerId: number): void => {};
@@ -42,7 +51,7 @@ a diferencia de:
 get(id) {}
 ```
 
-Excepciones: Angular suele dar problemas en los _Life cycles_ si se usa arrow functiones con lo cual es mejor dejarlos como normales aunque estableciendo el tipo de return:
+Excepciones: Angular suele dar problemas en los _Life cycles_ si se usa *arrow functions* con lo cual es mejor dejarlos como normales aunque estableciendo el tipo de return que en la gran mayoría de los casos será un void.
 
 ```typescript
 ngOnInit(): void {}
@@ -50,11 +59,12 @@ ngOnInit(): void {}
 
 - Como se puede ver, siempre se debe establecer el tipo en los parámetros y el tipo de return evitando el _any_.
 - Definir nombres significativos sin importar la longitud. Un simple _get_ puede tener muchos significados y es demasiado genérico.
-- Un metodo solo debe tener un único cometido y una uúnica razon para modificarse, esta es la _S_ de los principios _SOLID_
-- Los miembros o propiedades en un componente de Angular son por defecto _public_ con lo que no es necesario agregar el modifier. Ordenamos los _private_ y luego los _public_.
-- Los _Life Cycles_ siempre deben ir en primer lugar en un component, justo despues del constructor a excepcion del _ngOnDestroy_ que debera ir siempre al final del todo. Por lo tanto, se organiza el codigo en este orden:
+- Un metodo solo debe tener un único cometido y una única razón para ser modificada, esta es la _Single Responsibility Principle_ del _SOLID_
+- Los miembros o propiedades en un componente de Angular son por defecto _public_ con lo que no es necesario agregar el modifier como ya se ha visto en el ejemplo más arriba en los agrupados.
+- Los _Life Cycles_ siempre deben ir en primer lugar en el componente, justo después del constructor a excepción del _ngOnDestroy_ que deberá ir siempre al final del todo. Por lo tanto, se organiza el codigo en este orden:
   - Life cycles
-  - Logica que solo refiere a la plantilla HTML del component
-  - Codigo que solo se usa en component, con su correspondiente modifier _private_
+  - La lógica que solo refiere a la plantilla HTML del component.
+  - Código que solo se usa en componente
   - y finalmente el life cycle _ngOnDestroy_
-- Codigo que no tenga que ver con el renderizado de la plantilla se debera refactorizar y escribir en el correspondiente _service_
+- Código que no tenga que ver con el renderizado de la plantilla se deberá refactorizar y escribir en el correspondiente _service_
+- Avisos de errores tslint (eslint). Si tslint dice que la línea en cuestión excede 140 characteres (o el establecido como límite) o cualquier otro aviso, modifícalo para satisfacer tslint. Si hemos implementado reglas de t/eslint son para seguir las pautas ahí definidas. Añadir un *// tslint disable next line ...* es profanar este documento.
