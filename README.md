@@ -19,8 +19,8 @@ Nos ayudaremos del uso de un formateador prettier y su archivo de configuración
 - Constantes: UPPERCASE
 - Enums: 
 ```typescript
-  ROLES.Admin
-  ROLES.Manager
+  Roles.ADMIN
+  Roles.MANAGER
 ```
 - Agrupado de miembros del componente (private, public, @Input, @Output, @ViewChild, etc.). Por ejemplo:
 
