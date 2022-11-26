@@ -1,27 +1,24 @@
 # AngularEnterprise2022
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+## Relgas, convenciones y mejores prácticas para el desarrollo en Angular (Typescript) y C# .NET Core
+### Consideraciones generales
 
-## Development server
+El objectivo de este documento sirve para establecer la consistencia deseada cuando se escribe código tanto en Typescript como en C#
+a las que nos debemos adherir. Si todos seguimos estas reglas al escribir código propio podemos esperar esa misma consistencia cuando editamos código
+que ha sido escrito por otro/a desarrollador/a.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Typescript
+Preferencia de ecmascript6 sobre esmascript5. Uso prevalente de arrow functions sobre funciones normales. Por ejemplo:
+```typescript
+getDealerId = (dealerId: number): void => {};
+```
+a diferencia de:
+```typescript
+get(id) {}
+```
+Excepciones: Angular suele dar problemas en los *Life cycles* si se usa arrow functiones con lo cual es mejor dejarlos como normales aunque estableciendo el tipo de return:
+```typescript
+ngOnInit(): void {}
+```
+- Como se puede ver, siempre se debe establecer el tipo en los parámetros y el tipo de return.
+- Definir nombres significativos sin importar la longitud. Un simple *get* puede tener muchos significados y es demasiado genérico.
