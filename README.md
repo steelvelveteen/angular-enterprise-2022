@@ -5,11 +5,14 @@
 ### Consideraciones generales
 
 El objetivo de este documento sirve para establecer la consistencia deseada cuando se escribe código
-tanto en Typescript como en C# a las que nos debemos adherir. Si seguimos estas reglas al escribir
+tanto en Typescript como en C# a las que nos debemos adherir. Al seguir estas pautas al escribir
 código propio podemos esperar esa misma consistencia cuando editamos código que ha sido escrito por otro/a desarrollador/a.
-Cuando es inevitable desarrollar un código complejo siempre habrá que comentar con detalle ese código. No os ha pasado que revisitáis vuestro propio código despues de tan solo unas semanas y no sabéis que es lo que hace? Siempre nos ha pasado.
+Cuando desarrollamos código complejo siempre habrá que comentar con detalle ese código.
+Usaremos como referencia el 'Google TypeScript guide'
 
-### Angular / Typescript
+https://google.github.io/styleguide/tsguide.html
+
+## Angular / TypeScript
 Nos ayudaremos del uso de un formateador prettier y su archivo de configuración que está por definir.
 
 - Indentado de 2 espacios
@@ -66,5 +69,59 @@ ngOnInit(): void {}
   - La lógica que solo refiere a la plantilla HTML del component.
   - Código que solo se usa en componente
   - y finalmente el life cycle _ngOnDestroy_
+
+```typescript
+public class SomeComponent implementes OnInit, AfterViewInit, OnDestroy {
+  memberOne: string;
+  memberTwo: number;
+  memberThree: SomeObject;
+
+  private memberFour: string;
+
+  @Input() someInput;
+
+  constructor(private someService: SomeService) {}
+
+  ngOnInit(): void {}
+
+  ngAfterViewInit(): void {}
+
+  methodOne = (): void => {}
+
+  methodTwo = (someVar: number): boolean => {}
+
+  private methodThree = (): void => {}
+
+  ngOnDestroy(): void {}
+}
+```
+
 - Código que no tenga que ver con el renderizado de la plantilla se deberá refactorizar y escribir en el correspondiente _service_
 - Avisos de errores tslint (eslint). Si tslint dice que la línea en cuestión excede 140 characteres (o el establecido como límite) o cualquier otro aviso, modifícalo para satisfacer tslint. Si hemos implementado reglas de t/eslint son para seguir las pautas ahí definidas. Añadir un *// tslint disable next line ...* es profanar este documento.
+
+### Nombrando variables: definiendo e inicializando variables
+Uso de camelCase para variables y definiendo su tipo correspondiente. En caso de que ésta se inicialice no será necesario establecer su tipo, TypeScript se encargará de inferirlo.
+
+```typescript
+memberOne: string;
+memberTwo = 68999;
+```
+
+### Creando ficheros
+Un archivo de TypeScript se nombrará como sigue:
+```entity.ts```  y no  ```entityModel.ts```. El primero es un fichero y el segundo es una variable. En el primer caso, se entenderá que el fichero estará localizado en una carpeta denominada *models*. Asi, siguiendo este patrón tendremos el dominio de la aplicación organizada por carpetas, por ejemplo,
+
+```typescript
+*models* (interfaces)
+  entity.ts
+  other-entity.ts
+  some-function.ts
+
+*enums*
+  first.ts
+
+*types*
+```
+
+
+Se podría añadir sufijo por tipo para saber el contenido sin abrir el fichero
