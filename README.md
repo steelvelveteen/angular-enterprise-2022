@@ -83,6 +83,10 @@ public class SomeComponent implementes OnInit, AfterViewInit, OnDestroy {
 
   @Input() someInput;
 
+  @Output() onSomeEvent = new EventEmitter<boolean>();
+
+  @ViewChild() childRef: ElementRef / SomeOtherComponent;
+
   constructor(private someService: SomeService) {}
 
   ngOnInit(): void {}
