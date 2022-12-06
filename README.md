@@ -13,6 +13,7 @@ Usaremos como referencia el 'Google TypeScript guide'
 https://google.github.io/styleguide/tsguide.html
 
 ## Angular / TypeScript
+
 Nos ayudaremos del uso de un formateador prettier y su archivo de configuración que está por definir.
 
 - Indentado de 2 espacios
@@ -20,20 +21,22 @@ Nos ayudaremos del uso de un formateador prettier y su archivo de configuración
 - Nombrado de variables: significativas y usando siempre camelcase.
 - Interfaces, Types: PascalCase
 - Constantes: UPPERCASE
-- Enums: 
+- Enums:
+
 ```typescript
-  Roles.Admin
-  Roles.Managert
+Roles.Admin;
+Roles.Managert;
 ```
-- Agrupado de miembros del componente (private, public, @Input, @Output, @ViewChild, etc.). Por ejemplo:
+
+- Agrupado de miembros del componente (public, private, @Input, @Output, @ViewChild, etc.). Por ejemplo:
 
 ```typescript
-private dealerId: number;
-private dealerName: string;
-
 fullName: string;
 age: string;
 companyAddress: string;
+
+private dealerId: number;
+private dealerName: string;
 
 @Input() id: number;
 @Input() data: Data;
@@ -41,7 +44,7 @@ companyAddress: string;
 @ViewChild('Grid'): GridComponent;
 ```
 
-Preferencia de ecmascript6 sobre versiones antiguas de Javascript. Uso prevalente de *arrow functions* sobre funciones normales. Por ejemplo:
+Preferencia de ecmascript6 sobre versiones antiguas de Javascript. Uso prevalente de _arrow functions_ sobre funciones normales. Por ejemplo:
 (Nótese que las _arrow functions_ terminan con un punto y coma siempre)
 
 ```typescript
@@ -54,7 +57,7 @@ a diferencia de:
 get(id) {}
 ```
 
-Excepciones: Angular suele dar problemas en los _Life cycles_ si se usa *arrow functions* con lo cual es mejor dejarlos como normales aunque estableciendo el tipo de return que en la gran mayoría de los casos será un void.
+Excepciones: Angular suele dar problemas en los _Life cycles_ si se usa _arrow functions_ con lo cual es mejor dejarlos como normales aunque estableciendo el tipo de return que en la gran mayoría de los casos será un void.
 
 ```typescript
 ngOnInit(): void {}
@@ -97,9 +100,10 @@ public class SomeComponent implementes OnInit, AfterViewInit, OnDestroy {
 ```
 
 - Código que no tenga que ver con el renderizado de la plantilla se deberá refactorizar y escribir en el correspondiente _service_
-- Avisos de errores tslint (eslint). Si tslint dice que la línea en cuestión excede 140 characteres (o el establecido como límite) o cualquier otro aviso, modifícalo para satisfacer tslint. Si hemos implementado reglas de t/eslint son para seguir las pautas ahí definidas. Añadir un *// tslint disable next line ...* es profanar este documento.
+- Avisos de errores tslint (eslint). Si tslint dice que la línea en cuestión excede 140 characteres (o el establecido como límite) o cualquier otro aviso, modifícalo para satisfacer tslint. Si hemos implementado reglas de t/eslint son para seguir las pautas ahí definidas. Añadir un _// tslint disable next line ..._ es profanar este documento.
 
 ### Nombrando variables: definiendo e inicializando variables
+
 Uso de camelCase para variables y definiendo su tipo correspondiente. En caso de que ésta se inicialice no será necesario establecer su tipo, TypeScript se encargará de inferirlo.
 
 ```typescript
@@ -108,8 +112,9 @@ memberTwo = 68999;
 ```
 
 ### Creando ficheros
+
 Un archivo de TypeScript se nombrará como sigue:
-```entity.ts```  y no  ```entityModel.ts```. El primero es un fichero y el segundo es una variable. En el primer caso, se entenderá que el fichero estará localizado en una carpeta denominada *models*. Asi, siguiendo este patrón tendremos el dominio de la aplicación organizada por carpetas, por ejemplo,
+`entity.ts` y no `entityModel.ts`. El primero es un fichero y el segundo es una variable. En el primer caso, se entenderá que el fichero estará localizado en una carpeta denominada _models_. Asi, siguiendo este patrón tendremos el dominio de la aplicación organizada por carpetas, por ejemplo,
 
 ```typescript
 *models* (interfaces)
@@ -122,6 +127,5 @@ Un archivo de TypeScript se nombrará como sigue:
 
 *types*
 ```
-
 
 Se podría añadir sufijo por tipo para saber el contenido sin abrir el fichero
