@@ -115,6 +115,19 @@ memberOne: string;
 memberTwo = 68999;
 ```
 
+Nombrando servicios: un servicio AppService sera inyectado como sigue:
+
+```typescript
+constructor (private appService: AppService) {}
+```
+
+la variable sera exactamente igual que el servicio pero en camelCase
+Ejemplo incorrecto:
+
+```typescript
+private service: AppService
+```
+
 ### Creando ficheros
 
 Un archivo de TypeScript se nombrará como sigue:
