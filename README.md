@@ -133,18 +133,20 @@ private service: AppService
 ### Creando ficheros
 
 Un archivo de TypeScript se nombrará como sigue:
-`entity.ts` y no `entityModel.ts`. El primero es un fichero y el segundo es una variable. En el primer caso, se entenderá que el fichero estará localizado en una carpeta denominada _models_. Asi, siguiendo este patrón tendremos el dominio de la aplicación organizada por carpetas, por ejemplo,
+`entity.model.ts` y no `entityModel.ts`. El primero es el nombre de un fichero y el segundo es una variable. En el primer caso, se entenderá que el fichero estará localizado en una carpeta denominada _models_. Asi, siguiendo este patrón tendremos el dominio de la aplicación organizada por carpetas, por ejemplo,
 
 ```typescript
 *models* (interfaces)
-  entity.ts
-  other-entity.ts
-  some-function.ts
+  entity.model.ts
+  other-entity.model.ts
+  some.model.ts
 
 *enums*
-  first.ts
+  first.enum.ts
 
 *types*
+  second.type.ts
+  other.type.ts
 ```
 
 Se podría añadir sufijo por tipo para saber el contenido sin abrir el fichero
