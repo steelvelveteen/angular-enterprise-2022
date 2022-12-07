@@ -11,6 +11,7 @@ Cuando desarrollamos código complejo siempre habrá que comentar con detalle es
 Usaremos como referencia el 'Google TypeScript guide'
 
 https://google.github.io/styleguide/tsguide.html
+https://angular.io/guide/styleguide
 
 ## Angular / TypeScript
 
