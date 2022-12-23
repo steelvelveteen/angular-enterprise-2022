@@ -6,7 +6,7 @@ import { RoleGuard } from './core/guards/role.guard';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./feature/home/home.module').then(m => m.HomeModule),
+    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
   },
   {
     path: 'auth',
@@ -15,11 +15,11 @@ const routes: Routes = [
   {
     path: 'admin',
     canActivate: [AuthGuard, RoleGuard],
-    loadChildren: () => import('./feature/admin/admin.module').then(m => m.AdminModule),
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
   },
   {
     path: 'user',
-    loadChildren: () => import('./feature/user/user.module').then(m => m.UserModule),
+    loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule),
   },
   {
     path: '404',
