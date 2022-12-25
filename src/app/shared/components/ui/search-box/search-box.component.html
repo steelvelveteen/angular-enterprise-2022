@@ -1,4 +1,9 @@
 <div class="mx-2 search-box relative items-center">
   <input #inputRef type="text" placeholder="Search ..." />
-  <i class="search-icon pe-7s-search icon-hover" (click)="search(inputRef.value)"></i>
+  <i
+    *ngIf="isInputDirty"
+    class="search-icon pe-7s-close mr-8 icon-hover"
+    (click)="clearSearch()"
+  ></i>
+  <i class="search-icon pe-7s-search icon-hover" (click)="search()"></i>
 </div>

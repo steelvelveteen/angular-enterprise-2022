@@ -17,6 +17,7 @@ import {
 export class SearchBoxComponent implements AfterViewInit {
   @ViewChild('inputRef') inputRef!: ElementRef;
   typeahead$: Subscription = new Subscription();
+  isInputDirty = false;
 
   ngAfterViewInit(): void {
     this.inputRef.nativeElement.focus();
@@ -24,6 +25,9 @@ export class SearchBoxComponent implements AfterViewInit {
       .pipe(
         tap(() => {
           // console.log('keys pressed');
+          if (this.inputRef.nativeElement.value) {
+            this.isInputDirty = true;
+          }
         }),
         map((event: any) => {
           return event.target.value.trim();
@@ -39,9 +43,16 @@ export class SearchBoxComponent implements AfterViewInit {
       });
   }
 
-  search = (value: string): void => {
-    // eslint-disable-next-line no-console
-    console.log(`Searching for ${value}`);
+  search = (): void => {
+    if (this.inputRef.nativeElement.value.length > 2) {
+      // eslint-disable-next-line no-console
+      console.log(this.inputRef.nativeElement.value);
+    }
+  };
+
+  clearSearch = (): void => {
+    this.inputRef.nativeElement.value = '';
+    this.isInputDirty = false;
   };
 
   getFilteredUsers(filterTerm: string) {
