@@ -4,12 +4,16 @@
   [routerLink]="route.routerLink"
   (click)="handleNavClick(route)"
 >
-  <li class="p-4 flex whitespace-nowrap">
+  <li [ngClass]="{ 'py-2': isChild }" class="p-4 flex whitespace-nowrap">
     <div (click)="adjustHeaderTitle(route)" class="flex items-center">
       <i class="{{ route.icon }}"></i>
       <a
         class="text-white uppercase no-underline ml-4 text-sm"
-        [ngClass]="collapsed ? 'link-hide' : 'link'"
+        [ngClass]="{
+          'text-hide': collapsed,
+          'text-visible': !collapsed,
+          'pl-4 text-sm': isChild
+        }"
         >{{ route.label }}</a
       >
     </div>
@@ -21,9 +25,10 @@
   </li>
 </button>
 <div [@slideInOut]="!submenuExpanded ? 'initial' : 'final'">
-  <app-sublevel-btn-link
+  <app-menu-btn-link
     *ngFor="let subRoute of route.children"
     [route]="subRoute"
     [collapsed]="collapsed"
-  ></app-sublevel-btn-link>
+    [isChild]="true"
+  ></app-menu-btn-link>
 </div>

@@ -18,6 +18,7 @@ export class MenuBtnLinkComponent {
     icon: '',
   };
   submenuExpanded!: boolean;
+  @Input() isChild = false;
 
   constructor(private router: Router, private uiService: UiService) {}
 

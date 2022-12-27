@@ -1,12 +1,12 @@
-a.link,
-a.link-hide {
+a.text-visible,
+a.text-hide {
   transition: all ease-in 200ms;
   white-space: nowrap;
 }
-.link {
+.text-visible {
   opacity: 1;
 }
-.link-hide {
+.text-hide {
   opacity: 0;
   color: transparent;
 }

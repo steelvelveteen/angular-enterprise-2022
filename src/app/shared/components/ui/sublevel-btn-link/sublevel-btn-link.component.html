@@ -1,15 +1,15 @@
 <button
-  class="hover:bg-red-300/25 my-1 w-full rounded-sm tracking-wide"
+  class="hover:bg-red-300/25 my-1 w-full rounded-md tracking-wide"
   routerLinkActive="bg-red-400"
   [routerLink]="route.routerLink"
   (click)="handleNavClick(route)"
 >
-  <li class="side-nav-item px-4 py-2 flex whitespace-nowrap">
+  <li class="p-4 py-2 flex whitespace-nowrap">
     <div class="flex items-center">
       <i class="{{ route.icon }}"></i>
       <a
         class="text-white uppercase no-underline text-right pl-8 text-sm"
-        [ngClass]="!collapsed ? 'link' : 'link-hide'"
+        [ngClass]="collapsed ? 'link-hide' : 'link'"
         >{{ route.label }}</a
       >
     </div>
