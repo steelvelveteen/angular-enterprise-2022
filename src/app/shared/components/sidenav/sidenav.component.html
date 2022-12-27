@@ -13,7 +13,7 @@
         src="assets/images/profile-pic-30.jpg"
         alt="Profile picture"
       />
-      <h3 class="ml-4" [ngClass]="isSidenavCollapsed ? 'username-hidden' : 'username'">
+      <h3 class="ml-4 text-md" [ngClass]="isSidenavCollapsed ? 'username-hidden' : 'username'">
         {{ username }}
       </h3>
     </div>
@@ -24,11 +24,12 @@
   </div>
   <div #sidenavWrapperRef class="sidenav-wrapper">
     <div [@slideInOut]="!isUserMenuExpanded ? 'initial' : 'final'" class="px-4">
-      <app-sublevel-btn-link
+      <app-menu-btn-link
         *ngFor="let subRoute of userNavRoutes"
         [route]="subRoute"
         [collapsed]="isSidenavCollapsed"
-      ></app-sublevel-btn-link>
+        [isChild]="true"
+      ></app-menu-btn-link>
     </div>
     <ul class="menu-list px-4 flex flex-col pt-4">
       <app-menu-btn-link
