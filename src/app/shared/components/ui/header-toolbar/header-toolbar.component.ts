@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
+import { LOGINOUTMENU } from 'src/app/shared/domain/data/login-out-menu';
+import { NOTIFICATIONSMENU } from 'src/app/shared/domain/data/notifications-menu';
+import { SYSTEMMENU } from 'src/app/shared/domain/data/system-menu';
 import { slideInOut } from '../animations';
-import { NOTIFICATIONSMENU } from '../header-notifications-menu/notifications-menu';
-import { LOGINOUTMENU } from '../header-system-menu/login-out-menu';
-import { SYSTEMMENU } from '../header-system-menu/system-menu';
 
 @Component({
   selector: 'app-header-toolbar',

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { RouteInfo } from '../../sidenav/nav-data';
+import RouteInfo from 'src/app/shared/domain/interfaces/route-info';
 import { slideInOut } from '../animations';
 
 @Component({

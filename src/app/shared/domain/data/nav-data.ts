@@ -1,10 +1,4 @@
-export interface RouteInfo {
-  label: string;
-  routerLink?: string;
-  icon: string;
-  hasBadge?: boolean;
-  children?: RouteInfo[];
-}
+import RouteInfo from '../interfaces/route-info';
 
 export const ROUTES: RouteInfo[] = [
   {

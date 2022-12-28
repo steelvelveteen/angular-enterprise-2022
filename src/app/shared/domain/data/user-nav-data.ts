@@ -1,4 +1,4 @@
-import { RouteInfo } from './nav-data';
+import RouteInfo from '../interfaces/route-info';
 
 export const USERNAV: RouteInfo[] = [
   {

@@ -2,7 +2,8 @@ import { Location } from '@angular/common';
 import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
-import { RouteInfo, ROUTES } from '../sidenav/nav-data';
+import { ROUTES } from '../../domain/data/nav-data';
+import RouteInfo from '../../domain/interfaces/route-info';
 
 @Component({
   selector: 'app-header',

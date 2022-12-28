@@ -1,4 +1,4 @@
-import { RouteInfo } from '../../sidenav/nav-data';
+import RouteInfo from 'src/app/shared/domain/interfaces/route-info';
 
 export const LOGINOUTMENU: RouteInfo[] = [
   {

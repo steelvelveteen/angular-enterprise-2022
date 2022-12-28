@@ -2,9 +2,9 @@ import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } fr
 import PerfectScrollbar from 'perfect-scrollbar';
 import { Observable, Observer, Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
+import { ROUTES } from '../../domain/data/nav-data';
+import { USERNAV } from '../../domain/data/user-nav-data';
 import { slideInOut } from '../ui/animations';
-import { ROUTES } from './nav-data';
-import { USERNAV } from './user-nav-data';
 
 @Component({
   selector: 'app-sidenav',

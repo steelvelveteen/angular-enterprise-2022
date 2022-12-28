@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { UiService } from 'src/app/core/services/ui/ui.service';
-import { RouteInfo } from '../../sidenav/nav-data';
+import RouteInfo from 'src/app/shared/domain/interfaces/route-info';
 import { slideInOut } from '../animations';
 
 @Component({
