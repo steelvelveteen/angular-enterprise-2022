@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { RouteInfo } from '../../sidenav/nav-data';
 import { slideInOut } from '../animations';
-import { NOTIFICATIONSMENU } from './notifications-menu';
 
 @Component({
   selector: 'app-header-notifications-menu',
@@ -10,5 +10,5 @@ import { NOTIFICATIONSMENU } from './notifications-menu';
 })
 export class HeaderNotificationsMenuComponent {
   @Input() isShowMenu = false;
-  notifications = NOTIFICATIONSMENU;
+  @Input() menu: RouteInfo[] = [];
 }

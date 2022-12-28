@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { RouteInfo } from '../../sidenav/nav-data';
 import { slideInOut } from '../animations';
-import { LOGINOUTMENU } from './login-out-menu';
-import { SYSTEMMENU } from './system-menu';
 
 @Component({
   selector: 'app-header-system-menu',
@@ -11,7 +10,7 @@ import { SYSTEMMENU } from './system-menu';
 })
 export class HeaderSystemMenuComponent {
   @Input() isShowMenu = false;
-  systemMenu = SYSTEMMENU;
-  logInOutMenu = LOGINOUTMENU;
+  @Input() menu: RouteInfo[] = [];
+  @Input() secondaryMenu: RouteInfo[] = [];
   messagesNumber = 4;
 }

@@ -9,12 +9,17 @@
     </button>
     <app-header-notifications-menu
       [isShowMenu]="isShowNotificationsMenu"
+      [menu]="notificationsMenu"
     ></app-header-notifications-menu>
   </div>
   <div appClickOutside (clickedOutside)="closeSystemMenu()">
     <button (click)="toggleSystemMenu()" class="relative text-black rounded-lg mx-2">
       <i class="pe-7s-menu icon-hover"></i>
     </button>
-    <app-header-system-menu [isShowMenu]="isShowSystemMenu"></app-header-system-menu>
+    <app-header-system-menu
+      [isShowMenu]="isShowSystemMenu"
+      [menu]="systemMenu"
+      [secondaryMenu]="logInOutMenu"
+    ></app-header-system-menu>
   </div>
 </div>

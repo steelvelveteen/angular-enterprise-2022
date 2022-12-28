@@ -2,7 +2,7 @@
   class="absolute flex flex-col rounded-md top-14 right-10 border-2 py-4 border-gray-100 bg-white w-52"
   [@slideInOut]="!isShowMenu ? 'initial' : 'final'"
 >
-  <button *ngFor="let item of notifications" class="hover:bg-gray-100 px-4 py-2">
+  <button *ngFor="let item of menu" class="hover:bg-gray-100 px-4 py-2">
     <li class="whitespace-nowrap">
       <div class="flex items-center justify-start">
         <i class="{{ item.icon }} text-md"></i>
