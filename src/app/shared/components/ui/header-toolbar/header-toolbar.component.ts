@@ -15,14 +15,14 @@ export class HeaderToolbarComponent {
     this.isShowSystemMenu = !this.isShowSystemMenu;
   };
 
-  handleSystemMenuChange = (): void => {
-    this.isShowSystemMenu = false;
-  };
-  handleNotificationsMenuChange = (): void => {
-    this.isShowNotificationsMenu = false;
-  };
-
   toggleNotificationsMenu = (): void => {
     this.isShowNotificationsMenu = !this.isShowNotificationsMenu;
+  };
+
+  closeSystemMenu = (): void => {
+    this.isShowSystemMenu = false;
+  };
+  closeNotificationsMenu = (): void => {
+    this.isShowNotificationsMenu = false;
   };
 }

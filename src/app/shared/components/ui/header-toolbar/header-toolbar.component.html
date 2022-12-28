@@ -1,6 +1,6 @@
 <div class="flex flex-row items-center">
   <app-search-box></app-search-box>
-  <div appClickOutside (clickedOutside)="handleNotificationsMenuChange()">
+  <div appClickOutside (clickedOutside)="closeNotificationsMenu()">
     <button
       (click)="toggleNotificationsMenu()"
       class="notifications relative text-black rounded-lg mx-2"
@@ -8,13 +8,13 @@
       <i class="pe-7s-bell icon-hover"></i>
     </button>
     <app-header-notifications-menu
-      [isShowNotificationsMenu]="isShowNotificationsMenu"
+      [isShowMenu]="isShowNotificationsMenu"
     ></app-header-notifications-menu>
   </div>
-  <div appClickOutside (clickedOutside)="handleSystemMenuChange()">
+  <div appClickOutside (clickedOutside)="closeSystemMenu()">
     <button (click)="toggleSystemMenu()" class="relative text-black rounded-lg mx-2">
       <i class="pe-7s-menu icon-hover"></i>
     </button>
-    <app-header-system-menu [isShowSystemMenu]="isShowSystemMenu"></app-header-system-menu>
+    <app-header-system-menu [isShowMenu]="isShowSystemMenu"></app-header-system-menu>
   </div>
 </div>

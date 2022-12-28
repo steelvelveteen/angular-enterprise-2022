@@ -10,7 +10,7 @@ import { SYSTEMMENU } from './system-menu';
   animations: [slideInOut],
 })
 export class HeaderSystemMenuComponent {
-  @Input() isShowSystemMenu = false;
+  @Input() isShowMenu = false;
   systemMenu = SYSTEMMENU;
   logInOutMenu = LOGINOUTMENU;
   messagesNumber = 4;

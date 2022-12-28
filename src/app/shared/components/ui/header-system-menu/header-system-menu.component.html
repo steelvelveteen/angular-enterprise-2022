@@ -1,6 +1,6 @@
 <ul
   class="absolute flex flex-col rounded-md top-14 right-10 border-2 py-4 border-gray-100 bg-white w-52"
-  [@slideInOut]="!isShowSystemMenu ? 'initial' : 'final'"
+  [@slideInOut]="!isShowMenu ? 'initial' : 'final'"
 >
   <button *ngFor="let item of systemMenu" class="hover:bg-gray-100 px-4 py-2">
     <li class="">

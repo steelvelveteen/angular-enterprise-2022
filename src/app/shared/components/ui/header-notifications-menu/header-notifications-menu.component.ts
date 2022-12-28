@@ -9,6 +9,6 @@ import { NOTIFICATIONSMENU } from './notifications-menu';
   animations: [slideInOut],
 })
 export class HeaderNotificationsMenuComponent {
-  @Input() isShowNotificationsMenu = false;
+  @Input() isShowMenu = false;
   notifications = NOTIFICATIONSMENU;
 }
