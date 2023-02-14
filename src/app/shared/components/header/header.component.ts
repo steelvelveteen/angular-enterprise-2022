@@ -1,9 +1,11 @@
 import { Location } from '@angular/common';
 import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ROUTES } from '@domain/data';
+import RouteInfo from '@domain/interfaces/route-info';
 import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
-import { ROUTES } from '../../domain/data/nav-data';
-import RouteInfo from '../../domain/interfaces/route-info';
+// import { ROUTES } from '../../domain/data';
+// import RouteInfo from '../../domain/interfaces/route-info';
 
 @Component({
   selector: 'app-header',
@@ -11,15 +13,15 @@ import RouteInfo from '../../domain/interfaces/route-info';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
-  @Input() isBodyCollapsed!: boolean;
-
+  location!: Location;
+  routes: RouteInfo[] = [];
   isTablet = false;
+  headerTitle: string = 'Dashboard';
+
   toggleSidenavSubscription: Subscription = new Subscription();
   headerTitleSubscription: Subscription = new Subscription();
 
-  headerTitle: string = 'Dashboard';
-  location!: Location;
-  routes: RouteInfo[] = [];
+  @Input() isBodyCollapsed!: boolean;
 
   constructor(private uiService: UiService, location: Location) {
     this.location = location;
