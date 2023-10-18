@@ -10,6 +10,7 @@ import { AdminResourcesComponent } from './admin-dashboard/admin-resources/admin
 import { AdminSettingsComponent } from './admin-dashboard/admin-settings/admin-settings.component';
 import { AdminStatsComponent } from './admin-dashboard/admin-stats/admin-stats.component';
 import { ConfigurationComponent } from './admin-dashboard/configuration/configuration.component';
+import { ComponentsComponent } from './admin-dashboard/components/components.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
       {
         path: 'configuration',
         component: ConfigurationComponent,
+      },
+      {
+        path: 'components',
+        component: ComponentsComponent,
       },
       {
         path: 'stats',

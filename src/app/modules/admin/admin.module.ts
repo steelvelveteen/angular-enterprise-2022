@@ -14,6 +14,7 @@ import { AdminSettingsComponent } from './admin-dashboard/admin-settings/admin-s
 import { AdminStatsComponent } from './admin-dashboard/admin-stats/admin-stats.component';
 import { ConfigurationComponent } from './admin-dashboard/configuration/configuration.component';
 import { AdminRoutingModule } from './admin-routing.module';
+import { ComponentsComponent } from './admin-dashboard/components/components.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AdminRoutingModule } from './admin-routing.module';
     AdminPaymentsComponent,
     AdminHelpComponent,
     AdminManageComponent,
+    ComponentsComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
 })

@@ -58,4 +58,9 @@ export const ROUTES: RouteInfo[] = [
     routerLink: '/admin/configuration',
     icon: 'pe-7s-tools',
   },
+  {
+    label: 'Components',
+    routerLink: '/admin/components',
+    icon: 'pe-7s-tools',
+  },
 ];
