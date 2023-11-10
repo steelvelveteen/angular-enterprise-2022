@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
 
@@ -13,7 +13,7 @@ export class AdminDashboardComponent implements OnInit, AfterViewInit, OnDestroy
   trimBodySubscription: Subscription = new Subscription();
   expandBodySubscription: Subscription = new Subscription();
 
-  constructor(private uiService: UiService) {}
+  private uiService = inject(UiService);
 
   ngOnInit(): void {
     this.isBodyCollapsed = window.innerWidth < 960;

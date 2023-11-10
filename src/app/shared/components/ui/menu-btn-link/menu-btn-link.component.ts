@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { UiService } from 'src/app/core/services/ui/ui.service';
 import RouteInfo from 'src/app/shared/domain/interfaces/route-info';
@@ -18,9 +18,11 @@ export class MenuBtnLinkComponent {
     icon: '',
   };
   submenuExpanded!: boolean;
-  @Input() isChild = false;
 
-  constructor(private router: Router, private uiService: UiService) {}
+  private router = inject(Router);
+  private uiService = inject(UiService);
+
+  @Input() isChild = false;
 
   handleNavClick = (route: RouteInfo) => {
     this.submenuExpanded = !this.submenuExpanded;

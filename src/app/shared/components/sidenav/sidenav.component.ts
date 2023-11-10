@@ -1,4 +1,12 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  inject,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { Observable, Observer, Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
@@ -29,7 +37,7 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
   collapseSidenavSubscription: Subscription = new Subscription();
   expandSidenavSubscription: Subscription = new Subscription();
 
-  constructor(private uiService: UiService, private elRef: ElementRef) {}
+  private uiService = inject(UiService);
 
   ngOnInit() {
     this.isTablet = window.innerWidth < 960;

@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { ROUTES } from '@domain/data';
 import RouteInfo from '@domain/interfaces/route-info';
 import { Subscription } from 'rxjs';
@@ -21,9 +21,11 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   toggleSidenavSubscription: Subscription = new Subscription();
   headerTitleSubscription: Subscription = new Subscription();
 
+  private uiService = inject(UiService);
+
   @Input() isBodyCollapsed!: boolean;
 
-  constructor(private uiService: UiService, location: Location) {
+  constructor(location: Location) {
     this.location = location;
   }
 
@@ -47,11 +49,11 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   getTitle(): string {
-    const titlee = this.location.prepareExternalUrl(this.location.path());
+    const title = this.location.prepareExternalUrl(this.location.path());
 
     // eslint-disable-next-line no-plusplus
     for (let item = 0; item < this.routes.length; item++) {
-      if (this.routes[item].routerLink === titlee) {
+      if (this.routes[item].routerLink === title) {
         return this.routes[item].label;
       }
     }
