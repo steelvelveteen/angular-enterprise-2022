@@ -15,9 +15,10 @@ import {
   styleUrls: ['./search-box.component.scss'],
 })
 export class SearchBoxComponent implements AfterViewInit {
-  @ViewChild('inputRef') inputRef!: ElementRef;
   typeahead$: Subscription = new Subscription();
   isInputDirty = false;
+
+  @ViewChild('inputRef') inputRef!: ElementRef;
 
   ngAfterViewInit(): void {
     this.inputRef.nativeElement.focus();

@@ -9,8 +9,9 @@ import { slideInOut } from '../animations';
   animations: [slideInOut],
 })
 export class HeaderSystemMenuComponent {
+  messagesNumber = 4;
+
   @Input() isShowMenu = false;
   @Input() menu: RouteInfo[] = [];
   @Input() secondaryMenu: RouteInfo[] = [];
-  messagesNumber = 4;
 }

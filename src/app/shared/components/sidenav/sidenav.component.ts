@@ -21,9 +21,6 @@ import { slideInOut } from '../ui/animations';
   animations: [slideInOut],
 })
 export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
-  @ViewChild('sidenavRef') sidenavRef!: ElementRef;
-  @ViewChild('sidenavWrapperRef') sidenavWrapperRef!: ElementRef;
-
   isTablet!: boolean;
   isSidenavCollapsed!: boolean;
   username = 'Joey Vico';
@@ -33,9 +30,12 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
     setInterval(() => observer.next(new Date().toString()), 1000);
   });
   isUserMenuExpanded = false;
-  toggleSidenavSubscription: Subscription = new Subscription();
-  collapseSidenavSubscription: Subscription = new Subscription();
-  expandSidenavSubscription: Subscription = new Subscription();
+  toggleSidenav$: Subscription = new Subscription();
+  collapseSidenav$: Subscription = new Subscription();
+  expandSidenav$: Subscription = new Subscription();
+
+  @ViewChild('sidenavRef') sidenavRef!: ElementRef;
+  @ViewChild('sidenavWrapperRef') sidenavWrapperRef!: ElementRef;
 
   private uiService = inject(UiService);
 
@@ -43,15 +43,15 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
     this.isTablet = window.innerWidth < 960;
     this.isSidenavCollapsed = this.isTablet;
 
-    this.toggleSidenavSubscription = this.uiService.toggleSidenav$.subscribe(() => {
+    this.toggleSidenav$ = this.uiService.toggleSidenav$.subscribe(() => {
       this.isSidenavCollapsed = !this.isSidenavCollapsed;
     });
 
-    this.collapseSidenavSubscription = this.uiService.collapseSidenav$.subscribe(() => {
+    this.collapseSidenav$ = this.uiService.collapseSidenav$.subscribe(() => {
       this.isSidenavCollapsed = true;
     });
 
-    this.expandSidenavSubscription = this.uiService.expandSidenav$.subscribe(() => {
+    this.expandSidenav$ = this.uiService.expandSidenav$.subscribe(() => {
       this.isSidenavCollapsed = false;
     });
   }
@@ -100,9 +100,9 @@ export class SidenavComponent implements OnInit, AfterViewInit, OnDestroy {
   };
 
   ngOnDestroy(): void {
-    this.toggleSidenavSubscription.unsubscribe();
-    this.collapseSidenavSubscription.unsubscribe();
-    this.expandSidenavSubscription.unsubscribe();
+    this.toggleSidenav$.unsubscribe();
+    this.collapseSidenav$.unsubscribe();
+    this.expandSidenav$.unsubscribe();
     this.sidenavRef.nativeElement.removeAllListeners();
   }
 }

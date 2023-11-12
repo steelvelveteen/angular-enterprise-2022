@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserService } from '../../services/user.service';
 
@@ -11,7 +11,9 @@ export class ProfileCardComponent {
   profileUserName$: Observable<string>;
   profileUserNameError$: Observable<string>;
 
-  constructor(private usersService: UserService) {
+  usersService = inject(UserService);
+
+  constructor() {
     this.profileUserName$ = this.usersService.profileUserName$;
     this.profileUserNameError$ = this.usersService.profileUserNameError$;
   }

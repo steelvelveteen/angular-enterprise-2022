@@ -11,18 +11,18 @@ import { slideInOut } from '../animations';
   animations: [slideInOut],
 })
 export class MenuBtnLinkComponent {
-  @Input() collapsed!: boolean;
-  @Input() route: RouteInfo = {
-    label: '',
-    routerLink: '',
-    icon: '',
-  };
   submenuExpanded!: boolean;
 
   private router = inject(Router);
   private uiService = inject(UiService);
 
   @Input() isChild = false;
+  @Input() collapsed!: boolean;
+  @Input() route: RouteInfo = {
+    label: '',
+    routerLink: '',
+    icon: '',
+  };
 
   handleNavClick = (route: RouteInfo) => {
     this.submenuExpanded = !this.submenuExpanded;

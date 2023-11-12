@@ -9,24 +9,24 @@ import { UiService } from 'src/app/core/services/ui/ui.service';
 })
 export class AdminDashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   isBodyCollapsed!: boolean;
-  toggleBodySubscription: Subscription = new Subscription();
-  trimBodySubscription: Subscription = new Subscription();
-  expandBodySubscription: Subscription = new Subscription();
+  toggleBody$: Subscription = new Subscription();
+  trimBody$: Subscription = new Subscription();
+  expandBody$: Subscription = new Subscription();
 
   private uiService = inject(UiService);
 
   ngOnInit(): void {
     this.isBodyCollapsed = window.innerWidth < 960;
 
-    this.toggleBodySubscription = this.uiService.toggleBodyWidth$.subscribe(() => {
+    this.toggleBody$ = this.uiService.toggleBodyWidth$.subscribe(() => {
       this.isBodyCollapsed = !this.isBodyCollapsed;
     });
 
-    this.trimBodySubscription = this.uiService.trimBodyWidth$.subscribe(() => {
+    this.trimBody$ = this.uiService.trimBodyWidth$.subscribe(() => {
       this.isBodyCollapsed = true;
     });
 
-    this.expandBodySubscription = this.uiService.expandBodyWidth$.subscribe(() => {
+    this.expandBody$ = this.uiService.expandBodyWidth$.subscribe(() => {
       this.isBodyCollapsed = false;
     });
   }
@@ -38,8 +38,8 @@ export class AdminDashboardComponent implements OnInit, AfterViewInit, OnDestroy
   }
 
   ngOnDestroy(): void {
-    this.toggleBodySubscription.unsubscribe();
-    this.trimBodySubscription.unsubscribe();
-    this.expandBodySubscription.unsubscribe();
+    this.toggleBody$.unsubscribe();
+    this.trimBody$.unsubscribe();
+    this.expandBody$.unsubscribe();
   }
 }

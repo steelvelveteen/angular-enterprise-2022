@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
-  @Input() isBodyCollapsed!: boolean;
   date = new Date();
+
+  @Input() isBodyCollapsed!: boolean;
 }

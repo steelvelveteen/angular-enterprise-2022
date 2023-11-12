@@ -4,8 +4,6 @@ import { ROUTES } from '@domain/data';
 import RouteInfo from '@domain/interfaces/route-info';
 import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui/ui.service';
-// import { ROUTES } from '../../domain/data';
-// import RouteInfo from '../../domain/interfaces/route-info';
 
 @Component({
   selector: 'app-header',
@@ -18,8 +16,8 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   isTablet = false;
   headerTitle: string = 'Dashboard';
 
-  toggleSidenavSubscription: Subscription = new Subscription();
-  headerTitleSubscription: Subscription = new Subscription();
+  toggleSidenav$: Subscription = new Subscription();
+  headerTitle$: Subscription = new Subscription();
 
   private uiService = inject(UiService);
 
@@ -33,7 +31,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
     this.routes = ROUTES;
     this.isTablet = window.innerWidth < 960;
 
-    this.headerTitleSubscription = this.uiService.changeHeaderTitle$.subscribe((title: string) => {
+    this.headerTitle$ = this.uiService.changeHeaderTitle$.subscribe((title: string) => {
       this.headerTitle = title;
     });
   }
@@ -48,20 +46,8 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
     this.uiService.toggleSidenav();
   }
 
-  getTitle(): string {
-    const title = this.location.prepareExternalUrl(this.location.path());
-
-    // eslint-disable-next-line no-plusplus
-    for (let item = 0; item < this.routes.length; item++) {
-      if (this.routes[item].routerLink === title) {
-        return this.routes[item].label;
-      }
-    }
-    return 'Dashboard';
-  }
-
   ngOnDestroy(): void {
-    this.toggleSidenavSubscription.unsubscribe();
-    this.headerTitleSubscription.unsubscribe();
+    this.toggleSidenav$.unsubscribe();
+    this.headerTitle$.unsubscribe();
   }
 }
