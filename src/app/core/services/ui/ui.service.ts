@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -13,6 +13,8 @@ export class UiService {
   toggleBodyWidth$: Subject<boolean> = new Subject();
   trimBodyWidth$: Subject<boolean> = new Subject();
   expandBodyWidth$: Subject<boolean> = new Subject();
+
+  isBodyCollapsed = signal<boolean | undefined>(undefined);
 
   toggleSidenav = (): void => {
     this.toggleSidenav$.next(true);

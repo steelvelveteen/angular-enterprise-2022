@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { AfterViewInit, Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ROUTES } from '@domain/data';
 import RouteInfo from '@domain/interfaces/route-info';
 import { Subscription } from 'rxjs';
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private uiService = inject(UiService);
 
-  @Input() isBodyCollapsed!: boolean;
+  isBodyCollapsed = this.uiService.isBodyCollapsed;
 
   constructor(location: Location) {
     this.location = location;

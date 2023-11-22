@@ -3,7 +3,7 @@
     <button class="text-black rounded-lg z-50" (click)="toggleSidenav()">
       <i
         *ngIf="!isTablet"
-        [ngClass]="isBodyCollapsed ? 'pe-7s-angle-right' : 'pe-7s-angle-left'"
+        [ngClass]="isBodyCollapsed() ? 'pe-7s-angle-right' : 'pe-7s-angle-left'"
         class="icon-large icon-hover"
       ></i>
     </button>

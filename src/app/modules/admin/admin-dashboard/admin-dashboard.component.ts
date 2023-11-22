@@ -8,32 +8,33 @@ import { UiService } from 'src/app/core/services/ui/ui.service';
   styleUrls: ['./admin-dashboard.component.scss'],
 })
 export class AdminDashboardComponent implements OnInit, AfterViewInit, OnDestroy {
-  isBodyCollapsed!: boolean;
   toggleBody$: Subscription = new Subscription();
   trimBody$: Subscription = new Subscription();
   expandBody$: Subscription = new Subscription();
 
   private uiService = inject(UiService);
 
+  isBodyCollapsed = this.uiService.isBodyCollapsed;
+
   ngOnInit(): void {
-    this.isBodyCollapsed = window.innerWidth < 960;
+    this.isBodyCollapsed.set(window.innerWidth < 960);
 
     this.toggleBody$ = this.uiService.toggleBodyWidth$.subscribe(() => {
-      this.isBodyCollapsed = !this.isBodyCollapsed;
+      this.isBodyCollapsed.set(!this.isBodyCollapsed());
     });
 
     this.trimBody$ = this.uiService.trimBodyWidth$.subscribe(() => {
-      this.isBodyCollapsed = true;
+      this.isBodyCollapsed.set(true);
     });
 
     this.expandBody$ = this.uiService.expandBodyWidth$.subscribe(() => {
-      this.isBodyCollapsed = false;
+      this.isBodyCollapsed.set(false);
     });
   }
 
   ngAfterViewInit(): void {
     window.addEventListener('resize', (event: any) => {
-      this.isBodyCollapsed = event.target.innerWidth < 960;
+      this.isBodyCollapsed.set(event.target.innerWidth < 960);
     });
   }
 
